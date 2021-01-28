@@ -1,0 +1,15 @@
+@import "~@angular/material/theming";
+
+@include mat-core(); // provide base styling for angular material
+
+$ohs-theme-primary: mat-palette($mat-light-blue, 600); //600
+$ohs-theme-accent: mat-palette($mat-light-green, 600); //600
+$ohs-theme-warn: mat-palette($mat-yellow, 900); //900
+
+$ohs-theme: mat-light-theme(
+  $ohs-theme-primary,
+  $ohs-theme-accent,
+  $ohs-theme-warn
+);
+
+@include angular-material-theme($ohs-theme);
