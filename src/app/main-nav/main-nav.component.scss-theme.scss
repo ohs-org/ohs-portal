@@ -1,0 +1,24 @@
+//https://dev.to/itnext/custom-theme-for-angular-material-components-series-part-3-apply-theme-e34
+// ref: https://youtu.be/A4qp8RfQc54
+@import "~@angular/material/theming";
+
+@mixin main-nav-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .main-nav {
+    background-color: mat-color($primary);
+    // color: mat-color($foreground, text);
+
+    // &[color="primary"] {
+    //   @include _mat-toolbar-color($primary);
+    // }
+    // &[color="accent"] {
+    //   @include _mat-toolbar-color($accent);
+    // }
+    // &[color="warn"] {
+    //   @include _mat-toolbar-color($warn);
+    // }
+  }
+}

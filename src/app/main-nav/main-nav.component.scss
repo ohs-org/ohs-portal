@@ -4,10 +4,8 @@
 
 .sidenav {
   width: 200px;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
+  // hack
+  // background-color: #039be5;
 }
 
 .mat-toolbar.mat-primary {
