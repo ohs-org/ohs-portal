@@ -6,19 +6,10 @@
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
   $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
 
   .main-nav {
     background-color: mat-color($primary);
-    // color: mat-color($foreground, text);
-
-    // &[color="primary"] {
-    //   @include _mat-toolbar-color($primary);
-    // }
-    // &[color="accent"] {
-    //   @include _mat-toolbar-color($accent);
-    // }
-    // &[color="warn"] {
-    //   @include _mat-toolbar-color($warn);
-    // }
+    // color: mat-color($background, dialog);
   }
 }
