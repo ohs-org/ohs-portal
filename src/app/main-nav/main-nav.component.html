@@ -8,7 +8,22 @@
   >
     <!-- [mode]="(isHandset$ | async) ? 'over' : 'side'"
   [opened]="(isHandset$ | async) === false" -->
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <!-- *ngIf="isHandset$ | async" -->
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <img
+        class="ohs-logo"
+        src="../../assets/logos/logo.png"
+        alt="OHS Solutions logo"
+      />
+    </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#">Link 1</a>
       <a mat-list-item href="#">Link 2</a>
@@ -26,7 +41,13 @@
         <!-- *ngIf="isHandset$ | async" -->
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>ohs-portal</span>
+      <span>
+        <img
+          class="ohs-logo"
+          src="../../assets/logos/logo.png"
+          alt="OHS Solutions logo"
+        />
+      </span>
       <span class="spacer"></span>
 
       <mat-list>
