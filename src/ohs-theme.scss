@@ -2,7 +2,7 @@
 
 @include mat-core(); // provide base styling for angular material
 
-@import "./app/main-nav/main-nav.component.scss-theme.scss";
+@import "./app/components/main-nav/main-nav.component.scss-theme.scss";
 
 $ohs-theme-primary: mat-palette($mat-light-blue, 600); //600
 $ohs-theme-accent: mat-palette($mat-light-green, 600); //600
