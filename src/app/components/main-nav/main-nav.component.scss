@@ -1,27 +1,52 @@
-.sidenav-container {
-  height: 100%;
-}
-
-.sidenav {
-  width: 260px;
-  // hack
-  // background-color: #039be5;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
+// Header styles
 .spacer {
   flex: 1 1 auto;
 }
 
 .ohs-logo {
   width: 145px;
-  margin-left: 27px;
+  margin-left: 16px;
   margin-top: 7px;
+}
+
+// SideNav styles
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 280px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+// Overwrite list item color
+.mat-list-item {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.mat-nav-list-w-title {
+  padding: 24px 8px 10px 8px;
+}
+
+mat-nav-list {
+  border-bottom: 1px solid #f5f5f5;
+  padding: 10px 8px 10px 8px;
+}
+
+.nav-list-icon {
+  margin-right: 24px;
+}
+
+.nav-list-title {
+  margin: 0px 24px;
 }
 
 // @media (min-width: 600px) {
