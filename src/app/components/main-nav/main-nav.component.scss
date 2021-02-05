@@ -6,7 +6,12 @@
 .ohs-logo {
   width: 145px;
   margin-left: 16px;
-  margin-top: 7px;
+  margin-top: 4px;
+}
+
+// Overwrite height of header
+.mat-toolbar.mat-primary {
+  height: 58px;
 }
 
 // SideNav styles
