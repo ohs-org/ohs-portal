@@ -54,8 +54,30 @@ mat-nav-list {
   margin: 0px 24px;
 }
 
-// @media (min-width: 600px) {
-//   .sidenav {
-//     display: none;
-//   }
-// }
+@media (max-width: 768px) {
+  .sidenav {
+    width: 222px;
+  }
+
+  .ohs-logo {
+    width: 136px;
+    margin-left: 7px;
+  }
+
+  // Adjust paddings
+  mat-nav-list {
+    padding: 10px 4px 10px 4px;
+  }
+
+  .nav-list-icon {
+    margin-right: 14px;
+  }
+
+  // Update contents
+  #more-from-ohs span {
+    display: none;
+  }
+  #more-from-ohs:after {
+    content: "MORE FROM OHS";
+  }
+}
