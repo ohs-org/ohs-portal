@@ -6,7 +6,22 @@
 .ohs-logo {
   width: 145px;
   margin-left: 16px;
-  margin-top: 4px;
+}
+
+.ohs-logo-header {
+  margin-top: 9px;
+}
+
+.ohs-logo-toolbar {
+  margin-top: 2px;
+}
+
+// Overwriting avatar size and position
+.mat-list-base .mat-list-item .mat-list-avatar,
+.mat-list-base .mat-list-option .mat-list-avatar {
+  width: 33px;
+  height: 33px;
+  margin-top: -8px;
 }
 
 // Overwrite height of header
@@ -61,7 +76,7 @@ mat-nav-list {
 
   .ohs-logo {
     width: 136px;
-    margin-left: 7px;
+    margin-left: 2px;
   }
 
   // Adjust paddings
