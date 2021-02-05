@@ -40,19 +40,95 @@
 
 // bigger tablet
 @media screen and (max-width: 980px) {
+  // #explain-text {
+  //   display: none;
+  // }
+
+  // .vertical-line {
+  //   display: none;
+  // }
+}
+
+// tablet
+@media screen and (max-width: 1000px) {
   #explain-text {
     display: none;
   }
+
   #vertical-bar {
     display: none;
   }
+
+  //   #virtical-bar {
+  //     display: inline;
+  //     margin-right: 15px;
+  //   }
 }
 
 // smaller tablet
 @media screen and (max-width: 650px) {
+  // .about-us {
+  //   font-size: 12px;
+  // }
+
+  // .margin-left-mid {
+  //   margin-left: 7px;
+  //   font-size: 12px;
+  // }
+
+  // .footer {
+  //   padding-left: 17px;
+  //   padding-right: 17px;
+  // }
+
+  // // Update feedback contents
+  // #feedback span {
+  //   display: none;
+  // }
+  // #feedback:after {
+  //   content: "Feedback";
+  // }
+
+  // // Update contents
+  // #terms-conditions span {
+  //   display: none;
+  // }
+  // #terms-conditions:after {
+  //   content: "Terms & Conditions";
+  // }
+}
+
+// smaller phones
+@media screen and (max-width: 660px) {
   .footer-logo {
     content: url("../../../assets/logos/min-logo.png");
     // margin-right: 15px;
+  }
+
+  // Remove space and center the elements
+  .spacer {
+    display: none;
+  }
+
+  .footer {
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #vertical-bar {
+    display: inline;
+    margin-right: 2px;
+  }
+
+  .about-us {
+    font-size: 11px;
+    margin-left: 5px;
+  }
+
+  .margin-left-mid {
+    margin-left: 5px;
+    font-size: 11px;
   }
 
   // Update feedback contents
@@ -62,32 +138,6 @@
   #feedback:after {
     content: "Feedback";
   }
-  //   #virtical-bar {
-  //     display: inline;
-  //     margin-right: 15px;
-  //   }
-}
-
-// phones
-@media screen and (max-width: 500px) {
-  #virtical-bar {
-    display: inline;
-    margin-right: 12px;
-  }
-
-  .about-us {
-    font-size: 12px;
-  }
-
-  .margin-left-mid {
-    margin-left: 7px;
-    font-size: 12px;
-  }
-
-  .footer {
-    padding-left: 17px;
-    padding-right: 17px;
-  }
 
   // Update contents
   #terms-conditions span {
@@ -95,28 +145,5 @@
   }
   #terms-conditions:after {
     content: "Terms & Conditions";
-  }
-}
-
-// smaller phones
-@media screen and (max-width: 360px) {
-  .about-us {
-    font-size: 10px;
-    margin-left: 5px;
-  }
-
-  .margin-left-mid {
-    margin-left: 5px;
-    font-size: 10px;
-  }
-
-  .spacer {
-    display: none;
-  }
-
-  .footer {
-    text-align: center;
-    padding-left: 15px;
-    padding-right: 15px;
   }
 }
