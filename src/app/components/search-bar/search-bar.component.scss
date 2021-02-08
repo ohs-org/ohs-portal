@@ -3,9 +3,10 @@
   // set up horizontal layout
   display: flex;
   flex-direction: row;
-
-  border: 1px solid grey;
+  background: #fafafa;
+  border: 0.5px solid grey;
   padding: 6px 10px;
+  height: 33px;
 }
 
 .search-bar-container input {
@@ -23,14 +24,16 @@
 
 .search-icon {
   width: 18px;
+  height: 19px;
 }
 
-.search-bar-container a {
-  //pointer-events: auto; // to make it unclickable
-  pointer-events: auto;
-}
+// consider onclick event on img instead of a tag
+// .search-bar-container a {
+//   //pointer-events: auto; // to make it unclickable
+//   pointer-events: auto;
+// }
 
-.search-bar-container input:focus + a .search-icon {
+.search-bar-container input:focus + .search-icon {
   content: url("../../../assets/icons/search-button-active.png");
 }
 
