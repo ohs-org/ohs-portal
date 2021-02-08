@@ -32,6 +32,7 @@
 
 .header-search-bar {
   width: 405px;
+  margin-right: 8px;
 }
 
 // SideNav styles
@@ -72,6 +73,12 @@ mat-nav-list {
 
 .nav-list-title {
   margin: 0px 24px;
+}
+
+@media (max-width: 1000px) {
+  .header-search-bar {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
