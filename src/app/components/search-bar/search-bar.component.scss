@@ -1,15 +1,55 @@
-.search-bar {
-  background: #fafafa url(../../../assets/icons/search-button-inactive.png)
-    right no-repeat;
-  background-size: 19px;
-  padding-right: 17px;
-  //   width: 10px;
-  //   height: 60px;
-  //   margin-left: -25px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+// flexbox approach
+.search-bar-container {
+  // set up horizontal layout
+  display: flex;
+  flex-direction: row;
+
+  border: 1px solid grey;
+  padding: 6px 10px;
 }
 
-// .search-icon {
-//   width: 19px;
-// }
+.search-bar-container input {
+  // input use all available space
+  flex-grow: 2;
+  border: none;
+  background: #fafafa;
+  font-size: 14px;
+}
+
+.search-bar-container input:focus {
+  // remove the input focus blue box
+  outline: none;
+}
+
+.search-icon {
+  width: 18px;
+}
+
+.search-bar-container a {
+  //pointer-events: auto; // to make it unclickable
+  pointer-events: auto;
+}
+
+.search-bar-container input:focus + a .search-icon {
+  content: url("../../../assets/icons/search-button-active.png");
+}
+
+/* clears the 'X' from Internet Explorer */
+input[type="search"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
