@@ -14,9 +14,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NavListComponent } from './components/nav-list/nav-list.component';
 
 @NgModule({
-  declarations: [AppComponent, MainNavComponent, SearchBarComponent, FooterComponent],
+  declarations: [AppComponent, MainNavComponent, SearchBarComponent, FooterComponent, NavListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
