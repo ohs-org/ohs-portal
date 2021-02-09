@@ -1,0 +1,87 @@
+[
+  {
+    "position": "manager",
+    "sections": [
+      {
+        "section": "Only Manager Section",
+        "sectionShortName": "Only Manager",
+        "pages": [
+          {
+            "page": "Page1",
+            "routerLink": "/manager/page1"
+          },
+          {
+            "page": "Page2",
+            "routerLink": "/manager/page2"
+          },
+          {
+            "page": "Page3",
+            "routerLink": "/manager/page3"
+          }
+        ]
+      },
+      {
+        "section": "More From OHS Solutions",
+        "sectionShortName": "More From OHS",
+
+        "pages": [
+          {
+            "page": "Settings",
+            "routerLink": "/more/settings"
+          },
+          {
+            "page": "Help",
+            "routerLink": "/more/help"
+          },
+          {
+            "page": "Send Feedback",
+            "routerLink": "/more/feedback"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "position": "employee",
+    "sections": [
+      {
+        "section": "Only Employee Section",
+        "sectionShortName": "Only Employee",
+        "pages": [
+          {
+            "page": "Page1",
+            "routerLink": "/employee/page1"
+          },
+          {
+            "page": "Page2",
+            "routerLink": "/employee/page2"
+          },
+          {
+            "page": "Page3",
+            "routerLink": "/employee/page3"
+          }
+        ]
+      },
+      {
+        "section": "More From OHS Solutions",
+        "sectionShortName": "More From OHS",
+
+        "pages": [
+          {
+            "page": "Settings",
+            "routerLink": "/more/settings"
+          },
+          {
+            "page": "Help",
+            "routerLink": "/more/help"
+          },
+          {
+            "page": "Send Feedback",
+            "routerLink": "/more/feedback"
+          }
+        ]
+      }
+    ]
+  }
+]
