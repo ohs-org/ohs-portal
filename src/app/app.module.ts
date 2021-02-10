@@ -17,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavListComponent } from './components/nav-list/nav-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SingleLineListComponent } from './components/lists/single-line-list/single-line-list.component';
+import { TwoLineListComponent } from './components/lists/two-line-list/two-line-list.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SingleLineListComponent } from './components/lists/single-line-list/sin
     FooterComponent,
     NavListComponent,
     SingleLineListComponent,
+    TwoLineListComponent,
   ],
   imports: [
     BrowserModule,
