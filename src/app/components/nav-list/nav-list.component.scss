@@ -22,7 +22,7 @@ mat-nav-list {
   margin-right: 24px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   // Adjust paddings
   mat-nav-list {
     padding: 10px 4px 10px 4px;
@@ -31,6 +31,4 @@ mat-nav-list {
   .nav-list-icon {
     margin-right: 14px;
   }
-
-  // for the ones with short name update the contents
 }
