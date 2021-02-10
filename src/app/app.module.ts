@@ -16,6 +16,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { FooterComponent } from './components/footer/footer.component';
 import { NavListComponent } from './components/nav-list/nav-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SingleLineListComponent } from './components/lists/single-line-list/single-line-list.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     SearchBarComponent,
     FooterComponent,
     NavListComponent,
+    SingleLineListComponent,
   ],
   imports: [
     BrowserModule,
