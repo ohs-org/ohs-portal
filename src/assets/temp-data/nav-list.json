@@ -8,14 +8,17 @@
         "pages": [
           {
             "pageName": "Page1",
+            "pageIcon": "folder",
             "routerLink": "/manager/page1"
           },
           {
             "pageName": "Page2",
+            "pageIcon": "favorite",
             "routerLink": "/manager/page2"
           },
           {
             "pageName": "Page3",
+            "pageIcon": "favorite",
             "routerLink": "/manager/page3"
           }
         ]
@@ -26,14 +29,17 @@
         "pages": [
           {
             "pageName": "No Name 1",
+            "pageIcon": "favorite",
             "routerLink": "/noname1"
           },
           {
             "pageName": "No Name 2",
+            "pageIcon": "favorite",
             "routerLink": "/noname2"
           },
           {
             "pageName": "No Name 3",
+            "pageIcon": "favorite",
             "routerLink": "/noname3"
           }
         ]
@@ -45,14 +51,17 @@
         "pages": [
           {
             "pageName": "Settings",
+            "pageIcon": "favorite",
             "routerLink": "/more/settings"
           },
           {
             "pageName": "Help",
+            "pageIcon": "favorite",
             "routerLink": "/more/help"
           },
           {
             "pageName": "Send Feedback",
+            "pageIcon": "favorite",
             "routerLink": "/more/feedback"
           }
         ]
@@ -69,14 +78,17 @@
         "pages": [
           {
             "pageName": "Page1",
+            "pageIcon": "favorite",
             "routerLink": "/employee/page1"
           },
           {
             "pageName": "Page2",
+            "pageIcon": "favorite",
             "routerLink": "/employee/page2"
           },
           {
             "pageName": "Page3",
+            "pageIcon": "favorite",
             "routerLink": "/employee/page3"
           }
         ]
@@ -88,14 +100,17 @@
         "pages": [
           {
             "pageName": "Settings",
+            "pageIcon": "favorite",
             "routerLink": "/more/settings"
           },
           {
             "pageName": "Help",
+            "pageIcon": "favorite",
             "routerLink": "/more/help"
           },
           {
             "pageName": "Send Feedback",
+            "pageIcon": "favorite",
             "routerLink": "/more/feedback"
           }
         ]
