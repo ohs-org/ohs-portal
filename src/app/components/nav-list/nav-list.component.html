@@ -1,1 +1,12 @@
-<p>nav-list works!</p>
+<mat-nav-list
+  *ngFor="let section of sections"
+  [ngClass]="{ 'mat-nav-list-w-title': section.sectionName !== '' }"
+>
+  <a *ngIf="section.sectionName !== ''" class="nav-list-title" href="#">
+    {{ section.sectionName }}
+  </a>
+  <a *ngFor="let page of section.pages" mat-list-item href="#">
+    <mat-icon class="nav-list-icon" matListIcon>favorite</mat-icon>
+    {{ page.pageName }}
+  </a>
+</mat-nav-list>

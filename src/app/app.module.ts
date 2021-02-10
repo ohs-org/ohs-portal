@@ -15,9 +15,16 @@ import { MatInputModule } from '@angular/material/input';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavListComponent } from './components/nav-list/nav-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, MainNavComponent, SearchBarComponent, FooterComponent, NavListComponent],
+  declarations: [
+    AppComponent,
+    MainNavComponent,
+    SearchBarComponent,
+    FooterComponent,
+    NavListComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,6 +36,7 @@ import { NavListComponent } from './components/nav-list/nav-list.component';
     MatIconModule,
     MatListModule,
     MatInputModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

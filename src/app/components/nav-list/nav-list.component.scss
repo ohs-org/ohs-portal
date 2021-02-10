@@ -1,0 +1,36 @@
+.mat-nav-list-w-title {
+  padding: 24px 8px 10px 8px;
+}
+
+mat-nav-list {
+  border-bottom: 0.5px solid rgba(245, 245, 245, 0.5);
+  padding: 10px 8px 10px 8px;
+}
+
+.mat-list-item {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.nav-list-title {
+  margin: 0px 24px;
+  text-transform: uppercase;
+}
+
+.nav-list-icon {
+  margin-right: 24px;
+}
+
+@media (max-width: 768px) {
+  // Adjust paddings
+  mat-nav-list {
+    padding: 10px 4px 10px 4px;
+  }
+
+  .nav-list-icon {
+    margin-right: 14px;
+  }
+
+  // for the ones with short name update the contents
+}

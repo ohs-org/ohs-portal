@@ -3,38 +3,56 @@
     "position": "manager",
     "sections": [
       {
-        "section": "Only Manager Section",
+        "sectionName": "Only Manager Section",
         "sectionShortName": "Only Manager",
         "pages": [
           {
-            "page": "Page1",
+            "pageName": "Page1",
             "routerLink": "/manager/page1"
           },
           {
-            "page": "Page2",
+            "pageName": "Page2",
             "routerLink": "/manager/page2"
           },
           {
-            "page": "Page3",
+            "pageName": "Page3",
             "routerLink": "/manager/page3"
           }
         ]
       },
       {
-        "section": "More From OHS Solutions",
+        "sectionName": "",
+        "sectionShortName": "",
+        "pages": [
+          {
+            "pageName": "No Name 1",
+            "routerLink": "/noname1"
+          },
+          {
+            "pageName": "No Name 2",
+            "routerLink": "/noname2"
+          },
+          {
+            "pageName": "No Name 3",
+            "routerLink": "/noname3"
+          }
+        ]
+      },
+      {
+        "sectionName": "More From OHS Solutions",
         "sectionShortName": "More From OHS",
 
         "pages": [
           {
-            "page": "Settings",
+            "pageName": "Settings",
             "routerLink": "/more/settings"
           },
           {
-            "page": "Help",
+            "pageName": "Help",
             "routerLink": "/more/help"
           },
           {
-            "page": "Send Feedback",
+            "pageName": "Send Feedback",
             "routerLink": "/more/feedback"
           }
         ]
@@ -46,38 +64,38 @@
     "position": "employee",
     "sections": [
       {
-        "section": "Only Employee Section",
+        "sectionName": "Only Employee Section",
         "sectionShortName": "Only Employee",
         "pages": [
           {
-            "page": "Page1",
+            "pageName": "Page1",
             "routerLink": "/employee/page1"
           },
           {
-            "page": "Page2",
+            "pageName": "Page2",
             "routerLink": "/employee/page2"
           },
           {
-            "page": "Page3",
+            "pageName": "Page3",
             "routerLink": "/employee/page3"
           }
         ]
       },
       {
-        "section": "More From OHS Solutions",
+        "sectionName": "More From OHS Solutions",
         "sectionShortName": "More From OHS",
 
         "pages": [
           {
-            "page": "Settings",
+            "pageName": "Settings",
             "routerLink": "/more/settings"
           },
           {
-            "page": "Help",
+            "pageName": "Help",
             "routerLink": "/more/help"
           },
           {
-            "page": "Send Feedback",
+            "pageName": "Send Feedback",
             "routerLink": "/more/feedback"
           }
         ]
