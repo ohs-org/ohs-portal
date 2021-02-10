@@ -51,26 +51,6 @@
   border-bottom: 0.5px solid rgba(245, 245, 245, 0.5);
 }
 
-// Overwrite list item color
-.mat-list-item {
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.mat-nav-list-w-title {
-  padding: 24px 8px 10px 8px;
-}
-
-mat-nav-list {
-  border-bottom: 0.5px solid rgba(245, 245, 245, 0.5);
-  padding: 10px 8px 10px 8px;
-}
-
-.nav-list-icon {
-  margin-right: 24px;
-}
-
 .nav-list-title {
   margin: 0px 24px;
 }
@@ -89,22 +69,5 @@ mat-nav-list {
   .ohs-logo {
     width: 136px;
     margin-left: 2px;
-  }
-
-  // Adjust paddings
-  mat-nav-list {
-    padding: 10px 4px 10px 4px;
-  }
-
-  .nav-list-icon {
-    margin-right: 14px;
-  }
-
-  // Update contents
-  #more-from-ohs span {
-    display: none;
-  }
-  #more-from-ohs:after {
-    content: "MORE FROM OHS";
   }
 }
