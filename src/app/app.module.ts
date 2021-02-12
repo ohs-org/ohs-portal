@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SingleLineListComponent } from './components/lists/single-line-list/single-line-list.component';
 import { TwoLineListComponent } from './components/lists/two-line-list/two-line-list.component';
 import { SingleLineAvatarSelectionListComponent } from './components/lists/single-line-avatar-selection-list/single-line-avatar-selection-list.component';
+import { TwoLineAvatarSelectionListComponent } from './components/lists/two-line-avatar-selection-list/two-line-avatar-selection-list.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SingleLineAvatarSelectionListComponent } from './components/lists/singl
     SingleLineListComponent,
     TwoLineListComponent,
     SingleLineAvatarSelectionListComponent,
+    TwoLineAvatarSelectionListComponent,
   ],
   imports: [
     BrowserModule,
