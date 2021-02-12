@@ -7,14 +7,18 @@
   background-color: #e1f5fe;
 }
 
-// .list:focus {
-//   background-color: transparent;
+.list:focus {
+  background-color: #e1f5fe;
+}
+
+// .list:active {
+//   background-color: green;
 // }
 
 .selected {
   background-color: #e1f5fe;
 }
 
-mat-list-option .unselected {
+.unselected {
   background-color: transparent;
 }
