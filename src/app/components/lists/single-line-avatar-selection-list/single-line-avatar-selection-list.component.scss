@@ -1,3 +1,20 @@
 .list {
   font-size: 14px;
 }
+
+.list:hover,
+.list:focus {
+  background-color: #e1f5fe;
+}
+
+// .list:focus {
+//   background-color: transparent;
+// }
+
+.selected {
+  background-color: #e1f5fe;
+}
+
+mat-list-option .unselected {
+  background-color: transparent;
+}

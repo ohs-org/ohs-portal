@@ -1,6 +1,25 @@
-<mat-selection-list>
-  <mat-list-option class="list" *ngFor="let item of listItems">
+<mat-selection-list
+  (selectionChange)="
+    onSelectionChange($event, avatarList.selectedOptions.selected)
+  "
+  color="primary"
+  disableRipple="true"
+  #avatarList
+>
+  <mat-list-option
+    class="list"
+    *ngFor="let item of listItems"
+    value="{{ item.itemText }}"
+    [ngClass]="{
+      selected: selectedItems.includes(item.itemText),
+      unselected: !selectedItems.includes(item.itemText)
+    }"
+  >
     <img matListAvatar src="{{ item.avatar }}" alt="avatar" />
-    {{ item.itemText }}
+    <span matLine>{{ item.itemText }}</span>
   </mat-list-option>
 </mat-selection-list>
+
+<p>
+  {{ avatarList.selectedOptions.selected.length }}
+</p>
