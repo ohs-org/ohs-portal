@@ -7,11 +7,28 @@
 $ohs-theme-primary: mat-palette($mat-light-blue, 600); //600
 $ohs-theme-accent: mat-palette($mat-light-green, 600); //600
 $ohs-theme-warn: mat-palette($mat-yellow, 900); //900
+$background-color: white;
 
 $ohs-theme: mat-light-theme(
   $ohs-theme-primary,
   $ohs-theme-accent,
   $ohs-theme-warn
+);
+
+// Insert custom background color
+$background: map-get($ohs-theme, background);
+$background: map_merge(
+  $background,
+  (
+    background: $background-color,
+  )
+);
+
+$ohs-theme: map_merge(
+  $ohs-theme,
+  (
+    background: $background,
+  )
 );
 
 @include angular-material-theme($ohs-theme);
