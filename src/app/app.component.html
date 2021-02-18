@@ -81,13 +81,7 @@
   <!-- [{value: 'option1', viewValue:'o1'}, {value: 'option2', viewValue:'o2'}, {value: 'option3', viewValue:'o3'}] -->
 
   <div style="margin: 25px">
-    <p>using library</p>
-    <mat-form-field appearance="fill">
-      <mat-label>Date</mat-label>
-      <input matInput [matDatepicker]="picker" />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <app-datepicker></app-datepicker>
   </div>
 
   <div style="margin: 25px">

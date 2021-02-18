@@ -19,6 +19,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -28,6 +29,7 @@ import { TwoLineListComponent } from './components/lists/two-line-list/two-line-
 import { SingleLineAvatarSelectionListComponent } from './components/lists/single-line-avatar-selection-list/single-line-avatar-selection-list.component';
 import { TwoLineAvatarSelectionListComponent } from './components/lists/two-line-avatar-selection-list/two-line-avatar-selection-list.component';
 import { DropdownComponent } from './components/selection-controls/dropdown/dropdown.component';
+import { DatepickerComponent } from './components/selection-controls/datepicker/datepicker.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { DropdownComponent } from './components/selection-controls/dropdown/drop
     SingleLineAvatarSelectionListComponent,
     TwoLineAvatarSelectionListComponent,
     DropdownComponent,
+    DatepickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,8 @@ import { DropdownComponent } from './components/selection-controls/dropdown/drop
     MatSlideToggleModule,
     MatDatepickerModule,
     MatMomentDateModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
