@@ -10,3 +10,25 @@ body {
 * {
   box-sizing: border-box;
 }
+
+// overriding styles in angular material ref: https://material.angular.io/guide/customizing-component-styles
+// check box disabled style
+.mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background,
+.mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: rgba(3, 155, 229, 0.5);
+}
+
+.mat-checkbox-disabled .mat-checkbox-frame {
+  border-color: rgba(0, 0, 0, -0.46);
+}
+
+// radio button disabled style
+.mat-radio-button.mat-radio-disabled.mat-radio-checked .mat-radio-outer-circle,
+.mat-radio-button.mat-radio-disabled .mat-radio-outer-circle {
+  border-color: rgba(3, 155, 229, 0.5);
+}
+
+.mat-radio-button.mat-radio-disabled .mat-radio-ripple .mat-ripple-element,
+.mat-radio-button.mat-radio-disabled .mat-radio-inner-circle {
+  background-color: rgba(3, 155, 229, 0.5);
+}

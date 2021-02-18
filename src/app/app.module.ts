@@ -12,14 +12,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavListComponent } from './components/nav-list/nav-list.component';
-import { HttpClientModule } from '@angular/common/http';
 import { SingleLineListComponent } from './components/lists/single-line-list/single-line-list.component';
 import { TwoLineListComponent } from './components/lists/two-line-list/two-line-list.component';
 import { SingleLineAvatarSelectionListComponent } from './components/lists/single-line-avatar-selection-list/single-line-avatar-selection-list.component';
 import { TwoLineAvatarSelectionListComponent } from './components/lists/two-line-avatar-selection-list/two-line-avatar-selection-list.component';
+import { DropdownComponent } from './components/selection-controls/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +38,7 @@ import { TwoLineAvatarSelectionListComponent } from './components/lists/two-line
     TwoLineListComponent,
     SingleLineAvatarSelectionListComponent,
     TwoLineAvatarSelectionListComponent,
+    DropdownComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,11 @@ import { TwoLineAvatarSelectionListComponent } from './components/lists/two-line
     MatIconModule,
     MatListModule,
     MatInputModule,
+    MatSelectModule,
     HttpClientModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

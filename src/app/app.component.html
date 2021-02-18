@@ -25,5 +25,64 @@
     <app-two-line-avatar-selection-list></app-two-line-avatar-selection-list>
   </div>
 
+  <div style="margin: 25px">
+    <p>using library</p>
+    <mat-checkbox color="primary" disabled checked="true">hello</mat-checkbox>
+    <br />
+    <mat-checkbox color="primary">hello</mat-checkbox>
+  </div>
+
+  <div style="margin: 25px">
+    <p>using library</p>
+    <mat-radio-group aria-label="Select an option">
+      <mat-radio-button color="primary" value="1">Option 1</mat-radio-button>
+      <br />
+      <mat-radio-button color="primary" value="2">Option 2</mat-radio-button>
+      <br />
+      <mat-radio-button checked="true" disabled color="primary" value="3"
+        >Option 3</mat-radio-button
+      >
+    </mat-radio-group>
+  </div>
+
+  <div style="margin: 25px">
+    <p>using library</p>
+    <mat-slide-toggle color="primary" color="primary">
+      Enabled Off
+    </mat-slide-toggle>
+    &nbsp;
+    <mat-slide-toggle disabled="true" color="primary" color="primary">
+      Disabled Off
+    </mat-slide-toggle>
+    <br />
+    <mat-slide-toggle checked="true" color="primary" color="primary">
+      Enabled On
+    </mat-slide-toggle>
+    &nbsp;
+    <mat-slide-toggle
+      disabled="true"
+      checked="true"
+      color="primary"
+      color="primary"
+    >
+      Disabled Off
+    </mat-slide-toggle>
+  </div>
+
+  <div style="margin: 25px">
+    <app-dropdown
+      [options]="[
+        { value: 'option1', viewValue: 'o1' },
+        { value: 'option2', viewValue: 'o2' },
+        { value: 'option3', viewValue: 'o3' }
+      ]"
+    ></app-dropdown>
+  </div>
+  <!-- [{value: 'option1', viewValue:'o1'}, {value: 'option2', viewValue:'o2'}, {value: 'option3', viewValue:'o3'}] -->
+
+  <div style="margin: 25px">
+    <p>using library</p>
+  </div>
+
   <app-footer class="footer"></app-footer>
 </app-main-nav>
