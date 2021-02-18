@@ -11,11 +11,15 @@ interface DropDownOption {
   styleUrls: ['./dropdown.component.scss'],
 })
 export class DropdownComponent implements OnInit {
-  // @Input() options;
   @Input() options: DropDownOption[];
+  @Input() disabled: boolean;
   selected: string;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSelectionChange(event) {
+    console.log(event);
+  }
 }

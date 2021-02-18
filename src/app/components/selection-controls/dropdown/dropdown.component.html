@@ -1,18 +1,13 @@
 <mat-form-field appearance="fill">
   <mat-label>Select item...</mat-label>
-  <mat-select [(value)]="selected">
+  <mat-select
+    [(value)]="selected"
+    disabled="{{ disabled ? disabled : false }}"
+    (selectionChange)="onSelectionChange($event)"
+  >
     <mat-option *ngFor="let option of options" [value]="option.value">
       {{ option.viewValue }}
     </mat-option>
   </mat-select>
 </mat-form-field>
 <p>selected item: {{ selected }}</p>
-
-<!-- <mat-form-field appearance="fill">
-  <mat-label>Select item...</mat-label>
-  <mat-select [(value)]="selected">
-    <mat-option>
-      {{ options }}
-    </mat-option>
-  </mat-select>
-</mat-form-field> -->
