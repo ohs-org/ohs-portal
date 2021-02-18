@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -56,6 +58,8 @@ import { DropdownComponent } from './components/selection-controls/dropdown/drop
     MatCheckboxModule,
     MatRadioModule,
     MatSlideToggleModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
