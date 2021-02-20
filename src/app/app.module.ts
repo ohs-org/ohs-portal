@@ -22,6 +22,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -32,6 +33,7 @@ import { SingleLineAvatarSelectionListComponent } from './components/lists/singl
 import { TwoLineAvatarSelectionListComponent } from './components/lists/two-line-avatar-selection-list/two-line-avatar-selection-list.component';
 import { DropdownComponent } from './components/selection-controls/dropdown/dropdown.component';
 import { DatepickerComponent } from './components/selection-controls/datepicker/datepicker.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { DatepickerComponent } from './components/selection-controls/datepicker/
     TwoLineAvatarSelectionListComponent,
     DropdownComponent,
     DatepickerComponent,
+    PaginatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +72,7 @@ import { DatepickerComponent } from './components/selection-controls/datepicker/
     ReactiveFormsModule,
     MatTooltipModule,
     MatProgressBarModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
