@@ -34,6 +34,7 @@ import { TwoLineAvatarSelectionListComponent } from './components/lists/two-line
 import { DropdownComponent } from './components/selection-controls/dropdown/dropdown.component';
 import { DatepickerComponent } from './components/selection-controls/datepicker/datepicker.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { StepProgressBarComponent } from './components/step-progress-bar/step-progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     DropdownComponent,
     DatepickerComponent,
     PaginatorComponent,
+    StepProgressBarComponent,
   ],
   imports: [
     BrowserModule,
