@@ -11,6 +11,11 @@ body {
   box-sizing: border-box;
 }
 
+// header style (z-index issue)
+.mat-drawer-content.mat-sidenav-content .mat-toolbar.mat-primary {
+  z-index: 2;
+}
+
 // overriding styles in angular material ref: https://material.angular.io/guide/customizing-component-styles
 // check box disabled style
 .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background,
