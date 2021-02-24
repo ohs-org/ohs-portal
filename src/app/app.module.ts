@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -75,6 +76,7 @@ import { StepProgressBarComponent } from './components/step-progress-bar/step-pr
     MatTooltipModule,
     MatProgressBarModule,
     MatPaginatorModule,
+    CdkStepperModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
