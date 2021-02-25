@@ -22,5 +22,7 @@ export class StepProgressBarComponent extends CdkStepper implements OnInit {
     this.selectedIndex = index;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this._steps);
+  }
 }

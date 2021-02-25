@@ -6,7 +6,7 @@
 }
 
 .step-navigation-bar {
-  width: 70%;
+  width: 80%;
   display: flex;
   justify-content: space-around;
   margin: 10px auto;
@@ -26,18 +26,6 @@
   font-weight: 700;
 }
 
-.connecting-line {
-  position: absolute;
-  width: 79%;
-  height: 3px;
-  background-color: red;
-  top: 15px;
-  left: -39%;
-}
-.active {
-  color: blueviolet;
-}
-
 .step {
   width: fit-content;
 
@@ -46,6 +34,13 @@
   margin: 0 10px;
   padding: 10px;
   color: black;
+}
+
+.step::after {
+}
+
+.active {
+  color: blueviolet;
 }
 
 .step.active {
