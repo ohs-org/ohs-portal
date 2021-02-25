@@ -4,20 +4,28 @@
     <h2>Step {{ selectedIndex + 1 }}/{{ _steps.length }}</h2>
   </header>
 
-  <div [style.display]="selected ? 'block' : 'none'">
-    <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
-  </div>
-
-  <footer class="step-navigation-bar">
-    <button class="nav-button" cdkStepperPrevious><</button>
+  <div class="step-navigation-bar">
     <button
       class="step"
       *ngFor="let step of _steps; let i = index"
       [ngClass]="{ active: selectedIndex === i }"
       (click)="onClick(i)"
     >
+      <div class="number-circle">
+        {{ i + 1 }}
+      </div>
       Step {{ i + 1 }}
     </button>
+    <div class="connecting-line"></div>
+  </div>
+
+  <div [style.display]="selected ? 'block' : 'none'" style="margin-top: 10px">
+    <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+  </div>
+
+  <footer class="step-navigation-bar">
+    <button class="nav-button" cdkStepperPrevious><</button>
+
     <button class="nav-button">></button>
   </footer>
 </section>

@@ -1,19 +1,46 @@
 .container {
+  width: 100%;
+
   border: 1px solid black;
   padding: 10px;
 }
 
 .step-navigation-bar {
+  width: 70%;
   display: flex;
-  justify-content: flex-start;
-  margin-top: 10px;
+  justify-content: space-around;
+  margin: 10px auto;
 }
 
+.number-circle {
+  color: white;
+  border: 1px solid #c4c4c4;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.connecting-line {
+  position: absolute;
+  width: 79%;
+  height: 3px;
+  background-color: red;
+  top: 15px;
+  left: -39%;
+}
 .active {
   color: blueviolet;
 }
 
 .step {
+  width: fit-content;
+
   background: aliceblue;
   border: 0;
   margin: 0 10px;
