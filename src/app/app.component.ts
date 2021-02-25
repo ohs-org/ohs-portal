@@ -14,6 +14,11 @@ export class AppComponent implements OnInit {
   secondInputFormGroup: FormGroup;
   thirdInputFormGroup: FormGroup;
 
+  // built in example
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  isEditable = true;
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -30,6 +35,13 @@ export class AppComponent implements OnInit {
       firstInput: ['third Form', Validators.required],
       secondInput: ['', Validators.required],
       thirdInput: ['', Validators.required],
+    });
+
+    this.firstFormGroup = this.formBuilder.group({
+      firstCtrl: ['', Validators.required],
+    });
+    this.secondFormGroup = this.formBuilder.group({
+      secondCtrl: ['', Validators.required],
     });
   }
 }
