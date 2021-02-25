@@ -4,3 +4,43 @@
   position: sticky;
   z-index: 2;
 }
+
+// stepper styles
+.stepper-container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+// stepper number icon
+.mat-step-header > .mat-step-icon {
+  height: 28px;
+  width: 28px;
+}
+
+// stepper line
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header::after,
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header::before {
+  top: 38px;
+}
+
+.mat-stepper-label-position-bottom .mat-stepper-horizontal-line {
+  top: 38px;
+}
+
+// completed color changes
+// .last-edited-step-1
+//   .mat-horizontal-stepper-header
+//   + .mat-stepper-horizontal-line:nth-child(2) {
+//   height: 2px;
+//   background-image: linear-gradient(to right, #00b495, #00aeea);
+// }
+
+// stepper label
+.mat-step-text-label {
+  font-style: italic;
+  font-size: 12px;
+}
+
+.mat-step-label-selected {
+  font-weight: 400;
+}
