@@ -132,14 +132,21 @@
   <div style="margin: 25px">
     <!-- ref: https://stackoverflow.com/questions/53344873/angular-material-stepper-header-lines-styling -->
     <!-- stepper style ref: https://stackblitz.com/edit/angular-materail-stepper-horizontal-line-styling -->
+    <!-- icon change ref: https://stackblitz.com/edit/angular-material-stepper-example -->
     <p>Angular Material Built in Stepper</p>
     <div class="stepper-container">
       <mat-horizontal-stepper
-        linear
         #stepper
+        linear="true"
         disableRipple="true"
         labelPosition="bottom"
       >
+        <!-- <ng-template matStepperIcon="done">
+          // need to add index number here
+        </ng-template> -->
+
+        <!-- <mat-step-header label="something" index="4"></mat-step-header> -->
+
         <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Committee information &nbsp;</ng-template>

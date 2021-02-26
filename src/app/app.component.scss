@@ -11,11 +11,15 @@
   margin: 0 auto;
 }
 
-// stepper number icon
+// stepper number header
 .mat-step-header > .mat-step-icon {
   height: 28px;
   width: 28px;
 }
+
+// .mat-step-header .mat-step-icon {
+//   background-color: #c4c4c4;
+// }
 
 // stepper line
 .mat-stepper-label-position-bottom .mat-horizontal-stepper-header::after,
@@ -28,12 +32,9 @@
 }
 
 // completed color changes
-// .last-edited-step-1
-//   .mat-horizontal-stepper-header
-//   + .mat-stepper-horizontal-line:nth-child(2) {
-//   height: 2px;
-//   background-image: linear-gradient(to right, #00b495, #00aeea);
-// }
+.mat-step-header > .mat-step-icon.mat-step-icon-state-done {
+  background-color: #5bba47;
+}
 
 // stepper label
 .mat-step-text-label {
@@ -44,3 +45,14 @@
 .mat-step-label-selected {
   font-weight: 400;
 }
+
+// .mat-horizontal-stepper-header-container
+//   .mat-step-header
+//   .mat-step-label.mat-step-label-active {
+//   color: #039be5;
+// }
+
+// .mat-step-header .mat-step-label,
+// .mat-step-header .mat-step-optional {
+//   color: #c4c4c4;
+// }
