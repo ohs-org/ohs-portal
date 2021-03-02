@@ -1,0 +1,46 @@
+<!-- Approach2) -->
+<section class="container">
+  <header>
+    <h2>Step {{ selectedIndex + 1 }}/{{ steps.length }}</h2>
+  </header>
+
+  <div class="step-navigation-bar">
+    <div>
+      <button
+        class="step"
+        *ngFor="let step of steps; let i = index"
+        [ngClass]="{ active: selectedIndex === i }"
+        (click)="onClick(i)"
+      >
+        <div class="number-circle">
+          {{ i + 1 }}
+        </div>
+        Committee information
+        <div
+          class="mat-stepper-horizontal-line ng-tns-c211-2 ng-star-inserted"
+        ></div>
+      </button>
+    </div>
+  </div>
+
+  <div [style.display]="selected ? 'block' : 'none'" style="margin-top: 10px">
+    <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+  </div>
+
+  <footer class="step-navigation-bar">
+    <button class="nav-button" cdkStepperPrevious><</button>
+
+    <button class="nav-button">></button>
+  </footer>
+</section>
+
+<!-- Approach1) Only Design -->
+<!-- <div class="container">
+  <ul class="step-progress">
+    <li class="completed">{{ step1Label }}</li>
+    <li class="active">{{ step2Label }}</li>
+    <li>{{ step3Label }}</li>
+  </ul>
+</div>
+
+<div class="contents">&nbsp;</div> -->

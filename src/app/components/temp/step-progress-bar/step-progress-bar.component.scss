@@ -1,0 +1,132 @@
+.container {
+  width: 100%;
+
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.step-navigation-bar {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px auto;
+}
+
+.number-circle {
+  color: white;
+  border: 1px solid #c4c4c4;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.step {
+  width: fit-content;
+
+  background: aliceblue;
+  border: 0;
+  margin: 0 10px;
+  padding: 10px;
+  color: black;
+}
+
+.step::after {
+}
+
+.active {
+  color: blueviolet;
+}
+
+.step.active {
+  color: blue;
+  border-bottom: 1px solid blue;
+}
+
+.nav-button {
+  background: sandybrown;
+  border: 0;
+}
+
+// Approach1)
+// building step progress from scratch CSS: https://youtu.be/DYevj6UGNWA
+// .container {
+//   width: 100%;
+//   height: 62px;
+// }
+
+// .step-progress {
+//   counter-reset: step;
+// }
+
+// .step-progress li {
+//   list-style-type: none;
+//   float: left;
+//   width: 33.33%;
+//   position: relative;
+//   text-align: center;
+//   font-weight: 400;
+//   font-style: italic;
+//   font-size: 12px;
+//   color: #c4c4c4;
+// }
+
+// .step-progress li::before {
+//   content: counter(step);
+//   counter-increment: step;
+//   width: 30px;
+//   height: 30px;
+//   line-height: 30px;
+//   font-weight: 700;
+//   font-size: 14px;
+//   font-style: normal;
+//   color: white;
+//   border: 1px solid #c4c4c4;
+//   display: block;
+//   text-align: center;
+//   margin: 0 auto 10px auto;
+//   border-radius: 50%;
+//   background-color: #c4c4c4;
+// }
+
+// .step-progress li:after {
+//   content: "";
+//   position: absolute;
+//   width: 79%;
+//   height: 1px;
+//   background-color: #ddd;
+//   top: 15px;
+//   left: -39%;
+//   z-index: -1;
+// }
+
+// .step-progress li:first-child::after {
+//   content: none;
+// }
+
+// .step-progress li.active {
+//   color: #039be5;
+// }
+
+// .step-progress li.active::before {
+//   border-color: #039be5;
+//   background-color: #039be5;
+// }
+
+// .step-progress li.completed {
+//   color: #5bba47;
+// }
+
+// .step-progress li.completed::before {
+//   border-color: #5bba47;
+//   background-color: #5bba47;
+// }
+
+// .step-progress li.completed + li::after {
+//   background-color: #5bba47;
+// }
