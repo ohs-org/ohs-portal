@@ -69,13 +69,10 @@
   font-weight: 400;
 }
 
-// .mat-horizontal-stepper-header-container
-//   .mat-step-header
-//   .mat-step-label.mat-step-label-active {
-//   color: #039be5;
-// }
-
-// .mat-step-header .mat-step-label,
-// .mat-step-header .mat-step-optional {
-//   color: #c4c4c4;
-// }
+// color changes for the done stepper line
+[ng-reflect-state="done"] + .mat-stepper-horizontal-line,
+[ng-reflect-state="done"].mat-horizontal-stepper-header::after,
+[ng-reflect-state="done"].mat-horizontal-stepper-header::before,
+[ng-reflect-state="edit"].mat-horizontal-stepper-header::before {
+  border-top-color: #5bba47;
+}
