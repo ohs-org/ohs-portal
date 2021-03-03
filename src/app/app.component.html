@@ -130,69 +130,9 @@
   </div>
 
   <div style="margin: 25px">
-    <!-- ref: https://stackoverflow.com/questions/53344873/angular-material-stepper-header-lines-styling -->
-    <!-- stepper style ref: https://stackblitz.com/edit/angular-materail-stepper-horizontal-line-styling -->
-    <!-- icon change ref: https://stackblitz.com/edit/angular-material-stepper-example -->
-    <!-- header number instead of icon ref: https://stackblitz.com/edit/angular-stepper-custom-icons?file=src%2Fapp%2Fapp.component.html -->
     <p>Step Progress Bar</p>
     <div class="stepper-container">
       <app-step-progress-bar></app-step-progress-bar>
-      <!-- <mat-horizontal-stepper
-        #stepper
-        linear="true"
-        disableRipple="true"
-        labelPosition="bottom"
-      > -->
-      <!-- <ng-template matStepperIcon="done">
-          // need to add index number here
-        </ng-template> -->
-
-      <!-- <mat-step-header label="something" index="4"></mat-step-header> -->
-
-      <!-- <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-          <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Committee information &nbsp;</ng-template>
-            <mat-form-field>
-              <mat-label>Name</mat-label>
-              <input
-                matInput
-                formControlName="firstCtrl"
-                placeholder="Last name, First name"
-                required
-              />
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-          <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Terms of Reference &nbsp;</ng-template>
-            <mat-form-field>
-              <mat-label>Address</mat-label>
-              <input
-                matInput
-                formControlName="secondCtrl"
-                placeholder="Ex. 1 Main St, New York, NY"
-                required
-              />
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Identify co-chairs &nbsp;</ng-template>
-          <p>You are now done.</p>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
-          </div>
-        </mat-step>
-      </mat-horizontal-stepper> -->
     </div>
   </div>
 
