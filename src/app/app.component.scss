@@ -5,77 +5,8 @@
   z-index: 2;
 }
 
-///////////////////////////////////////////// Stepper Styles ///////////////////////////////////////
-// // stepper styles
+// stepper styles
 .stepper-container {
   width: 70%;
   margin: 0 auto;
 }
-
-// // stepper number header
-// .mat-step-header > .mat-step-icon {
-//   height: 28px;
-//   width: 28px;
-// }
-
-// // stepper number header default color
-// .mat-step-header .mat-step-icon {
-//   background-color: #c4c4c4;
-// }
-
-// // stepper number header active
-// .mat-step-header .mat-step-icon-selected,
-// .mat-step-header .mat-step-icon-state-done,
-// .mat-step-header .mat-step-icon-state-edit {
-//   background-color: #039be5;
-//   color: white;
-// }
-
-// // completed color changes
-// .mat-step-header > .mat-step-icon.mat-step-icon-state-done {
-//   background-color: #5bba47;
-// }
-
-// // stepper line
-// .mat-stepper-label-position-bottom .mat-horizontal-stepper-header::after,
-// .mat-stepper-label-position-bottom .mat-horizontal-stepper-header::before {
-//   top: 38px;
-// }
-
-// .mat-stepper-label-position-bottom .mat-stepper-horizontal-line {
-//   top: 38px;
-// }
-
-// // stepper label
-// .mat-step-text-label {
-//   font-style: italic;
-//   font-size: 12px;
-//   // color: #c4c4c4;
-// }
-
-// // color changes for the active stepper label
-// .mat-step-header .mat-step-label.mat-step-label-active {
-//   color: #039be5;
-// }
-
-// // color changes for the done stepper label
-// .mat-step-header
-//   > .mat-step-icon.mat-step-icon-state-done
-//   + .mat-step-label.mat-step-label-active
-//   > .mat-step-text-label.ng-star-inserted {
-//   color: #5bba47;
-// }
-
-// .mat-step-label-selected {
-//   font-weight: 400;
-// }
-
-// // color changes for the done stepper line
-// [ng-reflect-state="done"] + .mat-stepper-horizontal-line,
-// [ng-reflect-state="done"].mat-horizontal-stepper-header::after,
-// [ng-reflect-state="done"].mat-horizontal-stepper-header::before,
-// [ng-reflect-state="edit"].mat-horizontal-stepper-header::before {
-//   border-top-color: #5bba47;
-// }
-
-///////////////////////////////////////////// Stepper Styles End ///////////////////////////////////////
