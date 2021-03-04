@@ -127,36 +127,5 @@
       ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::before {
       border-top-color: #c4c4c4;
     }
-
-    // https://stackoverflow.com/questions/10225364/select-specific-element-before-other-element/10225449
-    // https://stackoverflow.com/questions/1817792/is-there-a-previous-sibling-selector
-    // [ng-reflect-state="done"]
-    //   ~ [ng-reflect-state="number"]
-    //   + .mat-stepper-horizontal-line,
-    // [ng-reflect-state="done"]
-    //   ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::after,
-    // [ng-reflect-state="done"]
-    //   ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::before {
-    //   border-top-color: #5bba47;
-    // }
-
-    // [ng-reflect-state="number"]
-    //   ~ [ng-reflect-state="number"]
-    //   + .mat-stepper-horizontal-line,
-    // [ng-reflect-state="number"]
-    //   ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::after,
-    // [ng-reflect-state="number"]
-    //   ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::before {
-    //   border-top-color: salmon;
-    // }
   }
 }
-
-// went back
-// mat-step-icon mat-step-icon-state-number mat-step-icon-selected
-
-// edit
-// mat-step-icon mat-step-icon-state-edit mat-step-icon-selected
-
-// done
-// mat-step-icon mat-step-icon-state-done
