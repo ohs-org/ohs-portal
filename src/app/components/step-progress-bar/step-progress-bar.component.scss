@@ -60,12 +60,72 @@
       font-weight: 400;
     }
 
+    // stepper line default color
+    .mat-stepper-horizontal-line,
+    .mat-horizontal-stepper-header::after,
+    .mat-horizontal-stepper-header::before {
+      border-top-color: #c4c4c4;
+    }
+
     // color changes for the done stepper line
     [ng-reflect-state="done"] + .mat-stepper-horizontal-line,
     [ng-reflect-state="done"].mat-horizontal-stepper-header::after,
     [ng-reflect-state="done"].mat-horizontal-stepper-header::before,
     [ng-reflect-state="edit"].mat-horizontal-stepper-header::before {
       border-top-color: #5bba47;
+    }
+
+    // color changes for the  (done)-("-"number"-")"-"(done) : ""color
+    [ng-reflect-state="done"]
+      ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::before,
+    [ng-reflect-state="done"]
+      ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::after,
+    [ng-reflect-state="done"]
+      ~ [ng-reflect-state="number"]
+      + .mat-stepper-horizontal-line {
+      border-top-color: #5bba47;
+    }
+
+    // color changes for the  (done)-(edit)-("-"number) : ""color
+    [ng-reflect-state="edit"]
+      ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::before {
+      border-top-color: #c4c4c4;
+    }
+
+    // color changes for the  (number"-")"-"(done)-(done) : ""color
+    [ng-reflect-state="number"].mat-horizontal-stepper-header::after,
+    [ng-reflect-state="number"] + .mat-stepper-horizontal-line {
+      border-top-color: #5bba47;
+    }
+
+    // color changes for the  (edit)-(number"-")"-"("-"number) : ""color
+    [ng-reflect-state="edit"]
+      ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::after,
+    [ng-reflect-state="edit"]
+      ~ [ng-reflect-state="number"]
+      + .mat-stepper-horizontal-line,
+    [ng-reflect-state="edit"]
+      ~ [ng-reflect-state="number"]
+      ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::before {
+      border-top-color: #c4c4c4;
+    }
+
+    // color changes for the (number-)-("-"number)-(number)
+    [ng-reflect-state="number"]
+      ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::before {
+      border-top-color: #5bba47;
+    }
+
+    // color changes for the (number)-(number"-")"-"("-"number)
+    [ng-reflect-state="number"]
+      ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::after,
+    [ng-reflect-state="number"]
+      ~ [ng-reflect-state="number"]
+      + .mat-stepper-horizontal-line,
+    [ng-reflect-state="number"]
+      ~ [ng-reflect-state="number"]
+      ~ [ng-reflect-state="number"].mat-horizontal-stepper-header::before {
+      border-top-color: #c4c4c4;
     }
 
     // https://stackoverflow.com/questions/10225364/select-specific-element-before-other-element/10225449
