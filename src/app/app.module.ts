@@ -37,6 +37,7 @@ import { DropdownComponent } from './components/selection-controls/dropdown/drop
 import { DatepickerComponent } from './components/selection-controls/datepicker/datepicker.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { StepProgressBarComponent } from './components/step-progress-bar/step-progress-bar.component';
+import { QuestionnaireProgressBarComponent } from './components/questionnaire-progress-bar/questionnaire-progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { StepProgressBarComponent } from './components/step-progress-bar/step-pr
     DatepickerComponent,
     PaginatorComponent,
     StepProgressBarComponent,
+    QuestionnaireProgressBarComponent,
   ],
   imports: [
     BrowserModule,

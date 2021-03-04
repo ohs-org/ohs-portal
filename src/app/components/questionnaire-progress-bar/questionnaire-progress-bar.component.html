@@ -1,0 +1,61 @@
+<mat-horizontal-stepper
+  #stepper
+  linear="true"
+  disableRipple="true"
+  labelPosition="bottom"
+  class="custom-questionnaire"
+>
+  <ng-template matStepperIcon="done" let-index="index">
+    {{ "Section " }} {{ index + 1 }}
+  </ng-template>
+  <ng-template matStepperIcon="edit" let-index="index">
+    {{ "Section " }} {{ index + 1 }}
+  </ng-template>
+  <ng-template matStepperIcon="number" let-index="index">
+    {{ "Section " }} {{ index + 1 }}
+  </ng-template>
+
+  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>3 questions &nbsp;</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          formControlName="firstCtrl"
+          placeholder="Last name, First name"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>5 questions &nbsp;</ng-template>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input
+          matInput
+          formControlName="secondCtrl"
+          placeholder="Ex. 1 Main St, New York, NY"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>2 questions left &nbsp;</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
