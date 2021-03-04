@@ -20,6 +20,12 @@
     .mat-step-icon-state-done .mat-step-icon-content {
       color: #5bba47;
     }
+
+    // horizontal line default color setup
+    .mat-stepper-horizontal-line {
+      border-top-color: #c4c4c4;
+    }
+
     // horizontal line color changes : when step is done, next line color
     [ng-reflect-state="done"] + .mat-stepper-horizontal-line {
       border-top-color: #5bba47;
