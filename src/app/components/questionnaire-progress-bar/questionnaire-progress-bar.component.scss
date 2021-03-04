@@ -14,12 +14,32 @@
       color: #c4c4c4;
     }
 
+    // header color changes on select
     .mat-step-icon-selected .mat-step-icon-content {
       color: #039be5;
     }
 
+    // header color changes on done
     .mat-step-icon-state-done .mat-step-icon-content {
       color: #5bba47;
+    }
+
+    // horizontal line color changes : when step is done, next line color
+    [ng-reflect-state="done"] + .mat-stepper-horizontal-line {
+      border-top-color: #5bba47;
+    }
+
+    // horizontal line color changes: editing previous form shows number status
+    // revisited step's horizontal line will be colored, and it will color the last line on load
+    [ng-reflect-state="number"] + .mat-stepper-horizontal-line {
+      border-top-color: #5bba47;
+    }
+
+    // horizontal line color changes: override previous step's last line back to grey
+    [ng-reflect-state="edit"]
+      ~ [ng-reflect-state="number"]
+      + .mat-stepper-horizontal-line {
+      border-top-color: #c4c4c4;
     }
   }
 
