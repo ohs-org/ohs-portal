@@ -10,11 +10,11 @@
     class="list"
     *ngFor="let item of listItems"
     value="{{ item.itemText }}"
-    [ngClass]="{
+  >
+    <!-- [ngClass]="{
       selected: selectedItems.includes(item.itemText),
       unselected: !selectedItems.includes(item.itemText)
-    }"
-  >
+    }" -->
     <img matListAvatar src="{{ item.avatar }}" alt="avatar" />
     <span matLine>{{ item.itemText }}</span>
   </mat-list-option>
