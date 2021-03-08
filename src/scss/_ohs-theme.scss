@@ -1,7 +1,7 @@
 // angular material theme ref: https://youtu.be/99T-zQLcluM
 @import "~@angular/material/theming";
 @include mat-core(); // provide base styling for angular material
-@import "./app/components/main-nav/main-nav.component.scss-theme.scss";
+@import "../app/components/main-nav/main-nav.component.scss-theme.scss";
 
 // major color palettes
 $md-primarypalette: (
