@@ -1,15 +1,17 @@
+@import '../../../../scss/config';
+
 .list {
   font-size: 14px;
 }
 
 .list:hover,
 .list:focus {
-  background-color: #e1f5fe;
+  background-color: $ohs-theme-primary-hover;
 }
 
-.list:focus {
-  background-color: #e1f5fe;
-}
+// .list:focus {
+//   background-color: #e1f5fe;
+// }
 
 // .selected {
 //   background-color: #e1f5fe;

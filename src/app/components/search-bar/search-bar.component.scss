@@ -7,37 +7,32 @@
   border: 0.5px solid #c4c4c4;
   padding: 6px 10px;
   height: 33px;
-}
 
-.search-bar-container input {
-  // input use all available space
-  flex-grow: 2;
-  border: none;
-  background: white;
-  font-size: 14px;
-  // font-weight: 400;
-  line-height: 16.41px;
-  // font-family: "roboto", Arial, Helvetica, sans-serif;
-}
+  input {
+    // input use all available space
+    flex-grow: 2;
+    border: none;
+    background: white;
+    font-size: 14px;
+    // font-weight: 400;
+    line-height: 16.41px;
+    // font-family: "roboto", Arial, Helvetica, sans-serif;
+  }
 
-.search-bar-container input:focus {
-  // remove the input focus blue box
-  outline: none;
+  input:focus {
+    // remove the input focus blue box
+    outline: none;
+  }
+
+  input:focus + .search-icon {
+    content: url("../../../assets/icons/search-button-active.png");
+  }
+
 }
 
 .search-icon {
   width: 18px;
   height: 19px;
-}
-
-// consider onclick event on img instead of a tag
-// .search-bar-container a {
-//   //pointer-events: auto; // to make it unclickable
-//   pointer-events: auto;
-// }
-
-.search-bar-container input:focus + .search-icon {
-  content: url("../../../assets/icons/search-button-active.png");
 }
 
 /* clears the 'X' from Internet Explorer */

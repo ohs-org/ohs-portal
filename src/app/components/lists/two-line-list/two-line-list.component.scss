@@ -1,9 +1,11 @@
+@import '../../../../scss/config';
+
 .list {
   font-size: 14px;
 }
 
 .list:hover {
-  background-color: #e1f5fe;
+  background-color: $ohs-theme-primary-hover;
 }
 
 .list .secondary {

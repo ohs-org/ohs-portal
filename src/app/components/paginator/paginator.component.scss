@@ -1,23 +1,29 @@
 // paginator style
 ::ng-deep {
   .custom-paginator {
-    .mat-paginator-container .mat-form-field-underline {
-      display: none;
-    }
 
-    .mat-paginator-container .mat-form-field-infix {
-      border: 0.25px solid #b6b6b6bd;
-      box-sizing: border-box;
-      border-radius: 5px;
-      padding: 7px 7px;
-    }
+    .mat-paginator-container {
 
-    .mat-paginator-container .mat-paginator-page-size.ng-star-inserted {
-      padding-top: 4px;
+      .mat-form-field-underline {
+        display: none;
+      }
+
+      .mat-form-field-infix {
+        border: 0.25px solid #b6b6b6bd;
+        box-sizing: border-box;
+        border-radius: 5px;
+        padding: 7px 7px;
+      }
+
+      .mat-paginator-page-size.ng-star-inserted {
+        padding-top: 4px;
+      }
+
     }
 
     .mat-paginator-range-label {
       margin: 0 32px 0 16px;
     }
+    
   }
 }
