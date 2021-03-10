@@ -39,9 +39,10 @@ import { DatepickerComponent } from './components/selection-controls/datepicker/
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { StepProgressBarComponent } from './components/step-progress-bar/step-progress-bar.component';
 import { QuestionnaireProgressBarComponent } from './components/questionnaire-progress-bar/questionnaire-progress-bar.component';
+import { ComponentsComponent } from './pages/components/components.component';
 
 const appRoutes: Routes = [
-  { path: '', component: SearchBarComponent},
+  { path: '', component: ComponentsComponent},
   { path: 'lists', component: TwoLineAvatarSelectionListComponent},
   { path: 'stepperform', component: StepProgressBarComponent}
 ];
@@ -62,6 +63,7 @@ const appRoutes: Routes = [
     PaginatorComponent,
     StepProgressBarComponent,
     QuestionnaireProgressBarComponent,
+    ComponentsComponent,
   ],
   imports: [
     BrowserModule,
