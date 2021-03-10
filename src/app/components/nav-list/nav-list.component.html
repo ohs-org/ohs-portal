@@ -5,7 +5,7 @@
   <a *ngIf="section.sectionName !== ''" class="nav-list-title" href="#">
     {{ smallScreen ? section.sectionShortName : section.sectionName }}
   </a>
-  <a *ngFor="let page of section.pages" mat-list-item href="#">
+  <a *ngFor="let page of section.pages" mat-list-item routerLink="{{page.routerLink}}">
     <mat-icon class="nav-list-icon" matListIcon>{{ page.pageIcon }}</mat-icon>
     {{ page.pageName }}
   </a>

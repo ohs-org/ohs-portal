@@ -28,19 +28,19 @@
         "sectionShortName": "",
         "pages": [
           {
-            "pageName": "No Name 1",
+            "pageName": "Components",
             "pageIcon": "favorite",
-            "routerLink": "/noname1"
+            "routerLink": ""
           },
           {
-            "pageName": "No Name 2",
+            "pageName": "Lists",
             "pageIcon": "favorite",
-            "routerLink": "/noname2"
+            "routerLink": "/lists"
           },
           {
-            "pageName": "No Name 3",
+            "pageName": "Stepper Form",
             "pageIcon": "favorite",
-            "routerLink": "/noname3"
+            "routerLink": "/stepperform"
           }
         ]
       },

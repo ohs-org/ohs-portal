@@ -1,5 +1,8 @@
 <app-main-nav>
-  <div style="margin: 25px">
+  <div class="main-contents">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- <div style="margin: 25px">
     <button mat-raised-button color="accent">Check Custom Theme</button>
     <button mat-raised-button color="primary">Check Custom Theme</button>
     <button mat-raised-button color="warn">Check Custom Theme</button>
@@ -77,9 +80,9 @@
         { value: 'option3', viewValue: 'o3' }
       ]"
     ></app-dropdown>
-  </div>
+  </div> -->
   <!-- [{value: 'option1', viewValue:'o1'}, {value: 'option2', viewValue:'o2'}, {value: 'option3', viewValue:'o3'}] -->
-
+<!-- 
   <div style="margin: 25px">
     <app-datepicker></app-datepicker>
   </div>
@@ -141,7 +144,7 @@
     <div class="stepper-container">
       <app-questionnaire-progress-bar></app-questionnaire-progress-bar>
     </div>
-  </div>
+  </div> -->
 
   <app-footer class="footer"></app-footer>
 </app-main-nav>

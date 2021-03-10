@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +39,12 @@ import { DatepickerComponent } from './components/selection-controls/datepicker/
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { StepProgressBarComponent } from './components/step-progress-bar/step-progress-bar.component';
 import { QuestionnaireProgressBarComponent } from './components/questionnaire-progress-bar/questionnaire-progress-bar.component';
+
+const appRoutes: Routes = [
+  { path: '', component: SearchBarComponent},
+  { path: 'lists', component: TwoLineAvatarSelectionListComponent},
+  { path: 'stepperform', component: StepProgressBarComponent}
+];
 
 @NgModule({
   declarations: [
@@ -81,6 +88,7 @@ import { QuestionnaireProgressBarComponent } from './components/questionnaire-pr
     MatPaginatorModule,
     CdkStepperModule,
     MatStepperModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent],
