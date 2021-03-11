@@ -1,13 +1,18 @@
 <mat-form-field appearance="fill">
-  <mat-label>Select item...</mat-label>
+  <mat-label>{{ label }}</mat-label>
   <mat-select
     [(value)]="selected"
     disabled="{{ disabled ? disabled : false }}"
     (selectionChange)="onSelectionChange($event)"
+    [formControl]="control"
   >
     <mat-option *ngFor="let option of options" [value]="option.value">
       {{ option.viewValue }}
     </mat-option>
   </mat-select>
+  <mat-error
+    *ngIf="control?.hasError('required') && required ? required : false"
+    >{{ errorMsg ? errorMsg : "Please select..." }}</mat-error
+  >
 </mat-form-field>
-<p>selected item: {{ selected }}</p>
+<!-- <p>selected item: {{ selected }}</p> -->

@@ -26,6 +26,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatStepperModule } from '@angular/material/stepper';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -40,11 +41,12 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { StepProgressBarComponent } from './components/step-progress-bar/step-progress-bar.component';
 import { QuestionnaireProgressBarComponent } from './components/questionnaire-progress-bar/questionnaire-progress-bar.component';
 import { ComponentsComponent } from './pages/components/components.component';
+import { StepperFormComponent } from './pages/stepper-form/stepper-form.component';
 
 const appRoutes: Routes = [
   { path: '', component: ComponentsComponent},
   { path: 'lists', component: TwoLineAvatarSelectionListComponent},
-  { path: 'stepperform', component: StepProgressBarComponent}
+  { path: 'stepperform', component: StepperFormComponent}
 ];
 
 @NgModule({
@@ -64,6 +66,7 @@ const appRoutes: Routes = [
     StepProgressBarComponent,
     QuestionnaireProgressBarComponent,
     ComponentsComponent,
+    StepperFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +93,7 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     CdkStepperModule,
     MatStepperModule,
+    FlexLayoutModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 interface DropDownOption {
   value: string;
@@ -13,6 +14,11 @@ interface DropDownOption {
 export class DropdownComponent implements OnInit {
   @Input() options: DropDownOption[];
   @Input() disabled: boolean;
+  @Input() label: string;
+  @Input() control: FormControl;
+  @Input() required: boolean;
+  @Input() errorMsg: string;
+
   selected: string;
 
   constructor() {}
