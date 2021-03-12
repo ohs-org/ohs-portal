@@ -19,11 +19,15 @@ export class StepperFormComponent implements OnInit {
   maxDate;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
   isEditable = true;
 
   healthAuthorities;
   committeeLocation;
   numbers;
+
+  lastCompleted;
+  lastState;
 
   // @ViewChild('stepper') stepper: MatStepper;
 
@@ -74,7 +78,22 @@ export class StepperFormComponent implements OnInit {
     });
 
     this.secondFormGroup = this.formBuilder.group({
-      attendeeNumCtrl: ['', Validators.required],
+      attendeeNumCtrl: [''],
+      // employerNumCtrl: ['', Validators.required],
+      // employeeNumCtrl: ['', Validators.required],
+      // fraserHealthCtrl: ['', Validators.required],
+      // hospitalUnionCtrl: ['', Validators.required],
+      // nurseUnionCtrl: ['', Validators.required],
+      // govServiceUnionCtrl: ['', Validators.required],
+    });
+
+    this.thirdFormGroup = this.formBuilder.group({
+      employerCoChairCtrl: ['', Validators.required],
+      employerCoChairEmailCtrl: ['', Validators.required],
+      employerCoChairRepresentCtrl: ['', Validators.required],
+      employeeCoChairCtrl: ['', Validators.required],
+      employeeCoChairEmailCtrl: ['', Validators.required],
+      employeeCoChairRepresentCtrl: ['', Validators.required],
     });
 
     // this.firstFormGroup.statusChanges.subscribe((status) => {
@@ -84,5 +103,11 @@ export class StepperFormComponent implements OnInit {
     //   }
     //   console.log(status);
     // });
+  }
+
+  onLastCompleted() {
+    console.log('onLastCompleted called');
+    this.lastCompleted = true;
+    this.lastState = 'done';
   }
 }

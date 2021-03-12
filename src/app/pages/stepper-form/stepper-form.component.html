@@ -10,6 +10,7 @@
       [formGroup]="firstFormGroup"
       fxLayout="column"
       fxLayoutAlign="center center"
+      #firstForm="ngForm"
     >
       <ng-template matStepLabel>Committee information &nbsp;</ng-template>
       <mat-form-field appearance="fill">
@@ -84,36 +85,169 @@
       [formGroup]="secondFormGroup"
       fxLayout="column"
       fxLayoutAlign="center center"
+      #secondForm="ngForm"
     >
       <ng-template matStepLabel>Terms of Reference &nbsp;</ng-template>
-      <p>Quorum</p>
 
-      <div class="dropdown-label-out">
-        <p class="number-label">Minimum # of attendees</p>
-        <app-dropdown
-          [options]="numbers"
-          [control]="secondFormGroup.get('attendeeNumCtrl')"
-          required="true"
-          class="number-dropdown"
-        >
-        </app-dropdown>
-        <!-- errorMsg="Please select minimum number of attendees" -->
-      </div>
+      <p class="section-title">Quorum</p>
+      <app-dropdown
+        label="Minimum # of attendees"
+        [options]="numbers"
+        [control]="secondFormGroup.get('attendeeNumCtrl')"
+        required="true"
+        errorMsg="Please select a minimum number of attendees"
+      >
+      </app-dropdown>
+      <!-- <app-dropdown
+        label="Minimum # of employers"
+        [options]="numbers"
+        [control]="secondFormGroup.get('employerNumCtrl')"
+        required="true"
+        errorMsg="Please select a minimum number of employers"
+      >
+      </app-dropdown>
+      <app-dropdown
+        label="Minimum # of employees"
+        [options]="numbers"
+        [control]="secondFormGroup.get('employeeNumCtrl')"
+        required="true"
+        errorMsg="Please select a minimum number of employees"
+      >
+      </app-dropdown>
 
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <p class="section-title">Representation structure</p>
+      <app-dropdown
+        label="Fraser Health Authority"
+        [options]="numbers"
+        [control]="secondFormGroup.get('fraserHealthCtrl')"
+        required="true"
+        errorMsg="Please select representation structure"
+      >
+      </app-dropdown>
+      <app-dropdown
+        label="Hospital Employees’ Union"
+        [options]="numbers"
+        [control]="secondFormGroup.get('hospitalUnionCtrl')"
+        required="true"
+        errorMsg="Please select representation structure"
+      >
+      </app-dropdown>
+      <app-dropdown
+        label="BC Nurses’ Union"
+        [options]="numbers"
+        [control]="secondFormGroup.get('nurseUnionCtrl')"
+        required="true"
+        errorMsg="Please select representation structure"
+      >
+      </app-dropdown>
+      <app-dropdown
+        label="BC Government and Service Employees' Union"
+        [options]="numbers"
+        [control]="secondFormGroup.get('govServiceUnionCtrl')"
+        required="true"
+        errorMsg="Please select representation structure"
+      >
+      </app-dropdown> -->
+
+      <div class="button-container">
+        <button mat-button color="primary" (click)="stepper.reset()">
+          Cancel
+        </button>
+        <button mat-flat-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
 
-  <mat-step>
-    <ng-template matStepLabel>Identify co-chairs &nbsp;</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
+  <mat-step [completed]="lastCompleted" [state]="lastState">
+    <form
+      [formGroup]="thirdFormGroup"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      #thirdForm="ngForm"
+    >
+      <ng-template matStepLabel>Identify co-chairs &nbsp;</ng-template>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Employer co-chair</mat-label>
+        <input
+          matInput
+          formControlName="employerCoChairCtrl"
+          placeholder="Employer co-chair"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Employer co-chair’s email address</mat-label>
+        <input
+          matInput
+          formControlName="employerCoChairEmailCtrl"
+          placeholder="Employer co-chair’s email address"
+          required
+          email
+          #employerEmailInput
+        />
+        <mat-error *ngIf="employerEmailInput.value?.length === 0">
+          Field must not be empty.
+        </mat-error>
+        <mat-error *ngIf="employerEmailInput.value?.length != 0">
+          E-mail is invalid.
+        </mat-error>
+      </mat-form-field>
+
+      <app-dropdown
+        label="Represents"
+        [options]="healthAuthorities"
+        [control]="secondFormGroup.get('employerCoChairRepresentCtrl')"
+        required="true"
+        errorMsg="Please select a health authority"
+      >
+      </app-dropdown>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Employee co-chair</mat-label>
+        <input
+          matInput
+          formControlName="employeeCoChairCtrl"
+          placeholder="Employee co-chair"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Employee co-chair’s email address</mat-label>
+        <input
+          matInput
+          formControlName="employeeCoChairEmailCtrl"
+          placeholder="Employee co-chair’s email address"
+          required
+          email
+          #employeeEmailInput
+        />
+        <mat-error *ngIf="employeeEmailInput.value?.length === 0">
+          Field must not be empty.
+        </mat-error>
+        <mat-error *ngIf="employeeEmailInput.value?.length != 0">
+          E-mail is invalid.
+        </mat-error>
+      </mat-form-field>
+
+      <app-dropdown
+        label="Represents"
+        [options]="healthAuthorities"
+        [control]="secondFormGroup.get('employeeCoChairRepresentCtrl')"
+        required="true"
+        errorMsg="Please select a health authority"
+      >
+      </app-dropdown>
+
+      <div class="button-container">
+        <button mat-button color="primary" (click)="stepper.reset()">
+          Cancel
+        </button>
+        <button mat-flat-button color="primary" (click)="onLastCompleted()">
+          Review >
+        </button>
+      </div>
+    </form>
   </mat-step>
 </mat-horizontal-stepper>
 

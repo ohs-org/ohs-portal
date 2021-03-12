@@ -11,17 +11,24 @@ mat-slide-toggle {
   justify-content: space-between;
 }
 
+.section-title {
+  padding: 10px;
+  text-align: left;
+}
+
 .dropdown-label-out {
   width: 300px;
   display: flex;
   flex-direction: row;
+  // justify-content: space-between;
+  height: 41px;
 
   .number-label {
-    color: red;
+    // float: left;
   }
 
   .number-dropdown {
-    width: 50px;
+    width: 38px;
   }
 }
 
