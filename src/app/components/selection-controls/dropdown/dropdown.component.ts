@@ -18,6 +18,7 @@ export class DropdownComponent implements OnInit {
   @Input() control: FormControl;
   @Input() required: boolean;
   @Input() errorMsg: string;
+  @Input() appearance: string;
 
   selected: string;
 
