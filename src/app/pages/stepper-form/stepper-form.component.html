@@ -6,12 +6,12 @@
   class="custom-step-progress-bar"
 >
   <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-    <ng-template matStepLabel>Committee information &nbsp;</ng-template>
     <form
       [formGroup]="firstFormGroup"
       fxLayout="column"
       fxLayoutAlign="center center"
     >
+      <ng-template matStepLabel>Committee information &nbsp;</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Committee name</mat-label>
         <input
@@ -21,15 +21,104 @@
         />
       </mat-form-field>
 
-      <app-dropdown
-        disabled="false"
+      <!-- <app-dropdown
         label="Operating health authority"
-        [options]="operatingHA"
+        [options]="healthAuthorities"
         [control]="firstFormGroup.get('operatingHACtrl')"
+        required="true"
+        errorMsg="Please select an operation health authority"
       >
       </app-dropdown>
 
-      <mat-form-field hintLabel="Should not be empty">
+      <app-dropdown
+        label="Hosting health authority"
+        [options]="healthAuthorities"
+        [control]="firstFormGroup.get('hostingHACtrl')"
+        required="true"
+        errorMsg="Please select a hosting health authority"
+      >
+      </app-dropdown>
+
+      <app-dropdown
+        label="Base location of committee"
+        [options]="committeeLocation"
+        [control]="firstFormGroup.get('locationCtrl')"
+        required="true"
+        errorMsg="Please select a base location of committee"
+      >
+      </app-dropdown>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Notes</mat-label>
+        <textarea
+          matInput
+          cols="30"
+          rows="10"
+          formControlName="noteCtrl"
+          placeholder="Notes"
+          required
+          minlength="10"
+          #noteInput
+        ></textarea>
+        <mat-hint align="end">{{ noteInput.value?.length }} / 10</mat-hint>
+      </mat-form-field>
+
+      <mat-slide-toggle
+        labelPosition="before"
+        color="primary"
+        formControlName="multiEmployerCtrl"
+      >
+        Multi-employer
+      </mat-slide-toggle> -->
+      <div class="button-container">
+        <button mat-button color="primary" (click)="stepper.reset()">
+          Cancel
+        </button>
+        <button mat-flat-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+    <form
+      [formGroup]="secondFormGroup"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <ng-template matStepLabel>Terms of Reference &nbsp;</ng-template>
+      <p>Quorum</p>
+
+      <div class="dropdown-label-out">
+        <p class="number-label">Minimum # of attendees</p>
+        <app-dropdown
+          [options]="numbers"
+          [control]="secondFormGroup.get('attendeeNumCtrl')"
+          required="true"
+          class="number-dropdown"
+        >
+        </app-dropdown>
+        <!-- errorMsg="Please select minimum number of attendees" -->
+      </div>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Identify co-chairs &nbsp;</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+<!-- More examples -->
+<!-- <mat-form-field hintLabel="Should not be empty">
         <mat-label>Last Name</mat-label>
         <input
           matInput
@@ -83,52 +172,4 @@
         ></mat-datepicker-toggle>
         <mat-datepicker #birthPicker></mat-datepicker>
         <mat-hint>Age should be bigger than 18</mat-hint>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Description</mat-label>
-        <textarea
-          matInput
-          cols="30"
-          rows="10"
-          formControlName="descCtrl"
-          placeholder="Description"
-          required
-          minlength="10"
-          #descInput
-        ></textarea>
-        <mat-hint align="end">{{ descInput.value?.length }} / 10</mat-hint>
-      </mat-form-field>
-
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Terms of Reference &nbsp;</ng-template>
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input
-          matInput
-          formControlName="secondCtrl"
-          placeholder="Ex. 1 Main St, New York, NY"
-          required
-        />
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Identify co-chairs &nbsp;</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+      </mat-form-field> -->

@@ -2,10 +2,10 @@
   <mat-label>{{ label }}</mat-label>
   <mat-select
     [(value)]="selected"
-    disabled="{{ disabled ? disabled : false }}"
     (selectionChange)="onSelectionChange($event)"
     [formControl]="control"
   >
+    <!-- disabled="{{ disabled ? disabled : false }}" -->
     <mat-option *ngFor="let option of options" [value]="option.value">
       {{ option.viewValue }}
     </mat-option>

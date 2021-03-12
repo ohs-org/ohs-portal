@@ -1,6 +1,28 @@
 mat-form-field,
-app-dropdown {
+app-dropdown,
+mat-slide-toggle {
   width: 300px;
+}
+
+.button-container {
+  width: 300px;
+  padding: 30px 5px 0 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-label-out {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+
+  .number-label {
+    color: red;
+  }
+
+  .number-dropdown {
+    width: 50px;
+  }
 }
 
 ::ng-deep {

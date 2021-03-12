@@ -12,9 +12,9 @@ interface DropDownOption {
   styleUrls: ['./dropdown.component.scss'],
 })
 export class DropdownComponent implements OnInit {
-  @Input() options: DropDownOption[];
-  @Input() disabled: boolean;
+  // @Input() disabled: boolean;
   @Input() label: string;
+  @Input() options: DropDownOption[];
   @Input() control: FormControl;
   @Input() required: boolean;
   @Input() errorMsg: string;
