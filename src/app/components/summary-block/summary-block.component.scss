@@ -1,0 +1,24 @@
+.container {
+  max-width: 500px;
+  font-size: 14px;
+
+  .title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .edit-btn {
+    min-width: 40px;
+    font-size: 10px;
+    padding: 0px 3px;
+    line-height: 23px;
+  }
+
+  .section {
+    padding: 10px 0;
+
+    .sectionName {
+      font-weight: bold;
+    }
+  }
+}

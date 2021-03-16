@@ -1,8 +1,39 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-9">Committee information</div>
-    <div class="col-xs-3">
-      <button mat-stroked-button color="primary">edit</button>
+    <div class="col-9 title">{{ sectionSummary.title }}</div>
+    <div class="col-3">
+      <button mat-stroked-button color="primary" class="edit-btn">edit</button>
     </div>
   </div>
+
+  <div class="row section" *ngFor="let section of sectionSummary.sections">
+    <div class="col-12 sectionName" *ngIf="section.sectionName != ''">
+      {{ section.sectionName }}
+    </div>
+    <div class="col-12">
+      <div class="row" *ngFor="let field of section.fields">
+        <div class="col-9">{{ field.fieldName }}</div>
+        <div class="col-3">{{ field.value }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row">
+    <div class="row">
+      <div class="col-9">Operating health authority</div>
+      <div class="col-3">BCCA</div>
+    </div>
+    <div class="row">
+      <div class="col-9">Hosting health authority</div>
+      <div class="col-3">FHA</div>
+    </div>
+    <div class="row">
+      <div class="col-9">Base location of committee</div>
+      <div class="col-3">FHA</div>
+    </div>
+    <div class="row">
+      <div class="col-9">Base location of committee</div>
+      <div class="col-3">FHA</div>
+    </div>
+  </div> -->
 </div>
