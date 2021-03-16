@@ -43,11 +43,14 @@ import { QuestionnaireProgressBarComponent } from './components/questionnaire-pr
 import { ComponentsComponent } from './pages/components/components.component';
 import { StepperFormComponent } from './pages/stepper-form/stepper-form.component';
 import { SectionSummaryComponent } from './pages/stepper-form/section-summary/section-summary.component';
+import { CustomComponentsComponent } from './pages/custom-components/custom-components.component';
+import { SummaryBlockComponent } from './components/summary-block/summary-block.component';
 
 const appRoutes: Routes = [
-  { path: '', component: ComponentsComponent},
-  { path: 'lists', component: TwoLineAvatarSelectionListComponent},
-  { path: 'stepperform', component: StepperFormComponent}
+  { path: '', component: ComponentsComponent },
+  { path: 'custom', component: CustomComponentsComponent },
+  { path: 'lists', component: TwoLineAvatarSelectionListComponent },
+  { path: 'stepperform', component: StepperFormComponent },
 ];
 
 @NgModule({
@@ -69,6 +72,8 @@ const appRoutes: Routes = [
     ComponentsComponent,
     StepperFormComponent,
     SectionSummaryComponent,
+    CustomComponentsComponent,
+    SummaryBlockComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +101,7 @@ const appRoutes: Routes = [
     CdkStepperModule,
     MatStepperModule,
     FlexLayoutModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent],

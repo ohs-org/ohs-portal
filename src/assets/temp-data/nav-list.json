@@ -33,6 +33,11 @@
             "routerLink": ""
           },
           {
+            "pageName": "Custom Components",
+            "pageIcon": "favorite",
+            "routerLink": "/custom"
+          },
+          {
             "pageName": "Lists",
             "pageIcon": "favorite",
             "routerLink": "/lists"
