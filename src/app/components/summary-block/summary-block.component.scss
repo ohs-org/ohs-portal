@@ -1,6 +1,9 @@
+// @import "../../../scss/config";
 .container {
   max-width: 500px;
   font-size: 14px;
+  padding: 30px;
+  background-color: #f2fbff;
 
   .title {
     font-size: 20px;
@@ -9,9 +12,9 @@
 
   .edit-btn {
     min-width: 40px;
-    font-size: 10px;
+    font-size: 12px;
     padding: 0px 3px;
-    line-height: 23px;
+    line-height: 26px;
   }
 
   .section {

@@ -27,6 +27,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material/card';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -101,6 +102,7 @@ const appRoutes: Routes = [
     CdkStepperModule,
     MatStepperModule,
     FlexLayoutModule,
+    MatCardModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],
