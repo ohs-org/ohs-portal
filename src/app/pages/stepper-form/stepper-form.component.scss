@@ -34,6 +34,11 @@ mat-slide-toggle {
 
 ::ng-deep {
   .custom-step-progress-bar {
+    .mat-horizontal-stepper-header-container {
+      max-width: 500px;
+      margin: auto;
+    }
+
     // stepper number header
     .mat-step-header > .mat-step-icon {
       height: 28px;

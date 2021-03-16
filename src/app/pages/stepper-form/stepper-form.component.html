@@ -11,6 +11,7 @@
       fxLayout="column"
       fxLayoutAlign="center center"
       #firstForm="ngForm"
+      (ngSubmit)="onFirstFormSubmit()"
     >
       <ng-template matStepLabel>Committee information &nbsp;</ng-template>
       <mat-form-field appearance="fill">
@@ -22,7 +23,7 @@
         />
       </mat-form-field>
 
-      <!-- <app-dropdown
+      <app-dropdown
         label="Operating health authority"
         [options]="healthAuthorities"
         [control]="firstFormGroup.get('operatingHACtrl')"
@@ -70,7 +71,7 @@
         formControlName="multiEmployerCtrl"
       >
         Multi-employer
-      </mat-slide-toggle> -->
+      </mat-slide-toggle>
       <div class="button-container">
         <button mat-button color="primary" (click)="stepper.reset()">
           Cancel
@@ -86,6 +87,7 @@
       fxLayout="column"
       fxLayoutAlign="center center"
       #secondForm="ngForm"
+      (ngSubmit)="onSecondFormSubmit()"
     >
       <ng-template matStepLabel>Terms of Reference &nbsp;</ng-template>
 
@@ -98,7 +100,7 @@
         errorMsg="Please select a minimum number of attendees"
       >
       </app-dropdown>
-      <!-- <app-dropdown
+      <app-dropdown
         label="Minimum # of employers"
         [options]="numbers"
         [control]="secondFormGroup.get('employerNumCtrl')"
@@ -147,7 +149,7 @@
         required="true"
         errorMsg="Please select representation structure"
       >
-      </app-dropdown> -->
+      </app-dropdown>
 
       <div class="button-container">
         <button mat-button color="primary" (click)="stepper.reset()">
@@ -158,15 +160,20 @@
     </form>
   </mat-step>
 
-  <mat-step [completed]="lastCompleted" [state]="lastState">
+  <mat-step
+    [stepControl]="thirdFormGroup"
+    [completed]="lastCompleted"
+    [state]="lastState"
+  >
+    <ng-template matStepLabel>Identify co-chairs &nbsp;</ng-template>
     <form
       [formGroup]="thirdFormGroup"
       fxLayout="column"
       fxLayoutAlign="center center"
       #thirdForm="ngForm"
+      *ngIf="lastFormOn"
+      (ngSubmit)="onThirdFormSubmit()"
     >
-      <ng-template matStepLabel>Identify co-chairs &nbsp;</ng-template>
-
       <mat-form-field appearance="fill">
         <mat-label>Employer co-chair</mat-label>
         <input
@@ -182,7 +189,6 @@
           matInput
           formControlName="employerCoChairEmailCtrl"
           placeholder="Employer co-chair’s email address"
-          required
           email
           #employerEmailInput
         />
@@ -197,7 +203,7 @@
       <app-dropdown
         label="Represents"
         [options]="healthAuthorities"
-        [control]="secondFormGroup.get('employerCoChairRepresentCtrl')"
+        [control]="thirdFormGroup.get('employerCoChairRepresentCtrl')"
         required="true"
         errorMsg="Please select a health authority"
       >
@@ -218,7 +224,6 @@
           matInput
           formControlName="employeeCoChairEmailCtrl"
           placeholder="Employee co-chair’s email address"
-          required
           email
           #employeeEmailInput
         />
@@ -233,8 +238,7 @@
       <app-dropdown
         label="Represents"
         [options]="healthAuthorities"
-        [control]="secondFormGroup.get('employeeCoChairRepresentCtrl')"
-        required="true"
+        [control]="thirdFormGroup.get('employeeCoChairRepresentCtrl')"
         errorMsg="Please select a health authority"
       >
       </app-dropdown>
@@ -243,11 +247,13 @@
         <button mat-button color="primary" (click)="stepper.reset()">
           Cancel
         </button>
-        <button mat-flat-button color="primary" (click)="onLastCompleted()">
-          Review >
-        </button>
+        <button mat-flat-button color="primary" matStepperNext>Review ></button>
       </div>
     </form>
+
+    <div *ngIf="summaryOn">
+      <app-section-summary> </app-section-summary>
+    </div>
   </mat-step>
 </mat-horizontal-stepper>
 

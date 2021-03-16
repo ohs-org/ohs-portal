@@ -42,6 +42,7 @@ import { StepProgressBarComponent } from './components/step-progress-bar/step-pr
 import { QuestionnaireProgressBarComponent } from './components/questionnaire-progress-bar/questionnaire-progress-bar.component';
 import { ComponentsComponent } from './pages/components/components.component';
 import { StepperFormComponent } from './pages/stepper-form/stepper-form.component';
+import { SectionSummaryComponent } from './pages/stepper-form/section-summary/section-summary.component';
 
 const appRoutes: Routes = [
   { path: '', component: ComponentsComponent},
@@ -67,6 +68,7 @@ const appRoutes: Routes = [
     QuestionnaireProgressBarComponent,
     ComponentsComponent,
     StepperFormComponent,
+    SectionSummaryComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,8 @@ import { MatStepper } from '@angular/material/stepper';
   ],
 })
 export class StepperFormComponent implements OnInit {
+  @ViewChild('stepper') stepper: MatStepper;
+
   minDate;
   maxDate;
   firstFormGroup: FormGroup;
@@ -29,7 +31,13 @@ export class StepperFormComponent implements OnInit {
   lastCompleted;
   lastState;
 
-  // @ViewChild('stepper') stepper: MatStepper;
+  lastFormOn: boolean;
+  summaryOn: boolean;
+
+  // section summary
+  committeeInfo;
+  termsOfRef;
+  committeeCochairs;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -61,30 +69,33 @@ export class StepperFormComponent implements OnInit {
       { value: '6', viewValue: '6' },
     ];
 
+    this.lastFormOn = true;
+    this.summaryOn = false;
+
     this.minDate = new Date();
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 18); // age should be bigger than 18
 
     this.firstFormGroup = this.formBuilder.group({
-      committeeNameCtrl: [''],
-      // operatingHACtrl: ['', Validators.required],
-      // hostingHACtrl: ['', Validators.required],
-      // locationCtrl: ['', Validators.required],
-      // noteCtrl: ['', Validators.required],
-      // multiEmployerCtrl: [''],
+      committeeNameCtrl: ['', Validators.required],
+      operatingHACtrl: ['', Validators.required],
+      hostingHACtrl: ['', Validators.required],
+      locationCtrl: ['', Validators.required],
+      multiEmployerCtrl: [false, Validators.required],
+      noteCtrl: ['', Validators.required],
 
       // lastNameCtrl: ['', Validators.required],
       // emailCtrl: ['', Validators.required],
     });
 
     this.secondFormGroup = this.formBuilder.group({
-      attendeeNumCtrl: [''],
-      // employerNumCtrl: ['', Validators.required],
-      // employeeNumCtrl: ['', Validators.required],
-      // fraserHealthCtrl: ['', Validators.required],
-      // hospitalUnionCtrl: ['', Validators.required],
-      // nurseUnionCtrl: ['', Validators.required],
-      // govServiceUnionCtrl: ['', Validators.required],
+      attendeeNumCtrl: ['', Validators.required],
+      employerNumCtrl: ['', Validators.required],
+      employeeNumCtrl: ['', Validators.required],
+      fraserHealthCtrl: ['', Validators.required],
+      hospitalUnionCtrl: ['', Validators.required],
+      nurseUnionCtrl: ['', Validators.required],
+      govServiceUnionCtrl: ['', Validators.required],
     });
 
     this.thirdFormGroup = this.formBuilder.group({
@@ -95,19 +106,39 @@ export class StepperFormComponent implements OnInit {
       employeeCoChairEmailCtrl: ['', Validators.required],
       employeeCoChairRepresentCtrl: ['', Validators.required],
     });
-
-    // this.firstFormGroup.statusChanges.subscribe((status) => {
-    //   if (status === 'VALID') {
-    //     // this.stepper.next();
-    //     console.log('first form is valid');
-    //   }
-    //   console.log(status);
-    // });
   }
 
+  // on last form filled up and clicked on review, show the summaries
   onLastCompleted() {
     console.log('onLastCompleted called');
     this.lastCompleted = true;
     this.lastState = 'done';
+
+    this.lastFormOn = !this.lastFormOn;
+    this.summaryOn = !this.summaryOn;
+  }
+
+  onFirstFormSubmit() {
+    if (this.firstFormGroup.status == 'VALID') {
+      this.committeeInfo = this.firstFormGroup.value;
+      console.log(this.committeeInfo);
+      this.stepper.next();
+    }
+  }
+
+  onSecondFormSubmit() {
+    if (this.secondFormGroup.status == 'VALID') {
+      this.termsOfRef = this.secondFormGroup.value;
+      console.log(this.termsOfRef);
+      this.stepper.next();
+    }
+  }
+
+  onThirdFormSubmit() {
+    if (this.thirdFormGroup.status == 'VALID') {
+      this.committeeCochairs = this.thirdFormGroup.value;
+      console.log(this.committeeCochairs);
+      this.onLastCompleted();
+    }
   }
 }
