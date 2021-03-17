@@ -252,7 +252,9 @@
     </form>
 
     <div *ngIf="summaryOn">
-      <app-section-summary> </app-section-summary>
+      <app-section-summary
+        [sectionSummaries]="formSectionInfo"
+      ></app-section-summary>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

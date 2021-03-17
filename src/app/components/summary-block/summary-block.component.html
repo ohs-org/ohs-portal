@@ -1,4 +1,4 @@
-<mat-card class="container">
+<mat-card class="card-container">
   <div class="row">
     <div class="col-9 title">{{ sectionSummary.title }}</div>
     <div class="col-3">
@@ -12,8 +12,8 @@
     </div>
     <div class="col-12">
       <div class="row" *ngFor="let field of section.fields">
-        <div class="col-9">{{ field.fieldName }}</div>
-        <div class="col-3">{{ field.value }}</div>
+        <div class="col-10">{{ field.fieldName }}</div>
+        <div class="col-2">{{ field.value }}</div>
       </div>
     </div>
   </div>
