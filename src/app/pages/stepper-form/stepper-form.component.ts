@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // for step progress bar
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { MatStepper } from '@angular/material/stepper';
+import { FormSummary } from './../../../assets/data-type/form-summary';
 
 @Component({
   selector: 'app-stepper-form',
@@ -34,10 +35,8 @@ export class StepperFormComponent implements OnInit {
   lastFormOn: boolean;
   summaryOn: boolean;
 
-  // section summary
-  committeeInfo;
-  termsOfRef;
-  committeeCochairs;
+  // section summary array
+  formSectionInfo: FormSummary[] = [];
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -113,31 +112,143 @@ export class StepperFormComponent implements OnInit {
     console.log('onLastCompleted called');
     this.lastCompleted = true;
     this.lastState = 'done';
-
     this.lastFormOn = !this.lastFormOn;
     this.summaryOn = !this.summaryOn;
   }
 
   onFirstFormSubmit() {
     if (this.firstFormGroup.status == 'VALID') {
-      this.committeeInfo = this.firstFormGroup.value;
-      console.log(this.committeeInfo);
+      const committeeInfo = this.firstFormGroup.value;
+      this.formSectionInfo.push({
+        title: 'Committee information',
+        sections: [
+          {
+            sectionName: '',
+            fields: [
+              {
+                fieldName: 'Committee Name',
+                value: committeeInfo.committeeNameCtrl,
+              },
+              {
+                fieldName: 'Operating health authority',
+                value: committeeInfo.operatingHACtrl,
+              },
+              {
+                fieldName: 'Hosting health authority',
+                value: committeeInfo.hostingHACtrl,
+              },
+              {
+                fieldName: 'Base location of committee',
+                value: committeeInfo.locationCtrl,
+              },
+              {
+                fieldName: 'Multi-Employer',
+                value: committeeInfo.multiEmployerCtrl ? 'Yes' : 'No',
+              },
+              { fieldName: 'Notes', value: committeeInfo.noteCtrl },
+            ],
+          },
+        ],
+      });
+      console.log(this.formSectionInfo);
       this.stepper.next();
     }
   }
 
   onSecondFormSubmit() {
     if (this.secondFormGroup.status == 'VALID') {
-      this.termsOfRef = this.secondFormGroup.value;
-      console.log(this.termsOfRef);
+      const termsOfRef = this.secondFormGroup.value;
+      this.formSectionInfo.push({
+        title: 'Terms of Reference',
+        sections: [
+          {
+            sectionName: 'Quroum',
+            fields: [
+              {
+                fieldName: 'Minimum # of attendees',
+                value: termsOfRef.attendeeNumCtrl,
+              },
+              {
+                fieldName: 'Minimum # of employers',
+                value: termsOfRef.employerNumCtrl,
+              },
+              {
+                fieldName: 'Minimum # of employees',
+                value: termsOfRef.employeeNumCtrl,
+              },
+            ],
+          },
+          {
+            sectionName: 'Representation structure',
+            fields: [
+              {
+                fieldName: 'Fraser Health Authority',
+                value: termsOfRef.fraserHealthCtrl,
+              },
+              {
+                fieldName: 'Hospital Employees’ Union',
+                value: termsOfRef.hospitalUnionCtrl,
+              },
+              {
+                fieldName: 'BC Nurses’ Union',
+                value: termsOfRef.nurseUnionCtrl,
+              },
+              {
+                fieldName: 'BC Government and Service Employees’ Union',
+                value: termsOfRef.govServiceUnionCtrl,
+              },
+            ],
+          },
+        ],
+      });
+      console.log(this.formSectionInfo);
       this.stepper.next();
     }
   }
 
   onThirdFormSubmit() {
     if (this.thirdFormGroup.status == 'VALID') {
-      this.committeeCochairs = this.thirdFormGroup.value;
-      console.log(this.committeeCochairs);
+      const committeeCochairs = this.thirdFormGroup.value;
+      this.formSectionInfo.push({
+        title: 'Committee Co-chairs',
+        sections: [
+          {
+            sectionName: '',
+            fields: [
+              {
+                fieldName: 'Employer co-chair',
+                value: committeeCochairs.employerCoChairCtrl,
+              },
+              {
+                fieldName: 'Email',
+                value: committeeCochairs.employerCoChairEmailCtrl,
+              },
+              {
+                fieldName: 'Represents',
+                value: committeeCochairs.employerCoChairRepresentCtrl,
+              },
+            ],
+          },
+          {
+            sectionName: '',
+            fields: [
+              {
+                fieldName: 'Fraser Health Authority',
+                value: committeeCochairs.employeeCoChairCtrl,
+              },
+              {
+                fieldName: 'Email',
+                value: committeeCochairs.employeeCoChairEmailCtrl,
+              },
+              {
+                fieldName: 'Represents',
+                value: committeeCochairs.employeeCoChairRepresentCtrl,
+              },
+            ],
+          },
+        ],
+      });
+      console.log(this.formSectionInfo);
       this.onLastCompleted();
     }
   }
