@@ -7,10 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SummaryBlockComponent implements OnInit {
   @Input() sectionSummary;
+  @Input() fieldPortion: number;
+
+  valueWidth: number;
 
   constructor() {}
 
   ngOnInit(): void {
+    this.valueWidth = 12 - this.fieldPortion;
     console.log(this.sectionSummary);
+    console.log(this.fieldPortion);
+    console.log(this.valueWidth);
   }
 }
