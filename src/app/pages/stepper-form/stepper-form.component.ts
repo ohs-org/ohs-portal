@@ -121,14 +121,11 @@ export class StepperFormComponent implements OnInit {
       const committeeInfo = this.firstFormGroup.value;
       this.formSectionInfo.push({
         title: 'Committee information',
+        fieldUIPortion: 8,
         sections: [
           {
             sectionName: '',
             fields: [
-              {
-                fieldName: 'Committee Name',
-                value: committeeInfo.committeeNameCtrl,
-              },
               {
                 fieldName: 'Operating health authority',
                 value: committeeInfo.operatingHACtrl,
@@ -145,7 +142,6 @@ export class StepperFormComponent implements OnInit {
                 fieldName: 'Multi-Employer',
                 value: committeeInfo.multiEmployerCtrl ? 'Yes' : 'No',
               },
-              { fieldName: 'Notes', value: committeeInfo.noteCtrl },
             ],
           },
         ],
@@ -155,11 +151,45 @@ export class StepperFormComponent implements OnInit {
     }
   }
 
+  // {
+  //   title: 'Committee information',
+  //   fieldUIPortion: 6,
+  //   sections: [
+  //     {
+  //       sectionName: '',
+  //       fields: [
+  //         {
+  //           fieldName: 'Committee Name',
+  //           value: committeeInfo.committeeNameCtrl,
+  //         },
+  //         {
+  //           fieldName: 'Operating health authority',
+  //           value: committeeInfo.operatingHACtrl,
+  //         },
+  //         {
+  //           fieldName: 'Hosting health authority',
+  //           value: committeeInfo.hostingHACtrl,
+  //         },
+  //         {
+  //           fieldName: 'Base location of committee',
+  //           value: committeeInfo.locationCtrl,
+  //         },
+  //         {
+  //           fieldName: 'Multi-Employer',
+  //           value: committeeInfo.multiEmployerCtrl ? 'Yes' : 'No',
+  //         },
+  //         { fieldName: 'Notes', value: committeeInfo.noteCtrl },
+  //       ],
+  //     },
+  //   ],
+  // }
+
   onSecondFormSubmit() {
     if (this.secondFormGroup.status == 'VALID') {
       const termsOfRef = this.secondFormGroup.value;
       this.formSectionInfo.push({
         title: 'Terms of Reference',
+        fieldUIPortion: 11,
         sections: [
           {
             sectionName: 'Quroum',
@@ -211,6 +241,7 @@ export class StepperFormComponent implements OnInit {
       const committeeCochairs = this.thirdFormGroup.value;
       this.formSectionInfo.push({
         title: 'Committee Co-chairs',
+        fieldUIPortion: 5,
         sections: [
           {
             sectionName: '',

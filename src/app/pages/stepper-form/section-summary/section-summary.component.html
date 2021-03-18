@@ -5,6 +5,7 @@
   <app-summary-block
     *ngFor="let sectionSummary of sectionSummaries"
     [sectionSummary]="sectionSummary"
+    [fieldPortion]="sectionSummary.fieldUIPortion"
     class="summary-block"
   ></app-summary-block>
 </div>

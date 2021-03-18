@@ -10,5 +10,6 @@ export interface Section {
 
 export interface FormSummary {
   title: string;
+  fieldUIPortion: number;
   sections: Section[];
 }

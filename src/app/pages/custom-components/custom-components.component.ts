@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CustomComponentsComponent implements OnInit {
   termsOfRef = {
     title: 'Terms of Reference',
+    fieldUIPortion: 11,
     sections: [
       {
         sectionName: 'Quroum',
