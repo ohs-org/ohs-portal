@@ -5,7 +5,8 @@
   <app-summary-block
     *ngFor="let sectionSummary of sectionSummaries"
     [sectionSummary]="sectionSummary"
-    [fieldPortion]="sectionSummary.fieldUIPortion"
+    [fieldPortion]="sectionSummary.styles.fieldUIPortion"
+    [bgColor]="sectionSummary.styles.backgroundColor"
     class="summary-block"
   ></app-summary-block>
 </div>

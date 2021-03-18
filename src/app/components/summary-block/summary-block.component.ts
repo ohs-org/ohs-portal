@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SummaryBlockComponent implements OnInit {
   @Input() sectionSummary;
   @Input() fieldPortion: number;
+  @Input() bgColor;
 
   valuePortion: number;
   fieldClass: string;
@@ -20,9 +21,7 @@ export class SummaryBlockComponent implements OnInit {
     this.fieldClass = `col-${this.fieldPortion}`;
     this.valueClass = `col-${this.valuePortion}`;
 
-    console.log(this.sectionSummary);
-    console.log(this.fieldClass);
-    console.log(this.valueClass);
+    console.log(this.bgColor);
   }
 
   calculateFieldPortion() {
@@ -31,5 +30,11 @@ export class SummaryBlockComponent implements OnInit {
 
   calculateValuePortion() {
     return this.valueClass;
+  }
+
+  getBackgroundColor() {
+    return {
+      backgroundColor: this.bgColor,
+    };
   }
 }

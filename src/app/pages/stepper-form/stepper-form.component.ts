@@ -121,7 +121,10 @@ export class StepperFormComponent implements OnInit {
       const committeeInfo = this.firstFormGroup.value;
       this.formSectionInfo.push({
         title: 'Committee information',
-        fieldUIPortion: 8,
+        styles: {
+          fieldUIPortion: 8,
+          backgroundColor: '',
+        },
         sections: [
           {
             sectionName: '',
@@ -189,7 +192,10 @@ export class StepperFormComponent implements OnInit {
       const termsOfRef = this.secondFormGroup.value;
       this.formSectionInfo.push({
         title: 'Terms of Reference',
-        fieldUIPortion: 11,
+        styles: {
+          fieldUIPortion: 11,
+          backgroundColor: '#E1F5FE',
+        },
         sections: [
           {
             sectionName: 'Quroum',
@@ -241,7 +247,10 @@ export class StepperFormComponent implements OnInit {
       const committeeCochairs = this.thirdFormGroup.value;
       this.formSectionInfo.push({
         title: 'Committee Co-chairs',
-        fieldUIPortion: 5,
+        styles: {
+          fieldUIPortion: 5,
+          backgroundColor: '',
+        },
         sections: [
           {
             sectionName: '',
