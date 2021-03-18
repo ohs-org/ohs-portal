@@ -76,7 +76,7 @@ export class StepperFormComponent implements OnInit {
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 18); // age should be bigger than 18
 
     this.firstFormGroup = this.formBuilder.group({
-      committeeNameCtrl: ['', Validators.required],
+      committeeNameCtrl: [''],
       operatingHACtrl: ['', Validators.required],
       hostingHACtrl: ['', Validators.required],
       locationCtrl: ['', Validators.required],
@@ -96,6 +96,16 @@ export class StepperFormComponent implements OnInit {
       nurseUnionCtrl: ['', Validators.required],
       govServiceUnionCtrl: ['', Validators.required],
     });
+
+    // this.secondFormGroup = this.formBuilder.group({
+    //   attendeeNumCtrl: [''],
+    //   employerNumCtrl: [''],
+    //   employeeNumCtrl: [''],
+    //   fraserHealthCtrl: [''],
+    //   hospitalUnionCtrl: [''],
+    //   nurseUnionCtrl: [''],
+    //   govServiceUnionCtrl: [''],
+    // });
 
     this.thirdFormGroup = this.formBuilder.group({
       employerCoChairCtrl: ['', Validators.required],
