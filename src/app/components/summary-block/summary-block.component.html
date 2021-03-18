@@ -12,7 +12,14 @@
     </div>
     <div class="col-12">
       <div class="row" *ngFor="let field of section.fields">
-        <div [ngClass]="calculateFieldPortion()">{{ field.fieldName }}</div>
+        <div
+          [ngClass]="calculateFieldPortion()"
+          [ngStyle]="{
+            fontWeight: section.sectionName == '' ? 'bold' : 'normal'
+          }"
+        >
+          {{ field.fieldName }}
+        </div>
         <div [ngClass]="calculateValuePortion()">{{ field.value }}</div>
       </div>
     </div>

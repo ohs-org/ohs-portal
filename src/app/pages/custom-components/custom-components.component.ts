@@ -41,6 +41,37 @@ export class CustomComponentsComponent implements OnInit {
     ],
   };
 
+  committeeInfo = {
+    title: 'Committee information',
+    styles: {
+      fieldUIPortion: 8,
+      backgroundColor: '',
+    },
+    sections: [
+      {
+        sectionName: '',
+        fields: [
+          {
+            fieldName: 'Operating health authority',
+            value: 'phsa',
+          },
+          {
+            fieldName: 'Hosting health authority',
+            value: 'phsa',
+          },
+          {
+            fieldName: 'Base location of committee',
+            value: 'vancouver',
+          },
+          {
+            fieldName: 'Multi-Employer',
+            value: 'Yes',
+          },
+        ],
+      },
+    ],
+  };
+
   constructor() {}
 
   ngOnInit(): void {}

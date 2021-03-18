@@ -6,5 +6,12 @@
   >
   </app-summary-block>
 </div>
-<!-- <app-summary-block></app-summary-block>
-<app-summary-block></app-summary-block> -->
+
+<div style="margin: 25px auto; width: 23%">
+  <app-summary-block
+    [sectionSummary]="committeeInfo"
+    [fieldPortion]="committeeInfo.styles.fieldUIPortion"
+    [bgColor]="committeeInfo.styles.backgroundColor"
+  >
+  </app-summary-block>
+</div>

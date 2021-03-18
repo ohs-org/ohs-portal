@@ -20,8 +20,6 @@ export class SummaryBlockComponent implements OnInit {
     this.valuePortion = 12 - this.fieldPortion;
     this.fieldClass = `col-${this.fieldPortion}`;
     this.valueClass = `col-${this.valuePortion}`;
-
-    console.log(this.bgColor);
   }
 
   calculateFieldPortion() {

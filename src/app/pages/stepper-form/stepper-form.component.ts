@@ -109,7 +109,6 @@ export class StepperFormComponent implements OnInit {
 
   // on last form filled up and clicked on review, show the summaries
   onLastCompleted() {
-    console.log('onLastCompleted called');
     this.lastCompleted = true;
     this.lastState = 'done';
     this.lastFormOn = !this.lastFormOn;

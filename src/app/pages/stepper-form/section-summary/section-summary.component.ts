@@ -11,7 +11,5 @@ export class SectionSummaryComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.sectionSummaries);
-  }
+  ngOnInit(): void {}
 }
