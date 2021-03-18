@@ -23,7 +23,7 @@
         alt="OHS Solutions logo"
       />
     </mat-toolbar>
-    <app-nav-list></app-nav-list>
+    <app-nav-list (click)="drawer.toggle()"></app-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
