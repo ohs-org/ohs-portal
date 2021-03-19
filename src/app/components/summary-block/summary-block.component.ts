@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-summary-block',
@@ -9,6 +9,7 @@ export class SummaryBlockComponent implements OnInit {
   @Input() sectionSummary;
   @Input() fieldPortion: number;
   @Input() bgColor;
+  @Output() editClickEvent = new EventEmitter<number>();
 
   valuePortion: number;
   fieldClass: string;
@@ -34,5 +35,10 @@ export class SummaryBlockComponent implements OnInit {
     return {
       backgroundColor: this.bgColor,
     };
+  }
+
+// Emit sectionIndex to the Parent(stepper)
+  onEditClick() {
+    this.editClickEvent.emit(this.sectionSummary.stepperIndex);
   }
 }

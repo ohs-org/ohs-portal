@@ -34,6 +34,7 @@ export class StepperFormComponent implements OnInit {
 
   lastFormOn: boolean;
   summaryOn: boolean;
+  editmodeBtn: boolean;
 
   // section summary array
   formSectionInfo: FormSummary[] = [];
@@ -70,6 +71,7 @@ export class StepperFormComponent implements OnInit {
 
     this.lastFormOn = true;
     this.summaryOn = false;
+    this.editmodeBtn = false;
 
     this.minDate = new Date();
     this.maxDate = new Date();
@@ -128,8 +130,9 @@ export class StepperFormComponent implements OnInit {
   onFirstFormSubmit() {
     if (this.firstFormGroup.status == 'VALID') {
       const committeeInfo = this.firstFormGroup.value;
-      this.formSectionInfo.push({
+      const firstFormInfo = {
         title: 'Committee information',
+        stepperIndex: 0,
         styles: {
           fieldUIPortion: 8,
           backgroundColor: '',
@@ -157,7 +160,14 @@ export class StepperFormComponent implements OnInit {
             ],
           },
         ],
-      });
+      };
+
+      if(this.editmodeBtn){
+        this.formSectionInfo[0] = firstFormInfo;
+        this.stepper.selectedIndex = 2;
+      }else{
+        this.formSectionInfo.push(firstFormInfo);
+      }
       console.log(this.formSectionInfo);
       this.stepper.next();
     }
@@ -199,8 +209,9 @@ export class StepperFormComponent implements OnInit {
   onSecondFormSubmit() {
     if (this.secondFormGroup.status == 'VALID') {
       const termsOfRef = this.secondFormGroup.value;
-      this.formSectionInfo.push({
+      const secondFormInfo = {
         title: 'Terms of Reference',
+        stepperIndex: 1,
         styles: {
           fieldUIPortion: 11,
           backgroundColor: '#E1F5FE',
@@ -245,7 +256,13 @@ export class StepperFormComponent implements OnInit {
             ],
           },
         ],
-      });
+      };
+      if(this.editmodeBtn){
+        this.formSectionInfo[1] = secondFormInfo;
+        this.stepper.selectedIndex = 2;
+      }else{
+        this.formSectionInfo.push(secondFormInfo);
+      }
       console.log(this.formSectionInfo);
       this.stepper.next();
     }
@@ -254,8 +271,9 @@ export class StepperFormComponent implements OnInit {
   onThirdFormSubmit() {
     if (this.thirdFormGroup.status == 'VALID') {
       const committeeCochairs = this.thirdFormGroup.value;
-      this.formSectionInfo.push({
+      const thirdFormInfo = {
         title: 'Committee Co-chairs',
+        stepperIndex: 2,
         styles: {
           fieldUIPortion: 5,
           backgroundColor: '',
@@ -296,9 +314,31 @@ export class StepperFormComponent implements OnInit {
             ],
           },
         ],
-      });
+      };
+
+      if(this.editmodeBtn){
+        this.formSectionInfo[2] = thirdFormInfo;
+      }else{
+        this.formSectionInfo.push(thirdFormInfo);
+      }
+
       console.log(this.formSectionInfo);
       this.onLastCompleted();
+    }
+  }
+
+  handleEditClick(event) {
+    console.log(event);
+    if(event == 0) {
+      this.stepper.selectedIndex = 0; // not recommended but no other option
+      this.editmodeBtn = true;
+    } else if(event == 1){
+      this.stepper.previous();
+      this.editmodeBtn = true;
+    } else {
+      this.summaryOn = false;
+      this.lastFormOn = true;
+      this.editmodeBtn = true;
     }
   }
 }

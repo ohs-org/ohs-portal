@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CustomComponentsComponent implements OnInit {
   termsOfRef = {
     title: 'Terms of Reference',
+    stepperIndex: '1',
     fieldUIPortion: 11,
     sections: [
       {
@@ -43,6 +44,7 @@ export class CustomComponentsComponent implements OnInit {
 
   committeeInfo = {
     title: 'Committee information',
+    stepperIndex: '2',
     styles: {
       fieldUIPortion: 8,
       backgroundColor: '',

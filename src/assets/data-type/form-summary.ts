@@ -15,6 +15,7 @@ export interface SectionStyles {
 
 export interface FormSummary {
   title: string;
+  stepperIndex: number;
   styles: SectionStyles;
   sections: Section[];
 }

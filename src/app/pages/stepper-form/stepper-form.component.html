@@ -76,7 +76,7 @@
         <button mat-button color="primary" (click)="stepper.reset()">
           Cancel
         </button>
-        <button mat-flat-button color="primary">Next</button>
+        <button mat-flat-button color="primary">{{editmodeBtn? 'Save Changes':'Next'}}</button>
       </div>
     </form>
   </mat-step>
@@ -155,7 +155,7 @@
         <button mat-button color="primary" (click)="stepper.reset()">
           Cancel
         </button>
-        <button mat-flat-button color="primary">Next</button>
+        <button mat-flat-button color="primary">{{editmodeBtn? 'Save Changes':'Next'}}</button>
       </div>
     </form>
   </mat-step>
@@ -247,14 +247,27 @@
         <button mat-button color="primary" (click)="stepper.reset()">
           Cancel
         </button>
-        <button mat-flat-button color="primary">Review ></button>
+        <button mat-flat-button color="primary">{{editmodeBtn? 'Save Changes':'Review >'}}</button>
       </div>
     </form>
 
     <div *ngIf="summaryOn">
-      <app-section-summary
+      <div class="section-container">
+        <h2 class="stepper-title">
+          Review information entered for New Committee (VCH)
+        </h2>
+        <app-summary-block
+          *ngFor="let sectionSummary of formSectionInfo"
+          [sectionSummary]="sectionSummary"
+          [fieldPortion]="sectionSummary.styles.fieldUIPortion"
+          [bgColor]="sectionSummary.styles.backgroundColor"
+          (editClickEvent)="handleEditClick($event)"
+          class="summary-block"
+        ></app-summary-block>
+      </div>
+      <!-- <app-section-summary
         [sectionSummaries]="formSectionInfo"
-      ></app-section-summary>
+      ></app-section-summary> -->
     </div>
   </mat-step>
 </mat-horizontal-stepper>

@@ -27,6 +27,24 @@ mat-slide-toggle {
   }
 }
 
+.section-container {
+  //   border: 1px solid green;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  .stepper-title {
+    margin: 0 0 0 20px;
+  }
+  .summary-block {
+    display: flex;
+    float: left;
+    margin: 20px;
+    width: 30%;
+    min-width: 250px;
+  }
+}
+
+
 ::ng-deep {
   .custom-step-progress-bar {
     .mat-horizontal-stepper-header-container {
