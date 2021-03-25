@@ -28,6 +28,9 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -46,12 +49,14 @@ import { StepperFormComponent } from './pages/stepper-form/stepper-form.componen
 import { SectionSummaryComponent } from './pages/stepper-form/section-summary/section-summary.component';
 import { CustomComponentsComponent } from './pages/custom-components/custom-components.component';
 import { SummaryBlockComponent } from './components/summary-block/summary-block.component';
+import { ActionItemsComponent } from './pages/action-items/action-items.component';
 
 const appRoutes: Routes = [
   { path: '', component: ComponentsComponent },
   { path: 'custom', component: CustomComponentsComponent },
   { path: 'lists', component: TwoLineAvatarSelectionListComponent },
   { path: 'stepperform', component: StepperFormComponent },
+  { path: 'actionitem', component: ActionItemsComponent },
 ];
 
 @NgModule({
@@ -75,6 +80,7 @@ const appRoutes: Routes = [
     SectionSummaryComponent,
     CustomComponentsComponent,
     SummaryBlockComponent,
+    ActionItemsComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,6 +109,9 @@ const appRoutes: Routes = [
     MatStepperModule,
     FlexLayoutModule,
     MatCardModule,
+    MatTableModule,
+    MatSortModule,
+    MatChipsModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],

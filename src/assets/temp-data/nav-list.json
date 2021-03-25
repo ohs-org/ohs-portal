@@ -46,6 +46,11 @@
             "pageName": "Stepper Form",
             "pageIcon": "favorite",
             "routerLink": "/stepperform"
+          },
+          {
+            "pageName": "Action Items",
+            "pageIcon": "favorite",
+            "routerLink": "/actionitem"
           }
         ]
       },

@@ -1,0 +1,54 @@
+<div>
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="action-title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Action item</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">{{
+        element.actionItemTitle
+      }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="assignee">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Assigned to</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">
+        <mat-chip-list>
+          <mat-chip [ngStyle]="{ backgroundColor: element.color }">
+            {{ element.assignedTo }}<mat-icon matChipRemove>cancel</mat-icon>
+          </mat-chip>
+        </mat-chip-list>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Created</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">{{ element.created }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="due">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Due</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.due }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="priority">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Priority</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">{{ element.priority }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Status</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">{{ element.status }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
