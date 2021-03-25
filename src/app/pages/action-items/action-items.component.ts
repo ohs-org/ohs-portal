@@ -55,6 +55,10 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
         this.dataSource.data = Object.values(items);
       });
   }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
 //angular material table add buttons to the row: https://www.freakyjolly.com/angular-material-table-operations-using-dialog/#Update_HTML_Template
 // https://therichpost.com/angular-material-data-table-with-custom-button-click-event-functionality/
