@@ -31,6 +31,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -50,6 +51,7 @@ import { SectionSummaryComponent } from './pages/stepper-form/section-summary/se
 import { CustomComponentsComponent } from './pages/custom-components/custom-components.component';
 import { SummaryBlockComponent } from './components/summary-block/summary-block.component';
 import { ActionItemsComponent } from './pages/action-items/action-items.component';
+import { ButtonDropdownComponent } from './pages/action-items/button-dropdown/button-dropdown.component';
 
 const appRoutes: Routes = [
   { path: '', component: ComponentsComponent },
@@ -81,6 +83,7 @@ const appRoutes: Routes = [
     CustomComponentsComponent,
     SummaryBlockComponent,
     ActionItemsComponent,
+    ButtonDropdownComponent,
   ],
   imports: [
     BrowserModule,
@@ -112,6 +115,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatSortModule,
     MatChipsModule,
+    MatMenuModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],

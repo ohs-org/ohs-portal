@@ -1,0 +1,16 @@
+<button mat-stroked-button [matMenuTriggerFor]="menu">
+  {{ selected.label }}
+</button>
+<mat-menu #menu>
+  <p>Update Status</p>
+  <button mat-button disabled>{{ selected.label }}</button>
+  <ng-container *ngFor="let option of options">
+    <button
+      mat-stroked-button
+      *ngIf="option.id != selected.id"
+      (click)="handleUpdateStatus(option.id)"
+    >
+      {{ option.label }}
+    </button>
+  </ng-container>
+</mat-menu>
