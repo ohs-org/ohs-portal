@@ -59,6 +59,19 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  handleStatusUpdate(updatedStatus, actionElement) {
+    console.log(updatedStatus);
+    console.log(actionElement);
+    const foundIndex = this.dataSource.data.findIndex(
+      (action) => action.actionItemId == actionElement.actionItemId
+    );
+    this.dataSource.data[foundIndex] = {
+      ...actionElement,
+      status: updatedStatus,
+    };
+    // http request to update the status
+  }
 }
 //angular material table add buttons to the row: https://www.freakyjolly.com/angular-material-table-operations-using-dialog/#Update_HTML_Template
 // https://therichpost.com/angular-material-data-table-with-custom-button-click-event-functionality/

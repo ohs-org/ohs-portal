@@ -46,10 +46,17 @@
     </ng-container>
 
     <ng-container matColumnDef="status">
-      <mat-header-cell *matHeaderCellDef mat-sort-header
-        >Status</mat-header-cell
-      >
-      <mat-cell *matCellDef="let element">{{ element.status }}</mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Status
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <app-button-dropdown
+          selectedId="{{ element.status }}"
+          (statusUpdateEvent)="handleStatusUpdate($event, element)"
+        >
+        </app-button-dropdown>
+        <!-- {{ element.status }} -->
+      </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
