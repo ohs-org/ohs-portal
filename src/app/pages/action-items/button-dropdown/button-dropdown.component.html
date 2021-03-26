@@ -1,4 +1,8 @@
-<button mat-stroked-button [matMenuTriggerFor]="menu">
+<button
+  mat-stroked-button
+  [matMenuTriggerFor]="menu"
+  [ngStyle]="getSelectedColor()"
+>
   {{ selected.label }}
 </button>
 <mat-menu #menu class="btn-dropdown-container">
@@ -10,6 +14,7 @@
         mat-stroked-button
         *ngIf="option.id != selected.id"
         (click)="handleUpdateStatus(option.id)"
+        [ngStyle]="getButtonColor(option.color)"
       >
         {{ option.label }}
       </button>

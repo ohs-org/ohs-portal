@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { reduce } from 'rxjs/operators';
 import { ButtonDropdownItem } from './button-dropdown-item.model';
 
 @Component({
@@ -29,5 +30,19 @@ export class ButtonDropdownComponent implements OnInit {
   handleUpdateStatus(statusId) {
     this.selected = this.options.find((option) => option.id == statusId);
     this.statusUpdateEvent.emit(statusId);
+  }
+
+  getSelectedColor() {
+    return {
+      color: this.selected.color,
+      borderColor: this.selected.color,
+    };
+  }
+
+  getButtonColor(passedColor: string) {
+    return {
+      color: passedColor,
+      borderColor: passedColor,
+    };
   }
 }
