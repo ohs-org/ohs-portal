@@ -1,0 +1,21 @@
+::ng-deep {
+  .btn-dropdown-container {
+    width: 120px;
+
+    .title {
+      margin: 0 0;
+    }
+
+    .mat-button.mat-button-disabled.mat-button-disabled {
+      color: black;
+    }
+
+    button {
+      margin: 4px 0px;
+    }
+  }
+}
+
+button {
+  width: 100px;
+}
