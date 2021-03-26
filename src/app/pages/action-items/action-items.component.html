@@ -19,8 +19,14 @@
       >
       <mat-cell *matCellDef="let element">
         <mat-chip-list>
-          <mat-chip [ngStyle]="{ backgroundColor: element.color }">
-            {{ element.assignedTo }}<mat-icon matChipRemove>cancel</mat-icon>
+          <mat-chip
+            *ngIf="element.assignedTo != ''"
+            [ngStyle]="{ backgroundColor: element.color }"
+          >
+            {{ element.assignedTo }}
+            <mat-icon matChipRemove (click)="removeAssignee(element)"
+              >cancel</mat-icon
+            >
           </mat-chip>
         </mat-chip-list>
       </mat-cell>

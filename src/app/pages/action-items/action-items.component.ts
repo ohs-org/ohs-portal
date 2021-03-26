@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSort } from '@angular/material/sort';
@@ -72,6 +73,32 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
     };
     // http request to update the status
   }
+
+  removeAssignee(actionElement) {
+    const foundIndex = this.dataSource.data.findIndex(
+      (action) => action.actionItemId == actionElement.actionItemId
+    );
+
+    const dataCopy = this.dataSource.data;
+    dataCopy[foundIndex] = {
+      ...actionElement,
+      assignedTo: '',
+    };
+
+    this.dataSource.data = dataCopy;
+    // http request to update the assignedTo
+  }
 }
 //angular material table add buttons to the row: https://www.freakyjolly.com/angular-material-table-operations-using-dialog/#Update_HTML_Template
 // https://therichpost.com/angular-material-data-table-with-custom-button-click-event-functionality/
+
+// actionItemId: "2ba4d1f6-651a-4794-a0b5-10431d0d68ef"
+// actionItemTitle: "Highlander"
+// assignedTo: "Lauree Baccas"
+// color: "#2f7ce8"
+// created: "2021-01-11 04:35:58"
+// description: "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum."
+// due: "2020-09-13 12:26:54"
+// meetings: "2020-06-19 17:39:21"
+// priority: "high"
+// status: "assigned"
