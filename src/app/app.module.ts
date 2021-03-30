@@ -32,6 +32,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -52,6 +53,7 @@ import { CustomComponentsComponent } from './pages/custom-components/custom-comp
 import { SummaryBlockComponent } from './components/summary-block/summary-block.component';
 import { ActionItemsComponent } from './pages/action-items/action-items.component';
 import { ButtonDropdownComponent } from './pages/action-items/button-dropdown/button-dropdown.component';
+import { ActionItemEditComponent } from './pages/action-items/action-item-edit/action-item-edit.component';
 
 const appRoutes: Routes = [
   { path: '', component: ComponentsComponent },
@@ -84,6 +86,7 @@ const appRoutes: Routes = [
     SummaryBlockComponent,
     ActionItemsComponent,
     ButtonDropdownComponent,
+    ActionItemEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -116,6 +119,7 @@ const appRoutes: Routes = [
     MatSortModule,
     MatChipsModule,
     MatMenuModule,
+    MatDialogModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],

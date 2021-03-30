@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import {
@@ -47,6 +47,8 @@ export const MY_FORMATS = {
   ],
 })
 export class DatepickerComponent implements OnInit {
+  @Input() label: string;
+
   date = new FormControl(moment());
 
   constructor() {}

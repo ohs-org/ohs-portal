@@ -1,0 +1,35 @@
+.action-item-edit {
+  border: 1px solid salmon;
+  padding: 25px;
+}
+
+.center-full-width {
+  width: 90%;
+  margin: 0 auto;
+}
+
+mat-label {
+  font-weight: bold;
+}
+
+button {
+  margin: 0 8px;
+}
+
+.btn-container {
+  padding: 6px 8px;
+}
+
+::ng-deep .mat-form-field-infix {
+  padding: 0.4em 0px;
+}
+::ng-deep .mat-form-field-label-wrapper {
+  top: -1.5em;
+}
+
+::ng-deep
+  .mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.1em) scale(0.75);
+  width: 133.33333%;
+}

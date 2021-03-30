@@ -1,5 +1,5 @@
 <mat-form-field appearance="fill">
-  <mat-label>Date</mat-label>
+  <mat-label>{{ label ? label : "Date" }}</mat-label>
   <input
     matInput
     [matDatepicker]="picker"

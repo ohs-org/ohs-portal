@@ -8,9 +8,9 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Action item</mat-header-cell
       >
-      <mat-cell *matCellDef="let element">{{
-        element.actionItemTitle
-      }}</mat-cell>
+      <mat-cell *matCellDef="let element">
+        <a href="#">{{ element.actionItemTitle }}</a>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="assignee">
