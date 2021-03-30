@@ -19,12 +19,17 @@ export class DropdownComponent implements OnInit {
   @Input() required: boolean;
   @Input() errorMsg: string;
   @Input() appearance: string;
+  @Input() selected: string;
 
-  selected: string;
+  selected2 = '';
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.selected);
+    this.selected2 = this.options[0].value;
+    console.log(this.selected2);
+  }
 
   onSelectionChange(event) {
     console.log(event);

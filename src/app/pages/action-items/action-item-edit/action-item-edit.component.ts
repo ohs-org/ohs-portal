@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-action-item-edit',
@@ -21,7 +22,45 @@ export class ActionItemEditComponent implements OnInit {
     status: 'assigned',
   };
 
-  constructor() {}
+  statusOptions = [
+    { value: 'created', viewValue: 'created' },
+    { value: 'assigned', viewValue: 'assigned' },
+    { value: 'in-progress', viewValue: 'in-progress' },
+    { value: 'completed', viewValue: 'completed' },
+  ];
 
-  ngOnInit(): void {}
+  priorityOptions = [
+    { value: 'high', viewValue: 'high' },
+    { value: 'medium', viewValue: 'medium' },
+    { value: 'low', viewValue: 'low' },
+  ];
+
+  siteOptions = [
+    { value: 'fm-1', viewValue: 'Fraser 1 conference / Meeting Room' },
+    { value: 'fm-2', viewValue: 'Fraser 2 conference / Meeting Room' },
+    { value: 'fm-3', viewValue: 'Fraser 3 conference / Meeting Room' },
+    { value: 'fm-4', viewValue: 'Fraser 4 conference / Meeting Room' },
+    { value: 'fm-5', viewValue: 'Fraser 5 conference / Meeting Room' },
+    { value: 'fm-6', viewValue: 'Fraser 6 conference / Meeting Room' },
+  ];
+
+  editFormGroup: FormGroup;
+
+  constructor(private FormBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.editFormGroup = this.FormBuilder.group({
+      statusCtrl: [this.actionItem.status, Validators.required],
+      priorityCtrl: [this.actionItem.priority, Validators.required],
+      descCtrl: [this.actionItem.description],
+      siteCtrl: [],
+      assignToCtrl: [this.actionItem.assignedTo],
+      dueDateCtrl: [this.actionItem.due, Validators.required],
+    });
+  }
+
+  onEditFormSubmit() {
+    console.log('edit submitted');
+    console.log(this.editFormGroup);
+  }
 }

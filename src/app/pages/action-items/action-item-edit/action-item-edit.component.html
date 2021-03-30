@@ -1,110 +1,108 @@
 <div class="action-item-edit">
-  <h1 mat-dialog-title>{{ actionItem.actionItemTitle }}</h1>
-  <div mat-dialog-content>
-    <div class="row">
-      <mat-label class="col-6">Date and time created </mat-label>
-      <p class="col-5">{{ actionItem.created }}</p>
-    </div>
+  <form [formGroup]="editFormGroup" (ngSubmit)="onEditFormSubmit()">
+    <h1 mat-dialog-title>{{ actionItem.actionItemTitle }}</h1>
+    <div mat-dialog-content>
+      <div class="row">
+        <mat-label class="col-6">Date and time created </mat-label>
+        <p class="col-5">{{ actionItem.created }}</p>
+      </div>
 
-    <div class="row">
-      <mat-label class="col-6">Status</mat-label>
-      <div class="col-6">
+      <div class="row">
+        <mat-label class="col-6">Status</mat-label>
+        <div class="col-6">
+          <app-dropdown
+            appearance="fill"
+            [options]="statusOptions"
+            [control]="editFormGroup.get('statusCtrl')"
+          ></app-dropdown>
+        </div>
+      </div>
+
+      <div class="row">
+        <mat-label class="col-6">Priority</mat-label>
+        <div class="col-6">
+          <app-dropdown
+            appearance="fill"
+            [options]="priorityOptions"
+            [control]="editFormGroup.get('priorityCtrl')"
+          ></app-dropdown>
+        </div>
+      </div>
+
+      <div class="row">
+        <mat-label class="col-6">Associated meetings</mat-label>
+        <div class="col-6">
+          <p *ngFor="let meeting of actionItem.meetings">
+            <a href="#" *ngFor="let meeting of actionItem.meetings">{{
+              meeting
+            }}</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="fill" class="center-full-width">
+          <mat-label>Description of action item</mat-label>
+          <textarea
+            matInput
+            matTextareaAutosize="true"
+            matAutosizeMinRows="5"
+            [formControl]="editFormGroup.get('descCtrl')"
+          ></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
         <app-dropdown
-          [appearance]="fill"
+          label="Site"
+          appearance="fill"
+          [options]="siteOptions"
+          [control]="editFormGroup.get('siteCtrl')"
+          class="center-full-width"
+        ></app-dropdown>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="fill" class="center-full-width">
+          <mat-label>Assign to</mat-label>
+          <input matInput [formControl]="editFormGroup.get('assignToCtrl')" />
+        </mat-form-field>
+        <!-- <app-dropdown
+          label="Assign to (select)"
+          appearance="fill"
           [options]="[
             { value: 'option1', viewValue: 'o1' },
             { value: 'option2', viewValue: 'o2' },
             { value: 'option3', viewValue: 'o3' }
           ]"
-        ></app-dropdown>
+          class="center-full-width"
+        ></app-dropdown> -->
       </div>
-    </div>
 
-    <div class="row">
-      <mat-label class="col-6">Priority</mat-label>
-      <div class="col-6">
-        <app-dropdown
-          [appearance]="fill"
-          [options]="[
-            { value: 'option1', viewValue: 'o1' },
-            { value: 'option2', viewValue: 'o2' },
-            { value: 'option3', viewValue: 'o3' }
-          ]"
-        ></app-dropdown>
+      <div class="row">
+        <app-datepicker
+          label="Due date"
+          class="center-full-width"
+        ></app-datepicker>
       </div>
-    </div>
 
-    <div class="row">
-      <mat-label class="col-6">Associated meetings</mat-label>
-      <div class="col-6">
-        <p *ngFor="let meeting of actionItem.meetings">
-          <a href="#" *ngFor="let meeting of actionItem.meetings">{{
-            meeting
-          }}</a>
-        </p>
+      <div class="row justify-content-end mr-1">
+        <p>Attachments: <a href="#">Browse files</a></p>
       </div>
-    </div>
 
-    <div class="row">
-      <mat-form-field appearance="fill" class="center-full-width">
-        <mat-label>Description of action item</mat-label>
-        <textarea
-          matInput
-          matTextareaAutosize="true"
-          matAutosizeMinRows="5"
-        ></textarea>
-      </mat-form-field>
-    </div>
-
-    <div class="row">
-      <app-dropdown
-        label="Site"
-        [appearance]="fill"
-        [options]="[
-          { value: 'option1', viewValue: 'o1' },
-          { value: 'option2', viewValue: 'o2' },
-          { value: 'option3', viewValue: 'o3' }
-        ]"
-        class="center-full-width"
-      ></app-dropdown>
-    </div>
-
-    <div class="row">
-      <app-dropdown
-        label="Assign to (select)"
-        [appearance]="fill"
-        [options]="[
-          { value: 'option1', viewValue: 'o1' },
-          { value: 'option2', viewValue: 'o2' },
-          { value: 'option3', viewValue: 'o3' }
-        ]"
-        class="center-full-width"
-      ></app-dropdown>
-    </div>
-
-    <div class="row">
-      <app-datepicker
-        label="Due date"
-        class="center-full-width"
-      ></app-datepicker>
-    </div>
-
-    <div class="row justify-content-end mr-1">
-      <p>Attachments: <a href="#">Browse files</a></p>
-    </div>
-
-    <!-- <p>What's your favorite animal?</p>
+      <!-- <p>What's your favorite animal?</p>
   <mat-form-field>
     <mat-label>Favorite Animal</mat-label>
     <input matInput [(ngModel)]="data.animal" />
   </mat-form-field> -->
-  </div>
-  <div mat-dialog-actions class="row justify-content-end btn-container">
-    <button mat-stroked-button>Cancel</button>
-    <button mat-raised-button color="primary" cdkFocusInitial>Save</button>
-    <!-- <button mat-button (click)="onNoClick()">Cancel</button>
+    </div>
+    <div mat-dialog-actions class="row justify-content-end btn-container">
+      <button mat-stroked-button>Cancel</button>
+      <button mat-raised-button color="primary" cdkFocusInitial>Save</button>
+      <!-- <button mat-button (click)="onNoClick()">Cancel</button>
   <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>
     Save
   </button> -->
-  </div>
+    </div>
+  </form>
 </div>
