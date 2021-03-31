@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ActionItem } from './../action-item.model';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as moment from 'moment';
 @Component({
   selector: 'app-action-item-edit',
@@ -50,31 +52,40 @@ export class ActionItemEditComponent implements OnInit {
   dateCreated: string;
   dateMeetings: string;
 
-  constructor(private FormBuilder: FormBuilder) {}
+  constructor(
+    private FormBuilder: FormBuilder,
+    public dialogRef: MatDialogRef<ActionItemEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: ActionItem
+  ) {}
 
   ngOnInit(): void {
     this.createFormGroup();
-    this.dateCreated = moment(this.actionItem.created).format(
-      'MMM DD, YYYY, HH:mma'
+    this.dateCreated = moment(this.data.created).format('MMM DD, YYYY, h:mma');
+    this.dateMeetings = moment(this.data.meetings).format(
+      'MMM DD, YYYY, h:mma'
     );
-    this.dateMeetings = moment(this.actionItem.meetings).format(
-      'MMM DD, YYYY, HH:mma'
-    );
+    console.log('inside of data');
+
+    console.log(this.data);
   }
 
   createFormGroup() {
     this.editFormGroup = this.FormBuilder.group({
-      statusCtrl: [this.actionItem.status, Validators.required],
-      priorityCtrl: [this.actionItem.priority, Validators.required],
-      descCtrl: [this.actionItem.description],
+      statusCtrl: [this.data.status, Validators.required],
+      priorityCtrl: [this.data.priority, Validators.required],
+      descCtrl: [this.data.description],
       siteCtrl: [],
-      assignToCtrl: [this.actionItem.assignedTo],
-      dueDateCtrl: [this.actionItem.due, Validators.required],
+      assignToCtrl: [this.data.assignedTo],
+      dueDateCtrl: [this.data.due, Validators.required],
     });
   }
 
   onEditFormSubmit() {
     console.log('edit submitted');
     console.log(this.editFormGroup);
+  }
+
+  onCancelClick() {
+    this.dialogRef.close();
   }
 }

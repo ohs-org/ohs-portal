@@ -5,11 +5,16 @@
 
   <mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="action-title">
-      <mat-header-cell *matHeaderCellDef mat-sort-header
-        >Action item</mat-header-cell
-      >
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Action item
+      </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <a href="#">{{ element.actionItemTitle }}</a>
+        <span (click)="openEditDialog(element)">
+          {{ element.actionItemTitle }}
+        </span>
+        <!-- <a href="#" (click)="openEditDialog(element)">
+          {{ element.actionItemTitle }}
+        </a> -->
       </mat-cell>
     </ng-container>
 

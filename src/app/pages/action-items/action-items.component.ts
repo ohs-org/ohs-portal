@@ -1,9 +1,11 @@
+import { ActionItemEditComponent } from './action-item-edit/action-item-edit.component';
 import { element } from 'protractor';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActionItem } from './action-item.model';
+import { MatDialog } from '@angular/material/dialog';
 
 const ACTION_DATA: ActionItem[] = [
   {
@@ -39,7 +41,7 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.fetchActionItems();
@@ -87,6 +89,18 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
 
     this.dataSource.data = dataCopy;
     // http request to update the assignedTo
+  }
+
+  openEditDialog(actionElement): void {
+    const dialogRef = this.dialog.open(ActionItemEditComponent, {
+      width: '380px',
+      data: actionElement,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('dialog closed and result below');
+      console.log(result);
+    });
   }
 }
 //angular material table add buttons to the row: https://www.freakyjolly.com/angular-material-table-operations-using-dialog/#Update_HTML_Template
