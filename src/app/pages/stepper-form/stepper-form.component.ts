@@ -99,16 +99,6 @@ export class StepperFormComponent implements OnInit {
       govServiceUnionCtrl: ['', Validators.required],
     });
 
-    // this.secondFormGroup = this.formBuilder.group({
-    //   attendeeNumCtrl: [''],
-    //   employerNumCtrl: [''],
-    //   employeeNumCtrl: [''],
-    //   fraserHealthCtrl: [''],
-    //   hospitalUnionCtrl: [''],
-    //   nurseUnionCtrl: [''],
-    //   govServiceUnionCtrl: [''],
-    // });
-
     this.thirdFormGroup = this.formBuilder.group({
       employerCoChairCtrl: ['', Validators.required],
       employerCoChairEmailCtrl: ['', Validators.required],
@@ -172,39 +162,6 @@ export class StepperFormComponent implements OnInit {
       this.stepper.next();
     }
   }
-
-  // {
-  //   title: 'Committee information',
-  //   fieldUIPortion: 6,
-  //   sections: [
-  //     {
-  //       sectionName: '',
-  //       fields: [
-  //         {
-  //           fieldName: 'Committee Name',
-  //           value: committeeInfo.committeeNameCtrl,
-  //         },
-  //         {
-  //           fieldName: 'Operating health authority',
-  //           value: committeeInfo.operatingHACtrl,
-  //         },
-  //         {
-  //           fieldName: 'Hosting health authority',
-  //           value: committeeInfo.hostingHACtrl,
-  //         },
-  //         {
-  //           fieldName: 'Base location of committee',
-  //           value: committeeInfo.locationCtrl,
-  //         },
-  //         {
-  //           fieldName: 'Multi-Employer',
-  //           value: committeeInfo.multiEmployerCtrl ? 'Yes' : 'No',
-  //         },
-  //         { fieldName: 'Notes', value: committeeInfo.noteCtrl },
-  //       ],
-  //     },
-  //   ],
-  // }
 
   onSecondFormSubmit() {
     if (this.secondFormGroup.status == 'VALID') {
