@@ -4,7 +4,7 @@
     <div mat-dialog-content>
       <div class="row">
         <mat-label class="col-6">Date and time created </mat-label>
-        <p class="col-5">{{ actionItem.created }}</p>
+        <p class="col-5">{{ dateCreated }}</p>
       </div>
 
       <div class="row">
@@ -32,11 +32,15 @@
       <div class="row">
         <mat-label class="col-6">Associated meetings</mat-label>
         <div class="col-6">
-          <p *ngFor="let meeting of actionItem.meetings">
+          <p>
+            <a href="#">{{ dateMeetings }}</a>
+          </p>
+
+          <!-- <p *ngFor="let meeting of actionItem.meetings">
             <a href="#" *ngFor="let meeting of actionItem.meetings">{{
               meeting
             }}</a>
-          </p>
+          </p> -->
         </div>
       </div>
 
@@ -83,6 +87,7 @@
         <app-datepicker
           label="Due date"
           class="center-full-width"
+          [control]="editFormGroup.get('dueDateCtrl')"
         ></app-datepicker>
       </div>
 

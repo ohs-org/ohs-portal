@@ -48,17 +48,21 @@ export const MY_FORMATS = {
 })
 export class DatepickerComponent implements OnInit {
   @Input() label: string;
+  @Input() control: FormControl;
 
-  date = new FormControl(moment());
+  selectedDate: string;
+  dateFormCtrl: FormControl;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dateFormCtrl = this.control ? this.control : new FormControl();
+  }
 
   onDateChange(event) {
-    const moment = event.value; // type will be moment
-    if (moment) {
-      console.log('Date Selected: ' + moment.toDate());
+    const selectedDate = event.value; // type will be moment
+    if (selectedDate) {
+      console.log('Date Selected: ' + selectedDate.toDate());
     }
   }
 }

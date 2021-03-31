@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-action-item-edit',
   templateUrl: './action-item-edit.component.html',
@@ -14,7 +14,7 @@ export class ActionItemEditComponent implements OnInit {
     created: '2020-08-21 11:28:14',
     due: '2021-04-15 12:38:11',
     priority: 'medium',
-    meetings: ['2020-05-25 13:11:18', '2020-05-12 10:00:00'],
+    meetings: '2020-05-25 13:11:18',
     description:
       'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.',
     assignedTo: 'Ami Childes',
@@ -46,9 +46,23 @@ export class ActionItemEditComponent implements OnInit {
 
   editFormGroup: FormGroup;
 
+  // for date string format
+  dateCreated: string;
+  dateMeetings: string;
+
   constructor(private FormBuilder: FormBuilder) {}
 
   ngOnInit(): void {
+    this.createFormGroup();
+    this.dateCreated = moment(this.actionItem.created).format(
+      'MMM DD, YYYY, HH:mm'
+    );
+    this.dateMeetings = moment(this.actionItem.meetings).format(
+      'MMM DD, YYYY, HH:mm'
+    );
+  }
+
+  createFormGroup() {
     this.editFormGroup = this.FormBuilder.group({
       statusCtrl: [this.actionItem.status, Validators.required],
       priorityCtrl: [this.actionItem.priority, Validators.required],

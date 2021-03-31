@@ -1,8 +1,8 @@
+import { FormSummary } from './../../data-types/form-summary';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // for step progress bar
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { MatStepper } from '@angular/material/stepper';
-import { FormSummary } from './../../../assets/data-type/form-summary';
 
 @Component({
   selector: 'app-stepper-form',
@@ -162,10 +162,10 @@ export class StepperFormComponent implements OnInit {
         ],
       };
 
-      if(this.editmodeBtn){
+      if (this.editmodeBtn) {
         this.formSectionInfo[0] = firstFormInfo;
         this.stepper.selectedIndex = 2;
-      }else{
+      } else {
         this.formSectionInfo.push(firstFormInfo);
       }
       console.log(this.formSectionInfo);
@@ -257,10 +257,10 @@ export class StepperFormComponent implements OnInit {
           },
         ],
       };
-      if(this.editmodeBtn){
+      if (this.editmodeBtn) {
         this.formSectionInfo[1] = secondFormInfo;
         this.stepper.selectedIndex = 2;
-      }else{
+      } else {
         this.formSectionInfo.push(secondFormInfo);
       }
       console.log(this.formSectionInfo);
@@ -316,9 +316,9 @@ export class StepperFormComponent implements OnInit {
         ],
       };
 
-      if(this.editmodeBtn){
+      if (this.editmodeBtn) {
         this.formSectionInfo[2] = thirdFormInfo;
-      }else{
+      } else {
         this.formSectionInfo.push(thirdFormInfo);
       }
 
@@ -329,10 +329,10 @@ export class StepperFormComponent implements OnInit {
 
   handleEditClick(event) {
     console.log(event);
-    if(event == 0) {
+    if (event == 0) {
       this.stepper.selectedIndex = 0; // not recommended but no other option
       this.editmodeBtn = true;
-    } else if(event == 1){
+    } else if (event == 1) {
       this.stepper.previous();
       this.editmodeBtn = true;
     } else {
