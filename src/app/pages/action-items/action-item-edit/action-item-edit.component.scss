@@ -1,25 +1,40 @@
+@import "./../../../../scss/config";
+
 .action-item-edit {
-  border: 1px solid salmon;
-  padding: 25px;
+  .action-item-edit-header {
+    background-color: $ohs-theme-primary;
+    padding: 10px 25px;
+
+    h1 {
+      margin-bottom: 0.4rem;
+      margin-top: 0.4rem;
+      color: white;
+    }
+  }
+
+  .action-item-edit-contents {
+    padding: 25px;
+
+    mat-label {
+      font-weight: bold;
+    }
+
+    .center-full-width {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+  .btn-container {
+    padding: 0 25px 25px 25px;
+
+    button {
+      margin: 0 8px;
+    }
+  }
 }
 
-.center-full-width {
-  width: 90%;
-  margin: 0 auto;
-}
-
-mat-label {
-  font-weight: bold;
-}
-
-button {
-  margin: 0 8px;
-}
-
-.btn-container {
-  padding: 6px 8px;
-}
-
+// smaller mat-input overwrite
 ::ng-deep {
   .smaller-formfield {
     .mat-form-field-infix {

@@ -1,10 +1,12 @@
 <div class="action-item-edit">
   <form [formGroup]="editFormGroup" (ngSubmit)="onEditFormSubmit()">
-    <h1 mat-dialog-title>{{ actionItem.actionItemTitle }}</h1>
-    <div mat-dialog-content>
+    <div class="action-item-edit-header">
+      <h1>{{ actionItem.actionItemTitle }}</h1>
+    </div>
+    <div mat-dialog-content class="action-item-edit-contents">
       <div class="row">
         <mat-label class="col-6">Date and time created </mat-label>
-        <p class="col-5">{{ dateCreated }}</p>
+        <p class="col-6">{{ dateCreated }}</p>
       </div>
 
       <div class="row smaller-formfield">
@@ -102,7 +104,7 @@
   </mat-form-field> -->
     </div>
     <div mat-dialog-actions class="row justify-content-end btn-container">
-      <button mat-stroked-button>Cancel</button>
+      <button mat-stroked-button color="primary">Cancel</button>
       <button mat-raised-button color="primary" cdkFocusInitial>Save</button>
       <!-- <button mat-button (click)="onNoClick()">Cancel</button>
   <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>

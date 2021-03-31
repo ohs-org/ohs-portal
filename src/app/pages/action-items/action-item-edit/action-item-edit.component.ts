@@ -55,10 +55,10 @@ export class ActionItemEditComponent implements OnInit {
   ngOnInit(): void {
     this.createFormGroup();
     this.dateCreated = moment(this.actionItem.created).format(
-      'MMM DD, YYYY, HH:mm'
+      'MMM DD, YYYY, HH:mma'
     );
     this.dateMeetings = moment(this.actionItem.meetings).format(
-      'MMM DD, YYYY, HH:mm'
+      'MMM DD, YYYY, HH:mma'
     );
   }
 
