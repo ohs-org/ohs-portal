@@ -1,11 +1,13 @@
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ActionItemEditComponent } from './action-item-edit/action-item-edit.component';
 import { element } from 'protractor';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ActionItem } from './action-item.model';
 import { MatDialog } from '@angular/material/dialog';
+import * as moment from 'moment';
 
 const ACTION_DATA: ActionItem[] = [
   {
@@ -29,6 +31,9 @@ const ACTION_DATA: ActionItem[] = [
   styleUrls: ['./action-items.component.scss'],
 })
 export class ActionItemsComponent implements OnInit, AfterViewInit {
+  @ViewChild(MatTable) table: MatTable<any>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   displayedColumns: string[] = [
     'action-title',
     'assignee',
@@ -38,6 +43,7 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
     'status',
   ];
   dataSource = new MatTableDataSource<ActionItem>();
+  tempDataSource;
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -49,6 +55,7 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   fetchActionItems() {
@@ -56,6 +63,7 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
       .get('../../../assets/temp-data/action-items.json')
       .subscribe((items) => {
         this.dataSource.data = Object.values(items);
+        this.tempDataSource = Object.values(items);
       });
   }
 
@@ -77,18 +85,18 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   }
 
   removeAssignee(actionElement) {
+    // create custom datasource - for sorting...
     const foundIndex = this.dataSource.data.findIndex(
       (action) => action.actionItemId == actionElement.actionItemId
     );
 
-    const dataCopy = this.dataSource.data;
-    dataCopy[foundIndex] = {
+    this.dataSource.data[foundIndex] = {
       ...actionElement,
       assignedTo: '',
     };
 
-    this.dataSource.data = dataCopy;
-    // http request to update the assignedTo
+    this.dataSource._updateChangeSubscription();
+    // http request to update the assignee
   }
 
   openEditDialog(actionElement): void {
@@ -98,21 +106,16 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('dialog closed and result below');
-      console.log(result);
+      const foundIndex = this.dataSource.data.findIndex(
+        (action) => action.actionItemId == result.actionItemId
+      );
+      this.dataSource.data[foundIndex] = result;
+      this.table.renderRows();
+      console.log(this.dataSource.data[foundIndex]);
+      this.dataSource._updateChangeSubscription();
     });
   }
 }
-//angular material table add buttons to the row: https://www.freakyjolly.com/angular-material-table-operations-using-dialog/#Update_HTML_Template
-// https://therichpost.com/angular-material-data-table-with-custom-button-click-event-functionality/
 
-// actionItemId: "2ba4d1f6-651a-4794-a0b5-10431d0d68ef"
-// actionItemTitle: "Highlander"
-// assignedTo: "Lauree Baccas"
-// color: "#2f7ce8"
-// created: "2021-01-11 04:35:58"
-// description: "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum."
-// due: "2020-09-13 12:26:54"
-// meetings: "2020-06-19 17:39:21"
-// priority: "high"
-// status: "assigned"
+// custom dataSource ref: https://stackoverflow.com/questions/57055587/set-custom-data-source-for-angular-material-table-in-angular-7
+// example: https://blog.angular-university.io/angular-material-data-table/

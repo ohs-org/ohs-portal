@@ -1,5 +1,5 @@
 <div class="action-item-edit">
-  <form [formGroup]="editFormGroup" (ngSubmit)="onEditFormSubmit()">
+  <form [formGroup]="editFormGroup">
     <div class="action-item-edit-header">
       <h1>{{ data.actionItemTitle }}</h1>
     </div>
@@ -111,7 +111,7 @@
         mat-raised-button
         color="primary"
         cdkFocusInitial
-        [mat-dialog-close]=""
+        [mat-dialog-close]="onEditFormSave()"
       >
         Save
       </button>

@@ -9,21 +9,6 @@ import * as moment from 'moment';
   styleUrls: ['./action-item-edit.component.scss'],
 })
 export class ActionItemEditComponent implements OnInit {
-  // receive input action item object
-  actionItem = {
-    actionItemId: 'cdcf0775-98cb-4c41-9308-8b22fd4a9e32',
-    actionItemTitle: 'Jerusalem',
-    created: '2020-08-21 11:28:14',
-    due: '2021-04-15 12:38:11',
-    priority: 'medium',
-    meetings: '2020-05-25 13:11:18',
-    description:
-      'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.',
-    assignedTo: 'Ami Childes',
-    color: '#274725',
-    status: 'assigned',
-  };
-
   statusOptions = [
     { value: 'created', viewValue: 'created' },
     { value: 'assigned', viewValue: 'assigned' },
@@ -80,9 +65,32 @@ export class ActionItemEditComponent implements OnInit {
     });
   }
 
-  onEditFormSubmit() {
-    console.log('edit submitted');
-    console.log(this.editFormGroup);
+  actionItem = {
+    actionItemId: 'cdcf0775-98cb-4c41-9308-8b22fd4a9e32',
+    actionItemTitle: 'Jerusalem',
+    created: '2020-08-21 11:28:14',
+    due: '2021-04-15 12:38:11',
+    priority: 'medium',
+    meetings: '2020-05-25 13:11:18',
+    description:
+      'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.',
+    assignedTo: 'Ami Childes',
+    color: '#274725',
+    status: 'assigned',
+  };
+
+  onEditFormSave() {
+    const updatedItems = this.editFormGroup.value;
+    // it is not adding site info yet
+    this.data = {
+      ...this.data,
+      status: updatedItems.statusCtrl,
+      priority: updatedItems.priorityCtrl,
+      description: updatedItems.descCtrl,
+      assignedTo: updatedItems.assignToCtrl,
+      due: updatedItems.dueDateCtrl,
+    };
+    return this.data;
   }
 
   onCancelClick() {

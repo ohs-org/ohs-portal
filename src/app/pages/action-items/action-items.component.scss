@@ -1,3 +1,13 @@
-table {
-  width: 100%;
+.table {
+  width: 45%;
+
+  ::ng-deep {
+    .mat-paginator-range-label {
+      display: none;
+    }
+
+    .mat-paginator-page-size.ng-star-inserted {
+      display: none;
+    }
+  }
 }

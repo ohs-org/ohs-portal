@@ -1,9 +1,8 @@
-<div>
-  <div style="margin: 20px 0">
-    <app-search-bar (keyUpEvent)="applyFilter($event)"></app-search-bar>
-  </div>
-
-  <mat-table [dataSource]="dataSource" matSort>
+<div style="margin: 20px 0">
+  <app-search-bar (keyUpEvent)="applyFilter($event)"></app-search-bar>
+</div>
+<div class="table">
+  <mat-table [dataSource]="dataSource" matSort #table>
     <ng-container matColumnDef="action-title">
       <mat-header-cell *matHeaderCellDef mat-sort-header>
         Action item
@@ -73,4 +72,22 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>
+
+  <mat-paginator
+    appStylePaginator
+    [length]="dataSource.data.length"
+    [pageSize]="15"
+    showFirstLastButtons
+  >
+  </mat-paginator>
+
+  <!-- (page)="pageChangeEvent($event)" -->
+  <!-- <mat-paginator
+    [appStylePaginator]
+    showFirstLastButtons
+    [length]="dataSource.data.length"
+    [pageSize]="7"
+  ></mat-paginator> -->
 </div>
+<!-- paginator ref: https://stackblitz.com/edit/angular-8holwx?file=src%2Fapp%2Fmaterial-module.ts -->
+<!-- paginator ref: https://stackoverflow.com/questions/53646259/how-to-customize-mat-paginator-in-angular-material -->
