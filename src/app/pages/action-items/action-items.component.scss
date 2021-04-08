@@ -1,13 +1,56 @@
-.table {
-  width: 45%;
+.action-items-page {
+  padding: 0em 4em;
 
-  ::ng-deep {
-    .mat-paginator-range-label {
-      display: none;
+  .search-bar-container {
+    padding: 10px 0px 20px 0px;
+    max-width: 1000px;
+    margin: auto;
+
+    .search-bar {
     }
+  }
 
-    .mat-paginator-page-size.ng-star-inserted {
-      display: none;
+  .table-container {
+    display: flex;
+    // align-items: initial;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+
+    .table {
+      // width: 800px;
+      max-width: 1100px;
+      margin: 10px;
+      box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+        0 1px 3px 0 rgb(0 0 0 / 12%);
+      padding: 30px 20px 20px 20px;
+      border-radius: 4px;
+
+      ::ng-deep {
+        h2 {
+          margin: 0 0 0 24px;
+        }
+
+        .wider-cell {
+          flex: 2;
+        }
+
+        .mat-cell {
+          font-size: 12px;
+        }
+
+        .mat-chip {
+          font-size: 12px;
+        }
+
+        .mat-paginator-range-label {
+          display: none;
+        }
+
+        .mat-paginator-page-size.ng-star-inserted {
+          display: none;
+        }
+      }
     }
   }
 }

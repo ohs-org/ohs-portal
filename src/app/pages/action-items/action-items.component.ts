@@ -8,6 +8,7 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ActionItem } from './action-item.model';
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
+import { from } from 'rxjs';
 
 const ACTION_DATA: ActionItem[] = [
   {
@@ -33,6 +34,11 @@ const ACTION_DATA: ActionItem[] = [
 export class ActionItemsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild('completedPaginator') completedPaginator: MatPaginator;
+  @ViewChild('assignedToMePaginator') assignedToMePaginator: MatPaginator;
+  @ViewChild('assignedToOthersPaginator')
+  assignedToOthersPaginator: MatPaginator;
+  @ViewChild('longRunningPaginator') longRunningPaginator: MatPaginator;
 
   displayedColumns: string[] = [
     'action-title',
@@ -42,8 +48,15 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
     'priority',
     'status',
   ];
+
+  actionItems: ActionItem[] = [];
   dataSource = new MatTableDataSource<ActionItem>();
-  tempDataSource;
+
+  // table datasource
+  assignedToMeAI = new MatTableDataSource<ActionItem>();
+  assignedToOthersAI = new MatTableDataSource<ActionItem>();
+  completedAI = new MatTableDataSource<ActionItem>();
+  longRunningAI = new MatTableDataSource<ActionItem>();
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -56,6 +69,11 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+
+    this.completedAI.paginator = this.completedPaginator;
+    this.assignedToMeAI.paginator = this.assignedToMePaginator;
+    this.assignedToOthersAI.paginator = this.assignedToOthersPaginator;
+    this.longRunningAI.paginator = this.longRunningPaginator;
   }
 
   fetchActionItems() {
@@ -63,12 +81,35 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
       .get('../../../assets/temp-data/action-items.json')
       .subscribe((items) => {
         this.dataSource.data = Object.values(items);
-        this.tempDataSource = Object.values(items);
+
+        this.assignedToMeAI.data = this.dataSource.data;
+        this.assignedToMeAI.filter = 'Amber Lee';
+
+        this.assignedToOthersAI.data = this.dataSource.data;
+        this.longRunningAI.data = this.dataSource.data;
+
+        this.completedAI.data = this.dataSource.data;
+        this.completedAI.filter = 'completed';
+        // this.assignedToMeAI.data = this.dataSource.data;
+        // this.completedAI.data = this.dataSource.data;
+        // this.completedAI.filter = 'completed';
+        // const actionItemSource = from(this.actionItems);
+        // actionItemSource.subscribe((val) => {
+
+        // });
+        // this.dataSource.filter = 'completed';
       });
   }
 
+  onlyCompleted() {
+    this.dataSource.filter = 'completed';
+    return this.dataSource;
+  }
+
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    // this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.assignedToMeAI.filter = filterValue.trim().toLowerCase();
+    this.completedAI.filter = filterValue.trim().toLowerCase();
   }
 
   handleStatusUpdate(updatedStatus, actionElement) {
@@ -81,6 +122,16 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
       ...actionElement,
       status: updatedStatus,
     };
+
+    console.log('after status update');
+    console.log(this.dataSource.data[foundIndex]);
+
+    this.dataSource._updateChangeSubscription();
+    this.completedAI._updateChangeSubscription();
+    this.assignedToMeAI._updateChangeSubscription();
+    this.assignedToOthersAI._updateChangeSubscription();
+    this.longRunningAI._updateChangeSubscription();
+
     // http request to update the status
   }
 
@@ -96,6 +147,10 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
     };
 
     this.dataSource._updateChangeSubscription();
+    this.completedAI._updateChangeSubscription();
+    this.assignedToMeAI._updateChangeSubscription();
+    this.assignedToOthersAI._updateChangeSubscription();
+    this.longRunningAI._updateChangeSubscription();
     // http request to update the assignee
   }
 
@@ -113,9 +168,18 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
       this.table.renderRows();
       console.log(this.dataSource.data[foundIndex]);
       this.dataSource._updateChangeSubscription();
+      this.completedAI._updateChangeSubscription();
+      this.assignedToMeAI._updateChangeSubscription();
+      this.assignedToOthersAI._updateChangeSubscription();
+      this.longRunningAI._updateChangeSubscription();
     });
+  }
+
+  getDateFormat(date): string {
+    return moment(date).format('MMM DD, YYYY');
   }
 }
 
 // custom dataSource ref: https://stackoverflow.com/questions/57055587/set-custom-data-source-for-angular-material-table-in-angular-7
 // example: https://blog.angular-university.io/angular-material-data-table/
+// filter data by each column: https://sevriukovmk.medium.com/angular-mat-table-filter-2ead680c57bb

@@ -1,93 +1,384 @@
-<div style="margin: 20px 0">
-  <app-search-bar (keyUpEvent)="applyFilter($event)"></app-search-bar>
-</div>
-<div class="table">
-  <mat-table [dataSource]="dataSource" matSort #table>
-    <ng-container matColumnDef="action-title">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>
-        Action item
-      </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <span (click)="openEditDialog(element)">
-          {{ element.actionItemTitle }}
-        </span>
-        <!-- <a href="#" (click)="openEditDialog(element)">
+<div class="action-items-page">
+  <div class="search-bar-container">
+    <!-- style="margin: 20px 100px" -->
+    <app-search-bar
+      (keyUpEvent)="applyFilter($event)"
+      class="search-bar"
+    ></app-search-bar>
+  </div>
+  <div class="table-container">
+    <!-- Assigned to me table -->
+    <div class="table">
+      <h2>Action items assigned to me</h2>
+      <mat-table [dataSource]="assignedToMeAI" matSort #table>
+        <ng-container matColumnDef="action-title">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="wider-cell">
+            Action item
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="wider-cell">
+            <span (click)="openEditDialog(element)">
+              {{ element.actionItemTitle }}
+            </span>
+            <!-- <a href="#" (click)="openEditDialog(element)">
           {{ element.actionItemTitle }}
         </a> -->
-      </mat-cell>
-    </ng-container>
+          </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="assignee">
-      <mat-header-cell *matHeaderCellDef mat-sort-header
-        >Assigned to</mat-header-cell
-      >
-      <mat-cell *matCellDef="let element">
-        <mat-chip-list>
-          <mat-chip
-            *ngIf="element.assignedTo != ''"
-            [ngStyle]="{ backgroundColor: element.color }"
+        <ng-container matColumnDef="assignee">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="wider-cell"
+            >Assigned to</mat-header-cell
           >
-            {{ element.assignedTo }}
-            <mat-icon matChipRemove (click)="removeAssignee(element)"
-              >cancel</mat-icon
+          <mat-cell *matCellDef="let element" class="wider-cell">
+            <mat-chip-list>
+              <mat-chip
+                *ngIf="element.assignedTo != ''"
+                [ngStyle]="{ backgroundColor: element.color }"
+              >
+                {{ element.assignedTo }}
+                <mat-icon matChipRemove (click)="removeAssignee(element)"
+                  >cancel</mat-icon
+                >
+              </mat-chip>
+            </mat-chip-list>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="created">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Created</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{
+            getDateFormat(element.created)
+          }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="due">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Due</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{
+            getDateFormat(element.due)
+          }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="priority">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Priority</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{ element.priority }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Status
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <app-button-dropdown
+              selectedId="{{ element.status }}"
+              (statusUpdateEvent)="handleStatusUpdate($event, element)"
             >
-          </mat-chip>
-        </mat-chip-list>
-      </mat-cell>
-    </ng-container>
+            </app-button-dropdown>
+            <!-- {{ element.status }} -->
+          </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="created">
-      <mat-header-cell *matHeaderCellDef mat-sort-header
-        >Created</mat-header-cell
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+        ></mat-row>
+      </mat-table>
+
+      <mat-paginator
+        #assignedToMePaginator
+        appStylePaginator
+        [length]="assignedToMeAI.data.length"
+        [pageSize]="8"
+        showFirstLastButtons
       >
-      <mat-cell *matCellDef="let element">{{ element.created }}</mat-cell>
-    </ng-container>
+      </mat-paginator>
+    </div>
 
-    <ng-container matColumnDef="due">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Due</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{ element.due }}</mat-cell>
-    </ng-container>
+    <!-- Assigned to others table -->
+    <div class="table">
+      <h2>Action items assigned to others</h2>
+      <mat-table [dataSource]="assignedToOthersAI" matSort #table>
+        <ng-container matColumnDef="action-title">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="wider-cell">
+            Action item
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="wider-cell">
+            <span (click)="openEditDialog(element)">
+              {{ element.actionItemTitle }}
+            </span>
+            <!-- <a href="#" (click)="openEditDialog(element)">
+          {{ element.actionItemTitle }}
+        </a> -->
+          </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="priority">
-      <mat-header-cell *matHeaderCellDef mat-sort-header
-        >Priority</mat-header-cell
+        <ng-container matColumnDef="assignee">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="wider-cell"
+            >Assigned to</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element" class="wider-cell">
+            <mat-chip-list>
+              <mat-chip
+                *ngIf="element.assignedTo != ''"
+                [ngStyle]="{ backgroundColor: element.color }"
+              >
+                {{ element.assignedTo }}
+                <mat-icon matChipRemove (click)="removeAssignee(element)"
+                  >cancel</mat-icon
+                >
+              </mat-chip>
+            </mat-chip-list>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="created">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Created</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{
+            getDateFormat(element.created)
+          }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="due">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Due</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{
+            getDateFormat(element.due)
+          }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="priority">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Priority</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{ element.priority }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Status
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <app-button-dropdown
+              selectedId="{{ element.status }}"
+              (statusUpdateEvent)="handleStatusUpdate($event, element)"
+            >
+            </app-button-dropdown>
+            <!-- {{ element.status }} -->
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+        ></mat-row>
+      </mat-table>
+
+      <mat-paginator
+        #assignedToOthersPaginator
+        appStylePaginator
+        [length]="assignedToOthersAI.data.length"
+        [pageSize]="8"
+        showFirstLastButtons
       >
-      <mat-cell *matCellDef="let element">{{ element.priority }}</mat-cell>
-    </ng-container>
+      </mat-paginator>
+    </div>
 
-    <ng-container matColumnDef="status">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>
-        Status
-      </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <app-button-dropdown
-          selectedId="{{ element.status }}"
-          (statusUpdateEvent)="handleStatusUpdate($event, element)"
-        >
-        </app-button-dropdown>
-        <!-- {{ element.status }} -->
-      </mat-cell>
-    </ng-container>
+    <!-- completed table -->
+    <div class="table">
+      <h2>Completed action items</h2>
+      <mat-table [dataSource]="completedAI" matSort #table>
+        <ng-container matColumnDef="action-title">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="wider-cell">
+            Action item
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="wider-cell">
+            <span (click)="openEditDialog(element)">
+              {{ element.actionItemTitle }}
+            </span>
+            <!-- <a href="#" (click)="openEditDialog(element)">
+          {{ element.actionItemTitle }}
+        </a> -->
+          </mat-cell>
+        </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-  </mat-table>
+        <ng-container matColumnDef="assignee">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="wider-cell"
+            >Assigned to</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element" class="wider-cell">
+            <mat-chip-list>
+              <mat-chip
+                *ngIf="element.assignedTo != ''"
+                [ngStyle]="{ backgroundColor: element.color }"
+              >
+                {{ element.assignedTo }}
+                <mat-icon matChipRemove (click)="removeAssignee(element)"
+                  >cancel</mat-icon
+                >
+              </mat-chip>
+            </mat-chip-list>
+          </mat-cell>
+        </ng-container>
 
-  <mat-paginator
-    appStylePaginator
-    [length]="dataSource.data.length"
-    [pageSize]="15"
-    showFirstLastButtons
-  >
-  </mat-paginator>
+        <ng-container matColumnDef="created">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Created</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{
+            getDateFormat(element.created)
+          }}</mat-cell>
+        </ng-container>
 
-  <!-- (page)="pageChangeEvent($event)" -->
-  <!-- <mat-paginator
-    [appStylePaginator]
-    showFirstLastButtons
-    [length]="dataSource.data.length"
-    [pageSize]="7"
-  ></mat-paginator> -->
+        <ng-container matColumnDef="due">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Due</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{
+            getDateFormat(element.due)
+          }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="priority">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Priority</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{ element.priority }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Status
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <app-button-dropdown
+              selectedId="{{ element.status }}"
+              (statusUpdateEvent)="handleStatusUpdate($event, element)"
+            >
+            </app-button-dropdown>
+            <!-- {{ element.status }} -->
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+        ></mat-row>
+      </mat-table>
+
+      <mat-paginator
+        #completedPaginator
+        appStylePaginator
+        [length]="completedAI.data.length"
+        [pageSize]="8"
+        showFirstLastButtons
+      >
+      </mat-paginator>
+    </div>
+
+    <!-- long running table -->
+    <div class="table">
+      <h2>Long-running action items in the committee</h2>
+      <mat-table [dataSource]="longRunningAI" matSort #table>
+        <ng-container matColumnDef="action-title">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="wider-cell">
+            Action item
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="wider-cell">
+            <span (click)="openEditDialog(element)">
+              {{ element.actionItemTitle }}
+            </span>
+            <!-- <a href="#" (click)="openEditDialog(element)">
+          {{ element.actionItemTitle }}
+        </a> -->
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="assignee">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="wider-cell"
+            >Assigned to</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element" class="wider-cell">
+            <mat-chip-list>
+              <mat-chip
+                *ngIf="element.assignedTo != ''"
+                [ngStyle]="{ backgroundColor: element.color }"
+              >
+                {{ element.assignedTo }}
+                <mat-icon matChipRemove (click)="removeAssignee(element)"
+                  >cancel</mat-icon
+                >
+              </mat-chip>
+            </mat-chip-list>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="created">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Created</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{
+            getDateFormat(element.created)
+          }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="due">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Due</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{
+            getDateFormat(element.due)
+          }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="priority">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Priority</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element">{{ element.priority }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Status
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <app-button-dropdown
+              selectedId="{{ element.status }}"
+              (statusUpdateEvent)="handleStatusUpdate($event, element)"
+            >
+            </app-button-dropdown>
+            <!-- {{ element.status }} -->
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+        ></mat-row>
+      </mat-table>
+
+      <mat-paginator
+        #longRunningPaginator
+        appStylePaginator
+        [length]="longRunningAI.data.length"
+        [pageSize]="8"
+        showFirstLastButtons
+      >
+      </mat-paginator>
+    </div>
+  </div>
 </div>
 <!-- paginator ref: https://stackblitz.com/edit/angular-8holwx?file=src%2Fapp%2Fmaterial-module.ts -->
 <!-- paginator ref: https://stackoverflow.com/questions/53646259/how-to-customize-mat-paginator-in-angular-material -->
