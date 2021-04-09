@@ -60,8 +60,16 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   completedAI = new MatTableDataSource<ActionItem>();
   longRunningAI = new MatTableDataSource<ActionItem>();
 
-  // global filter value
-  filterValue: string = '';
+  // filter values obj for filters taking more than one value
+  assignedToMeFilterValues: any = {
+    assignedTo: 'Amber Lee',
+    searchFilter: '',
+  };
+
+  assignedToOthersFilterValues: any = {
+    assignedTo: 'Amber Lee',
+    searchFilter: '',
+  };
 
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
@@ -79,18 +87,23 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
     this.longRunningAI.paginator = this.longRunningPaginator;
   }
 
-  fetchActionItems() {
+  private fetchActionItems() {
     this.http
       .get('../../../assets/temp-data/action-items.json')
       .subscribe((items) => {
         this.dataSource.data = Object.values(items);
 
         this.assignedToMeAI.data = this.dataSource.data;
-        this.assignedToMeAI.filter = 'Amber Lee';
+        this.assignedToMeAI.filterPredicate = this.createAssignToMeFilter();
+        this.assignedToMeAI.filter = JSON.stringify(
+          this.assignedToMeFilterValues
+        );
 
         this.assignedToOthersAI.data = this.dataSource.data;
         this.assignedToOthersAI.filterPredicate = this.createAssignToOthersFilter();
-        this.assignedToOthersAI.filter = 'Amber Lee';
+        this.assignedToOthersAI.filter = JSON.stringify(
+          this.assignedToOthersFilterValues
+        );
 
         this.longRunningAI.data = this.dataSource.data;
         this.longRunningAI.filterPredicate = this.createLongRunningFilter();
@@ -99,25 +112,52 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
         this.completedAI.data = this.dataSource.data;
         this.completedAI.filterPredicate = this.createCompletedFilter();
         this.completedAI.filter = ' ';
-
-        // actionItemSource.subscribe((val) => {
-
-        // });
-        // this.dataSource.filter = 'completed';
       });
   }
 
-  createAssignToOthersFilter(): (
+  private createAssignToMeFilter(): (
     actionItem: ActionItem,
     filter: string
   ) => boolean {
     let filterFunction = function (actionItem, filter): boolean {
-      return actionItem.assignedTo != filter;
+      const filterObj = JSON.parse(filter);
+      console.log(filterObj.assignedTo);
+      console.log(actionItem.assignedTo == filterObj.assignedTo);
+      if (filterObj.searchFilter) {
+        return (
+          actionItem.assignedTo == filterObj.assignedTo &&
+          JSON.stringify(actionItem)
+            .trim()
+            .toLowerCase()
+            .includes(filterObj.searchFilter)
+        );
+      }
+      return actionItem.assignedTo == filterObj.assignedTo;
     };
     return filterFunction;
   }
 
-  createLongRunningFilter(): (
+  private createAssignToOthersFilter(): (
+    actionItem: ActionItem,
+    filter: string
+  ) => boolean {
+    let filterFunction = function (actionItem, filter): boolean {
+      const filterObj = JSON.parse(filter);
+      if (filterObj.searchFilter) {
+        return (
+          actionItem.assignedTo != filterObj.assignedTo &&
+          JSON.stringify(actionItem)
+            .trim()
+            .toLowerCase()
+            .includes(filterObj.searchFilter)
+        );
+      }
+      return actionItem.assignedTo != filterObj.assignedTo;
+    };
+    return filterFunction;
+  }
+
+  private createLongRunningFilter(): (
     actionItem: ActionItem,
     filter: string
   ) => boolean {
@@ -140,7 +180,10 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
     return filterFunction;
   }
 
-  createCompletedFilter(): (actionItem: ActionItem, filter: string) => boolean {
+  private createCompletedFilter(): (
+    actionItem: ActionItem,
+    filter: string
+  ) => boolean {
     let filterFunction = function (actionItem, filter): boolean {
       if (filter == ' ') {
         return actionItem.status == 'completed';
@@ -154,9 +197,13 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   }
 
   applyFilter(filterValue: string) {
-    // this.filterValue = filterValue;
-    // this.dataSource.filter = filterValue.trim().toLowerCase();
-    // this.assignedToMeAI.filter = filterValue.trim().toLowerCase();
+    this.assignedToMeFilterValues.searchFilter = filterValue;
+    this.assignedToMeAI.filter = JSON.stringify(this.assignedToMeFilterValues);
+
+    this.assignedToOthersFilterValues.searchFilter = filterValue;
+    this.assignedToOthersAI.filter = JSON.stringify(
+      this.assignedToOthersFilterValues
+    );
     this.longRunningAI.filter = filterValue.trim().toLowerCase();
     this.completedAI.filter = filterValue.trim().toLowerCase();
   }
