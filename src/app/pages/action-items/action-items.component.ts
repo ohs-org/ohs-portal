@@ -1,3 +1,4 @@
+import { FormControl } from '@angular/forms';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ActionItemEditComponent } from './action-item-edit/action-item-edit.component';
 import { element } from 'protractor';
@@ -34,6 +35,7 @@ const ACTION_DATA: ActionItem[] = [
 export class ActionItemsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   @ViewChild('completedPaginator') completedPaginator: MatPaginator;
   @ViewChild('assignedToMePaginator') assignedToMePaginator: MatPaginator;
   @ViewChild('assignedToOthersPaginator')
@@ -58,7 +60,9 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   completedAI = new MatTableDataSource<ActionItem>();
   longRunningAI = new MatTableDataSource<ActionItem>();
 
-  @ViewChild(MatSort) sort: MatSort;
+  filterValues: any = {
+    assignedTo: 'Amber Lee',
+  };
 
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
@@ -86,6 +90,9 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
         this.assignedToMeAI.filter = 'Amber Lee';
 
         this.assignedToOthersAI.data = this.dataSource.data;
+        this.assignedToOthersAI.filterPredicate = this.createFilter();
+        this.assignedToOthersAI.filter = 'Amber Lee';
+
         this.longRunningAI.data = this.dataSource.data;
 
         this.completedAI.data = this.dataSource.data;
@@ -99,6 +106,16 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
         // });
         // this.dataSource.filter = 'completed';
       });
+  }
+
+  createFilter(): (actionItem: ActionItem, filter: string) => boolean {
+    let filterFunction = function (actionItem, filter): boolean {
+      console.log(filter);
+      console.log(actionItem.assignedTo);
+      console.log(actionItem.assignedTo == filter);
+      return actionItem.assignedTo != filter;
+    };
+    return filterFunction;
   }
 
   onlyCompleted() {
@@ -183,3 +200,4 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
 // custom dataSource ref: https://stackoverflow.com/questions/57055587/set-custom-data-source-for-angular-material-table-in-angular-7
 // example: https://blog.angular-university.io/angular-material-data-table/
 // filter data by each column: https://sevriukovmk.medium.com/angular-mat-table-filter-2ead680c57bb
+// custom filter by each column: https://careydevelopment.us/blog/how-to-filter-on-specific-columns-with-filterpredicate-in-an-angular-material-table
