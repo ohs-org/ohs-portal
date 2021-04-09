@@ -23,7 +23,7 @@ export class StylePaginatorDirective implements AfterViewInit, DoCheck {
   ) {}
 
   private buildPageNumbers(pageCount, pageRange) {
-    console.log('buildPageNumbers');
+    // console.log('buildPageNumbers');
     let dots = false;
     const paglast = pageCount;
     const pagcurrent = this.matPag.pageIndex;
@@ -55,7 +55,7 @@ export class StylePaginatorDirective implements AfterViewInit, DoCheck {
   }
 
   private createPage(i: any, pageIndex: number): any {
-    console.log('createPage');
+    // console.log('createPage');
 
     const linkBtn = this.ren.createElement('mat-button');
     this.ren.addClass(linkBtn, 'mat-icon-button');
@@ -85,7 +85,7 @@ export class StylePaginatorDirective implements AfterViewInit, DoCheck {
   }
 
   private initPageRange(): void {
-    console.log('initPageRange');
+    // console.log('initPageRange');
     const pagingContainerMain = this.vr.element.nativeElement.querySelector(
       '.mat-paginator-range-actions'
     );
@@ -118,19 +118,19 @@ export class StylePaginatorDirective implements AfterViewInit, DoCheck {
   }
 
   private pageCount(length: number, pageSize: number): number {
-    console.log('pageCount');
+    // console.log('pageCount');
     return Math.floor(length / pageSize) + 1;
   }
 
   private switchPage(i: number): void {
-    console.log('switchPage');
+    // console.log('switchPage');
 
     this.matPag.pageIndex = i;
     this.matPag._changePageSize(this.matPag.pageSize);
   }
 
   public ngAfterViewInit() {
-    console.log('ngAfterViewInit');
+    // console.log('ngAfterViewInit');
 
     setTimeout(() => {
       this.directiveLoaded = true;
@@ -138,7 +138,7 @@ export class StylePaginatorDirective implements AfterViewInit, DoCheck {
   }
 
   public ngDoCheck() {
-    console.log('ngDoCheck');
+    // console.log('ngDoCheck');
 
     if (this.directiveLoaded) {
       this.initPageRange();
