@@ -60,6 +60,9 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   completedAI = new MatTableDataSource<ActionItem>();
   longRunningAI = new MatTableDataSource<ActionItem>();
 
+  // global filter value
+  filterValue: string = '';
+
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   ngOnInit(): void {
@@ -91,11 +94,11 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
 
         this.longRunningAI.data = this.dataSource.data;
         this.longRunningAI.filterPredicate = this.createLongRunningFilter();
-        this.longRunningAI.filter = 'completed';
+        this.longRunningAI.filter = ' ';
 
         this.completedAI.data = this.dataSource.data;
         this.completedAI.filterPredicate = this.createCompletedFilter();
-        this.completedAI.filter = 'completed';
+        this.completedAI.filter = ' ';
 
         // actionItemSource.subscribe((val) => {
 
@@ -114,13 +117,6 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
     return filterFunction;
   }
 
-  createCompletedFilter(): (actionItem: ActionItem, filter: string) => boolean {
-    let filterFunction = function (actionItem, filter): boolean {
-      return actionItem.status == filter;
-    };
-    return filterFunction;
-  }
-
   createLongRunningFilter(): (
     actionItem: ActionItem,
     filter: string
@@ -132,19 +128,36 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
         'months',
         true
       );
-      return difference > 8;
+
+      if (filter == ' ') {
+        return difference > 8;
+      }
+      return (
+        difference > 8 &&
+        JSON.stringify(actionItem).trim().toLowerCase().includes(filter)
+      );
     };
     return filterFunction;
   }
 
-  onlyCompleted() {
-    this.dataSource.filter = 'completed';
-    return this.dataSource;
+  createCompletedFilter(): (actionItem: ActionItem, filter: string) => boolean {
+    let filterFunction = function (actionItem, filter): boolean {
+      if (filter == ' ') {
+        return actionItem.status == 'completed';
+      }
+      return (
+        actionItem.status == 'completed' &&
+        JSON.stringify(actionItem).trim().toLowerCase().includes(filter)
+      );
+    };
+    return filterFunction;
   }
 
   applyFilter(filterValue: string) {
+    // this.filterValue = filterValue;
     // this.dataSource.filter = filterValue.trim().toLowerCase();
-    this.assignedToMeAI.filter = filterValue.trim().toLowerCase();
+    // this.assignedToMeAI.filter = filterValue.trim().toLowerCase();
+    this.longRunningAI.filter = filterValue.trim().toLowerCase();
     this.completedAI.filter = filterValue.trim().toLowerCase();
   }
 
