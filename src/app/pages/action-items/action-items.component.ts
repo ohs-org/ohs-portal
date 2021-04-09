@@ -90,14 +90,13 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
         this.assignedToOthersAI.filter = 'Amber Lee';
 
         this.longRunningAI.data = this.dataSource.data;
+        this.longRunningAI.filterPredicate = this.createLongRunningFilter();
+        this.longRunningAI.filter = 'completed';
 
         this.completedAI.data = this.dataSource.data;
         this.completedAI.filterPredicate = this.createCompletedFilter();
         this.completedAI.filter = 'completed';
-        // this.assignedToMeAI.data = this.dataSource.data;
-        // this.completedAI.data = this.dataSource.data;
-        // this.completedAI.filter = 'completed';
-        // const actionItemSource = from(this.actionItems);
+
         // actionItemSource.subscribe((val) => {
 
         // });
@@ -117,10 +116,23 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
 
   createCompletedFilter(): (actionItem: ActionItem, filter: string) => boolean {
     let filterFunction = function (actionItem, filter): boolean {
-      console.log(filter);
-      console.log(actionItem.status);
-      console.log(actionItem.status == filter);
       return actionItem.status == filter;
+    };
+    return filterFunction;
+  }
+
+  createLongRunningFilter(): (
+    actionItem: ActionItem,
+    filter: string
+  ) => boolean {
+    let filterFunction = function (actionItem, filter): boolean {
+      // if the action item last more than 8 month
+      let difference = moment(actionItem.due).diff(
+        moment(actionItem.created),
+        'months',
+        true
+      );
+      return difference > 8;
     };
     return filterFunction;
   }
