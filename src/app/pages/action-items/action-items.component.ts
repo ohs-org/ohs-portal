@@ -60,10 +60,6 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   completedAI = new MatTableDataSource<ActionItem>();
   longRunningAI = new MatTableDataSource<ActionItem>();
 
-  filterValues: any = {
-    assignedTo: 'Amber Lee',
-  };
-
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   ngOnInit(): void {
@@ -90,12 +86,13 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
         this.assignedToMeAI.filter = 'Amber Lee';
 
         this.assignedToOthersAI.data = this.dataSource.data;
-        this.assignedToOthersAI.filterPredicate = this.createFilter();
+        this.assignedToOthersAI.filterPredicate = this.createAssignToOthersFilter();
         this.assignedToOthersAI.filter = 'Amber Lee';
 
         this.longRunningAI.data = this.dataSource.data;
 
         this.completedAI.data = this.dataSource.data;
+        this.completedAI.filterPredicate = this.createCompletedFilter();
         this.completedAI.filter = 'completed';
         // this.assignedToMeAI.data = this.dataSource.data;
         // this.completedAI.data = this.dataSource.data;
@@ -108,12 +105,22 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
       });
   }
 
-  createFilter(): (actionItem: ActionItem, filter: string) => boolean {
+  createAssignToOthersFilter(): (
+    actionItem: ActionItem,
+    filter: string
+  ) => boolean {
+    let filterFunction = function (actionItem, filter): boolean {
+      return actionItem.assignedTo != filter;
+    };
+    return filterFunction;
+  }
+
+  createCompletedFilter(): (actionItem: ActionItem, filter: string) => boolean {
     let filterFunction = function (actionItem, filter): boolean {
       console.log(filter);
-      console.log(actionItem.assignedTo);
-      console.log(actionItem.assignedTo == filter);
-      return actionItem.assignedTo != filter;
+      console.log(actionItem.status);
+      console.log(actionItem.status == filter);
+      return actionItem.status == filter;
     };
     return filterFunction;
   }
