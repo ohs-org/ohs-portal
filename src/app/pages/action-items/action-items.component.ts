@@ -121,8 +121,6 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   ) => boolean {
     let filterFunction = function (actionItem, filter): boolean {
       const filterObj = JSON.parse(filter);
-      console.log(filterObj.assignedTo);
-      console.log(actionItem.assignedTo == filterObj.assignedTo);
       if (filterObj.searchFilter) {
         return (
           actionItem.assignedTo == filterObj.assignedTo &&
@@ -261,8 +259,6 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
         (action) => action.actionItemId == result.actionItemId
       );
       this.dataSource.data[foundIndex] = result;
-      this.table.renderRows();
-      console.log(this.dataSource.data[foundIndex]);
       this.dataSource._updateChangeSubscription();
       this.completedAI._updateChangeSubscription();
       this.assignedToMeAI._updateChangeSubscription();
