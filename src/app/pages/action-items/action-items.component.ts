@@ -2,7 +2,13 @@ import { FormControl } from '@angular/forms';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ActionItemEditComponent } from './action-item-edit/action-item-edit.component';
 import { element } from 'protractor';
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+  ViewChildren,
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -74,23 +80,22 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   ngOnInit(): void {
+    console.log('****** ngOnInit');
     this.fetchActionItems();
   }
 
   ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    console.log('****** ngAfterViewInit');
 
-    this.completedAI.paginator = this.completedPaginator;
-    this.assignedToMeAI.paginator = this.assignedToMePaginator;
-    this.assignedToOthersAI.paginator = this.assignedToOthersPaginator;
-    this.longRunningAI.paginator = this.longRunningPaginator;
+    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
   }
 
   private fetchActionItems() {
     this.http
       .get('../../../assets/temp-data/action-items.json')
       .subscribe((items) => {
+        console.log('******** fetch');
         this.dataSource.data = Object.values(items);
 
         this.assignedToMeAI.data = this.dataSource.data;
@@ -112,6 +117,11 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
         this.completedAI.data = this.dataSource.data;
         this.completedAI.filterPredicate = this.createCompletedFilter();
         this.completedAI.filter = ' ';
+
+        this.completedAI.paginator = this.completedPaginator;
+        this.assignedToMeAI.paginator = this.assignedToMePaginator;
+        this.assignedToOthersAI.paginator = this.assignedToOthersPaginator;
+        this.longRunningAI.paginator = this.longRunningPaginator;
       });
   }
 
@@ -195,6 +205,8 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   }
 
   applyFilter(filterValue: string) {
+    console.log('*****applyFilter');
+
     this.assignedToMeFilterValues.searchFilter = filterValue;
     this.assignedToMeAI.filter = JSON.stringify(this.assignedToMeFilterValues);
 
@@ -207,6 +219,8 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   }
 
   handleStatusUpdate(updatedStatus, actionElement) {
+    console.log('*****handleStatusUpdate');
+
     console.log(updatedStatus);
     console.log(actionElement);
     const foundIndex = this.dataSource.data.findIndex(
@@ -230,6 +244,8 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   }
 
   removeAssignee(actionElement) {
+    console.log('*****removeAssignee');
+
     // create custom datasource - for sorting...
     const foundIndex = this.dataSource.data.findIndex(
       (action) => action.actionItemId == actionElement.actionItemId
@@ -249,6 +265,8 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   }
 
   openEditDialog(actionElement): void {
+    console.log('*****openEditDialog');
+
     const dialogRef = this.dialog.open(ActionItemEditComponent, {
       width: '380px',
       data: actionElement,

@@ -55,6 +55,7 @@ import { ActionItemsComponent } from './pages/action-items/action-items.componen
 import { ButtonDropdownComponent } from './pages/action-items/button-dropdown/button-dropdown.component';
 import { ActionItemEditComponent } from './pages/action-items/action-item-edit/action-item-edit.component';
 import { StylePaginatorDirective } from './components/paginator/style-paginator.directive';
+import { PaginatorDirective } from './directives/paginator.directive';
 
 const appRoutes: Routes = [
   { path: '', component: ComponentsComponent },
@@ -89,6 +90,7 @@ const appRoutes: Routes = [
     ButtonDropdownComponent,
     ActionItemEditComponent,
     StylePaginatorDirective,
+    PaginatorDirective,
   ],
   imports: [
     BrowserModule,
