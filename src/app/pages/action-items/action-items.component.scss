@@ -59,5 +59,15 @@
         }
       }
     }
+
+    // paginator styles
+    ::ng-deep {
+      .custom-paginator-page {
+        border: 0;
+        background-color: transparent;
+        font-size: 14px;
+        margin: 2px;
+      }
+    }
   }
 }
