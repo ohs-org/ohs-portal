@@ -80,13 +80,10 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    console.log('****** ngOnInit');
     this.fetchActionItems();
   }
 
   ngAfterViewInit(): void {
-    console.log('****** ngAfterViewInit');
-
     this.dataSource.sort = this.sort;
     // this.dataSource.paginator = this.paginator;
   }
@@ -95,7 +92,6 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
     this.http
       .get('../../../assets/temp-data/action-items.json')
       .subscribe((items) => {
-        console.log('******** fetch');
         this.dataSource.data = Object.values(items);
 
         this.assignedToMeAI.data = this.dataSource.data;
@@ -205,8 +201,6 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   }
 
   applyFilter(filterValue: string) {
-    console.log('*****applyFilter');
-
     this.assignedToMeFilterValues.searchFilter = filterValue;
     this.assignedToMeAI.filter = JSON.stringify(this.assignedToMeFilterValues);
 
@@ -219,10 +213,6 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   }
 
   handleStatusUpdate(updatedStatus, actionElement) {
-    console.log('*****handleStatusUpdate');
-
-    console.log(updatedStatus);
-    console.log(actionElement);
     const foundIndex = this.dataSource.data.findIndex(
       (action) => action.actionItemId == actionElement.actionItemId
     );
@@ -230,9 +220,6 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
       ...actionElement,
       status: updatedStatus,
     };
-
-    console.log('after status update');
-    console.log(this.dataSource.data[foundIndex]);
 
     this.dataSource._updateChangeSubscription();
     this.completedAI._updateChangeSubscription();
@@ -244,8 +231,6 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   }
 
   removeAssignee(actionElement) {
-    console.log('*****removeAssignee');
-
     // create custom datasource - for sorting...
     const foundIndex = this.dataSource.data.findIndex(
       (action) => action.actionItemId == actionElement.actionItemId
@@ -265,8 +250,6 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
   }
 
   openEditDialog(actionElement): void {
-    console.log('*****openEditDialog');
-
     const dialogRef = this.dialog.open(ActionItemEditComponent, {
       width: '380px',
       data: actionElement,

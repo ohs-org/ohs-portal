@@ -1,11 +1,11 @@
 <div class="action-items-page">
   <div class="search-bar-container">
-    <!-- style="margin: 20px 100px" -->
     <app-search-bar
       (keyUpEvent)="applyFilter($event)"
       class="search-bar"
     ></app-search-bar>
   </div>
+
   <div class="table-container">
     <!-- Assigned to me table -->
     <div class="table">
@@ -19,9 +19,6 @@
             <span class="clickable-link" (click)="openEditDialog(element)">
               {{ element.actionItemTitle }}
             </span>
-            <!-- <a href="#" (click)="openEditDialog(element)">
-          {{ element.actionItemTitle }}
-        </a> -->
           </mat-cell>
         </ng-container>
 
@@ -79,7 +76,6 @@
               (statusUpdateEvent)="handleStatusUpdate($event, element)"
             >
             </app-button-dropdown>
-            <!-- {{ element.status }} -->
           </mat-cell>
         </ng-container>
 
@@ -96,7 +92,6 @@
         [pageSize]="8"
         showFirstLastButtons
       >
-        <!-- [length]="assignedToMeAI.data.length" -->
       </mat-paginator>
     </div>
 
@@ -112,9 +107,6 @@
             <span class="clickable-link" (click)="openEditDialog(element)">
               {{ element.actionItemTitle }}
             </span>
-            <!-- <a href="#" (click)="openEditDialog(element)">
-          {{ element.actionItemTitle }}
-        </a> -->
           </mat-cell>
         </ng-container>
 
@@ -172,7 +164,6 @@
               (statusUpdateEvent)="handleStatusUpdate($event, element)"
             >
             </app-button-dropdown>
-            <!-- {{ element.status }} -->
           </mat-cell>
         </ng-container>
 
@@ -204,9 +195,6 @@
             <span class="clickable-link" (click)="openEditDialog(element)">
               {{ element.actionItemTitle }}
             </span>
-            <!-- <a href="#" (click)="openEditDialog(element)">
-          {{ element.actionItemTitle }}
-        </a> -->
           </mat-cell>
         </ng-container>
 
@@ -264,7 +252,6 @@
               (statusUpdateEvent)="handleStatusUpdate($event, element)"
             >
             </app-button-dropdown>
-            <!-- {{ element.status }} -->
           </mat-cell>
         </ng-container>
 
@@ -296,9 +283,6 @@
             <span class="clickable-link" (click)="openEditDialog(element)">
               {{ element.actionItemTitle }}
             </span>
-            <!-- <a href="#" (click)="openEditDialog(element)">
-          {{ element.actionItemTitle }}
-        </a> -->
           </mat-cell>
         </ng-container>
 
@@ -356,7 +340,6 @@
               (statusUpdateEvent)="handleStatusUpdate($event, element)"
             >
             </app-button-dropdown>
-            <!-- {{ element.status }} -->
           </mat-cell>
         </ng-container>
 

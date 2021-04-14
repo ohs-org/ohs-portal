@@ -40,10 +40,6 @@ export class PaginatorDirective implements DoCheck, AfterViewInit {
       pageSize: number,
       length: number
     ): string => {
-      console.log(page);
-      console.log(pageSize);
-      console.log(length);
-
       const startIndex = page * pageSize;
       const endIndex =
         startIndex < length
@@ -69,10 +65,6 @@ export class PaginatorDirective implements DoCheck, AfterViewInit {
   }
 
   ngDoCheck(): void {
-    console.log('ngDocheck');
-    // console.log(this.matPag?.length);
-    // console.log(this.matPag?.pageSize);
-    // console.log(this.matPag?.pageIndex);
     // Reset paginator if the pageSize, pageIndex, length changes
     if (
       this.matPag?.length !== this.checkPage[0] ||
@@ -95,7 +87,6 @@ export class PaginatorDirective implements DoCheck, AfterViewInit {
   }
 
   private buildPageNumbers = () => {
-    console.log('buildPageNumbers');
     let dots: boolean[];
     let page: number;
     let pageDifference: number;
@@ -208,7 +199,6 @@ export class PaginatorDirective implements DoCheck, AfterViewInit {
   };
 
   private createButton(index: string, pageIndex: number): MatButton {
-    console.log('createButton');
     const linkBtn: MatButton = this.renderer.createElement('button');
     this.renderer.setAttribute(linkBtn, 'class', 'custom-paginator-page');
     this.renderer.addClass(linkBtn, 'custom-paginator-page-enabled');
@@ -259,14 +249,12 @@ export class PaginatorDirective implements DoCheck, AfterViewInit {
    * @description calculates the button range based on class input parameters and based on current page index value.
    */
   initPageRange(): void {
-    console.log('initPageRange');
     this.rangeStart = this.currentPage - this.showTotalPages / 2;
     this.rangeEnd = this.currentPage + this.showTotalPages / 2;
     this.buildPageNumbers();
   }
 
   private switchPage(index: number): void {
-    console.log('switchPage');
     this.matPag.pageIndex = index;
     this.matPag.page.emit({
       previousPageIndex: this.currentPage,
@@ -279,7 +267,6 @@ export class PaginatorDirective implements DoCheck, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
     this.rangeStart = 0;
     this.rangeEnd = this.showTotalPages - 1;
     this.initPageRange();
