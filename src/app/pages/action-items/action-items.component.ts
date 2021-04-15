@@ -227,7 +227,10 @@ export class ActionItemsComponent implements OnInit, AfterViewInit {
     this.assignedToOthersAI._updateChangeSubscription();
     this.longRunningAI._updateChangeSubscription();
 
-    // http request to update the status
+    // http request to update the status ////**** update json file */
+
+    // traditional: api comes back okay -> then remove from assign me and then completed table
+    //
   }
 
   removeAssignee(actionElement) {
