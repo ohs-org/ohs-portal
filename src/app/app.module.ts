@@ -58,6 +58,7 @@ import { StylePaginatorDirective } from './components/paginator/style-paginator.
 import { PaginatorDirective } from './directives/paginator.directive';
 
 import { ChartsModule } from 'ng2-charts';
+import { DoughnutChartComponent } from './components/charts/doughnut-chart/doughnut-chart.component';
 
 const appRoutes: Routes = [
   { path: '', component: ComponentsComponent },
@@ -93,6 +94,7 @@ const appRoutes: Routes = [
     ActionItemEditComponent,
     StylePaginatorDirective,
     PaginatorDirective,
+    DoughnutChartComponent,
   ],
   imports: [
     BrowserModule,
