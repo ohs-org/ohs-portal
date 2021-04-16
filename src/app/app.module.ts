@@ -57,6 +57,8 @@ import { ActionItemEditComponent } from './pages/action-items/action-item-edit/a
 import { StylePaginatorDirective } from './components/paginator/style-paginator.directive';
 import { PaginatorDirective } from './directives/paginator.directive';
 
+import { ChartsModule } from 'ng2-charts';
+
 const appRoutes: Routes = [
   { path: '', component: ComponentsComponent },
   { path: 'custom', component: CustomComponentsComponent },
@@ -124,6 +126,7 @@ const appRoutes: Routes = [
     MatChipsModule,
     MatMenuModule,
     MatDialogModule,
+    ChartsModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],
