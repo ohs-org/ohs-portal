@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
-import { MultiDataSet, Label, Color } from 'ng2-charts';
+import { Label, Color, SingleDataSet } from 'ng2-charts';
 
 @Component({
   selector: 'app-doughnut-chart',
@@ -8,9 +8,16 @@ import { MultiDataSet, Label, Color } from 'ng2-charts';
   styleUrls: ['./doughnut-chart.component.scss'],
 })
 export class DoughnutChartComponent implements OnInit {
-  labels: Label[] = ['assigned', 'in-progress', 'completed'];
-  chartData: MultiDataSet = [[55, 25, 20]];
-  chartType: ChartType = 'doughnut';
+  @Input() chartTitle: string = '';
+  @Input() chartLabels: Label[];
+  @Input() chartData: SingleDataSet;
+  @Input() chartType: ChartType;
+
+  options: any;
+
+  // chartLabels: Label[] = ['assigned', 'in-progress', 'completed'];
+  // chartData: SingleDataSet = [55, 25, 20];
+  // chartType: ChartType = 'doughnut';
   // colors: Color[] = [
   //   {
   //     backgroundColor: [
@@ -27,7 +34,15 @@ export class DoughnutChartComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.options = {
+      title: {
+        text: this.chartTitle,
+        display: true,
+      },
+      legend: { position: 'right' },
+    };
+  }
 }
 
 // Angular Chart.js integration tutorial: https://www.positronx.io/angular-chart-js-tutorial-with-ng2-charts-examples/

@@ -26,7 +26,13 @@
 
 <!-- Angular Chart.js integration tutorial: https://www.positronx.io/angular-chart-js-tutorial-with-ng2-charts-examples/ -->
 <div style="margin: 25px auto; width: 23%">
-  <app-doughnut-chart></app-doughnut-chart>
+  <app-doughnut-chart
+    [chartTitle]="'My Action Items Due within 7 Days'"
+    [chartLabels]="chartLabels"
+    [chartData]="chartData"
+    [chartType]="chartType"
+  >
+  </app-doughnut-chart>
 </div>
 
 <!-- app-action-item-edit select is not supposed to used directly: this will throw an error -->
