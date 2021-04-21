@@ -8,3 +8,30 @@
 //   margin-right: 0px;
 //   margin-left: 0px;
 // }
+
+.table {
+  width: 100%;
+  .wider-cell {
+    flex: 2;
+  }
+
+  ::ng-deep {
+    .mat-cell > span {
+      width: 90%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    // paginator styles
+    .custom-paginator-page {
+      border: 0;
+      background-color: transparent;
+      font-size: 14px;
+      margin: 2px;
+    }
+    .custom-paginator-page.custom-paginator-page-enabled {
+      color: #7e807e;
+    }
+  }
+}
