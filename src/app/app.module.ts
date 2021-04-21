@@ -59,9 +59,10 @@ import { PaginatorDirective } from './directives/paginator.directive';
 
 import { ChartsModule } from 'ng2-charts';
 import { DoughnutChartComponent } from './components/charts/doughnut-chart/doughnut-chart.component';
+import { EmployeeDashboardComponent } from './pages/dashboards/employee-dashboard/employee-dashboard.component';
 
 const appRoutes: Routes = [
-  { path: '', component: ComponentsComponent },
+  { path: '', component: EmployeeDashboardComponent },
   { path: 'custom', component: CustomComponentsComponent },
   { path: 'lists', component: TwoLineAvatarSelectionListComponent },
   { path: 'stepperform', component: StepperFormComponent },
@@ -95,6 +96,7 @@ const appRoutes: Routes = [
     StylePaginatorDirective,
     PaginatorDirective,
     DoughnutChartComponent,
+    EmployeeDashboardComponent,
   ],
   imports: [
     BrowserModule,
