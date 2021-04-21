@@ -1,37 +1,12 @@
-import { FormControl } from '@angular/forms';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { ActionItemEditComponent } from './action-item-edit/action-item-edit.component';
-import { element } from 'protractor';
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  AfterViewInit,
-  ViewChildren,
-} from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ActionItem } from './action-item.model';
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
-import { from } from 'rxjs';
-
-const ACTION_DATA: ActionItem[] = [
-  {
-    actionItemId: 'cdcf0775-98cb-4c41-9308-8b22fd4a9e32',
-    actionItemTitle: 'Jerusalem',
-    created: '2020-08-21 11:28:14',
-    due: '2021-04-15 12:38:11',
-    priority: 'medium',
-    meetings: '2020-05-25 13:11:18',
-    description:
-      'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.',
-    assignedTo: 'Ami Childes',
-    color: '#274725',
-    status: 'assigned',
-  },
-];
 
 @Component({
   selector: 'app-action-items',

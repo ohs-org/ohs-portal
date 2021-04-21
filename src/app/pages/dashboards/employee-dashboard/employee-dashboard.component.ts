@@ -1,6 +1,8 @@
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { ActionItemService } from './../../../services/action-item.service';
 import { ActionItem } from './../../action-items/action-item.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { Label, SingleDataSet } from 'ng2-charts';
 import * as moment from 'moment';
@@ -11,6 +13,7 @@ import * as moment from 'moment';
   styleUrls: ['./employee-dashboard.component.scss'],
 })
 export class EmployeeDashboardComponent implements OnInit {
+  // CHART DATA
   chartLabels: Label[] = ['assigned', 'in-progress', 'completed'];
   chartType: ChartType = 'doughnut';
 
@@ -24,7 +27,20 @@ export class EmployeeDashboardComponent implements OnInit {
 
   // due date
   private today = moment().startOf('day');
+  private yesterday = moment().subtract(1, 'days');
   private inAWeek = moment().add(7, 'days').startOf('day');
+  private inFourDays = moment().add(4, 'days').startOf('day');
+
+  // TABLE DATA
+  displayedColumns: string[] = ['action-title', 'due', 'priority', 'status'];
+  // overdue table
+  @ViewChild('overduePaginator') overduePaginator: MatPaginator;
+  actionItemsOverdue: ActionItem[];
+  overdueDS = new MatTableDataSource<ActionItem>();
+  // upcoming deadline table
+  @ViewChild('upcomingPaginator') upcomingPaginator: MatPaginator;
+  actionItemsUpcomingDeadline: ActionItem[];
+  upcomingDeadlineDS = new MatTableDataSource<ActionItem>();
 
   constructor(private actionItemService: ActionItemService) {}
 
@@ -32,6 +48,8 @@ export class EmployeeDashboardComponent implements OnInit {
     this.actionItemService.getActionItems().subscribe((data: ActionItem[]) => {
       this.filterActionItemWithinWeek(data);
       this.filterActionItemDueToday(data);
+      this.filterActionItemOverdue(data);
+      this.filterActionItemUpcomingDeadline(data);
 
       this.weekChartData = this.calculateStatusChartData(
         this.actionItemsDueWeek
@@ -42,6 +60,7 @@ export class EmployeeDashboardComponent implements OnInit {
     });
   }
 
+  // FUNCTIONS FOR CHARTS
   // filter due within a week
   filterActionItemWithinWeek = (data: ActionItem[]) => {
     this.actionItemsDueWeek = data.filter((actionItem) => {
@@ -83,4 +102,60 @@ export class EmployeeDashboardComponent implements OnInit {
       (completed / itemCount) * 100,
     ];
   };
+
+  // FUNCTIONS FOR TABLES
+  // filter overdue items
+  filterActionItemOverdue = (data: ActionItem[]) => {
+    this.actionItemsOverdue = data.filter((actionItem) => {
+      return (
+        actionItem.assignedTo === 'Amber Lee' &&
+        moment(actionItem.due).isBefore(this.today, 'day') &&
+        actionItem.status != 'completed'
+      );
+    });
+    this.setDataSource(this.actionItemsOverdue, this.overdueDS);
+    this.setPaginator(this.overdueDS, this.overduePaginator);
+  };
+
+  // filter approaching deadline items
+  filterActionItemUpcomingDeadline = (data: ActionItem[]) => {
+    this.actionItemsUpcomingDeadline = data.filter((actionItem) => {
+      return (
+        actionItem.assignedTo === 'Amber Lee' &&
+        moment(actionItem.due).isBetween(
+          this.yesterday,
+          this.inFourDays,
+          'day'
+        ) &&
+        actionItem.status != 'completed'
+      );
+    });
+    this.setDataSource(
+      this.actionItemsUpcomingDeadline,
+      this.upcomingDeadlineDS
+    );
+    this.setPaginator(this.upcomingDeadlineDS, this.upcomingPaginator);
+    console.log(this.upcomingDeadlineDS);
+  };
+
+  // set array to data source
+  setDataSource = (
+    actionItems: ActionItem[],
+    dataSource: MatTableDataSource<ActionItem>
+  ) => {
+    dataSource.data = actionItems;
+  };
+
+  //set paginator
+  setPaginator = (
+    dataSource: MatTableDataSource<ActionItem>,
+    paginator: MatPaginator
+  ) => {
+    dataSource.paginator = paginator;
+  };
+
+  // date format
+  getDateFormat(date): string {
+    return moment(date).format('MMM DD, YYYY');
+  }
 }
