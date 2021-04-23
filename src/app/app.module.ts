@@ -60,6 +60,7 @@ import { PaginatorDirective } from './directives/paginator.directive';
 import { ChartsModule } from 'ng2-charts';
 import { DoughnutChartComponent } from './components/charts/doughnut-chart/doughnut-chart.component';
 import { EmployeeDashboardComponent } from './pages/dashboards/employee-dashboard/employee-dashboard.component';
+import { MeetingsPanelComponent } from './pages/dashboards/meetings/meetings-panel/meetings-panel.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -97,6 +98,7 @@ const appRoutes: Routes = [
     PaginatorDirective,
     DoughnutChartComponent,
     EmployeeDashboardComponent,
+    MeetingsPanelComponent,
   ],
   imports: [
     BrowserModule,

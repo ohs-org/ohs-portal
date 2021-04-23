@@ -4,7 +4,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { ActionItem } from './action-item.model';
+import { ActionItem } from '../../models/action-item.model';
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
 

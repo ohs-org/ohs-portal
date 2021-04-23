@@ -1,7 +1,7 @@
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActionItemService } from './../../../services/action-item.service';
-import { ActionItem } from './../../action-items/action-item.model';
+import { ActionItem } from '../../../models/action-item.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { Label, SingleDataSet } from 'ng2-charts';
@@ -66,7 +66,7 @@ export class EmployeeDashboardComponent implements OnInit {
     this.actionItemsDueWeek = data.filter((actionItem) => {
       return (
         actionItem.assignedTo === 'Amber Lee' &&
-        moment(actionItem.due).isBetween(this.today, this.inAWeek, 'day')
+        moment(actionItem.due).isBetween(this.yesterday, this.inAWeek, 'day')
       );
     });
   };
