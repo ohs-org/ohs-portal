@@ -1,0 +1,21 @@
+.avater {
+  border: 1px solid grey;
+  background-color: beige;
+}
+
+.meeting-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.members-avatar {
+  float: left;
+}
+
+.move-to-left {
+  margin-left: -15px;
+}

@@ -9,9 +9,20 @@
       style="width: 32%; float: left; margin: 5px"
     >
       <mat-card-header>
-        <img mat-card-avatar src="{{ meeting.host.avatar }}" />
-        <mat-card-title>{{ meeting.title }}</mat-card-title>
+        <img mat-card-avatar src="{{ meeting.host.avatar }}" class="avater" />
+        <mat-card-title class="meeting-title">{{
+          meeting.title
+        }}</mat-card-title>
         <mat-card-subtitle>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            inline="true"
+          >
+            event_available
+          </mat-icon>
+          {{ meeting.date }}
+          <br />
           <mat-icon
             aria-hidden="false"
             aria-label="Example home icon"
@@ -20,11 +31,30 @@
             schedule
           </mat-icon>
           {{ meeting.time }} to
-          {{
-            getMeetingEndTime(meeting.time, meeting.duration)
-          }}</mat-card-subtitle
-        >
+          {{ getMeetingEndTime(meeting.time, meeting.duration) }}
+        </mat-card-subtitle>
       </mat-card-header>
+      <mat-card-content>
+        <p>{{ meeting.description }}</p>
+        <div
+          *ngFor="let member of meeting.members; let i = index"
+          class="menbers-container"
+        >
+          <img
+            *ngIf="i < 5"
+            mat-card-avatar
+            src="{{ member.avatar }}"
+            class="avater members-avatar"
+            [class.move-to-left]="i > 0"
+          />
+          <p *ngIf="i == 4 && meeting.members.length - 5 > 0">
+            + {{ meeting.members.length - 5 }}
+          </p>
+        </div>
+      </mat-card-content>
+      <!-- <mat-card-actions>
+        <button mat-button>View Details</button>
+      </mat-card-actions> -->
     </mat-card>
   </mat-card-content>
 </mat-card>
