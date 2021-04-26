@@ -64,6 +64,7 @@ import { MeetingsPanelComponent } from './pages/dashboards/meetings/meetings-pan
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
+  { path: 'components', component: ComponentsComponent },
   { path: 'custom', component: CustomComponentsComponent },
   { path: 'lists', component: TwoLineAvatarSelectionListComponent },
   { path: 'stepperform', component: StepperFormComponent },

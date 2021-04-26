@@ -30,7 +30,7 @@
           {
             "pageName": "Components",
             "pageIcon": "favorite",
-            "routerLink": ""
+            "routerLink": "/components"
           },
           {
             "pageName": "Custom Components",

@@ -67,6 +67,10 @@ export class MeetingsPanelComponent implements OnInit {
     if (this.upcomingMeetings.length > 3)
       this.upcomingMeetings = this.upcomingMeetings.slice(0, 3);
   };
+
+  getMeetingEndTime = (meetingTime: string, duration: number): any => {
+    return moment(meetingTime, 'LT').add(duration, 'hours').format('LT');
+  };
 }
 
 // {

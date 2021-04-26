@@ -1,0 +1,30 @@
+<mat-card class="container" style="height: 250px">
+  <mat-card-header>
+    <mat-card-title>Upcoming Meetings</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- meeting cards -->
+    <mat-card
+      *ngFor="let meeting of upcomingMeetings"
+      style="width: 32%; float: left; margin: 5px"
+    >
+      <mat-card-header>
+        <img mat-card-avatar src="{{ meeting.host.avatar }}" />
+        <mat-card-title>{{ meeting.title }}</mat-card-title>
+        <mat-card-subtitle>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            inline="true"
+          >
+            schedule
+          </mat-icon>
+          {{ meeting.time }} to
+          {{
+            getMeetingEndTime(meeting.time, meeting.duration)
+          }}</mat-card-subtitle
+        >
+      </mat-card-header>
+    </mat-card>
+  </mat-card-content>
+</mat-card>
