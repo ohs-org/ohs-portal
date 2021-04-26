@@ -61,6 +61,7 @@ import { ChartsModule } from 'ng2-charts';
 import { DoughnutChartComponent } from './components/charts/doughnut-chart/doughnut-chart.component';
 import { EmployeeDashboardComponent } from './pages/dashboards/employee-dashboard/employee-dashboard.component';
 import { MeetingsPanelComponent } from './pages/dashboards/meetings/meetings-panel/meetings-panel.component';
+import { InboxPanelComponent } from './pages/dashboards/inbox-panel/inbox-panel.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -100,6 +101,7 @@ const appRoutes: Routes = [
     DoughnutChartComponent,
     EmployeeDashboardComponent,
     MeetingsPanelComponent,
+    InboxPanelComponent,
   ],
   imports: [
     BrowserModule,

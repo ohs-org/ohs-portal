@@ -1,0 +1,32 @@
+@import "../../../../scss/config";
+
+.list {
+  font-size: 14px;
+}
+
+.list:hover,
+.list:focus {
+  background-color: $ohs-theme-primary-hover;
+}
+
+.list .secondary {
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.list .message-time {
+  text-align: right;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: -12px;
+}
+
+// overwrite list spacing css
+::ng-deep {
+  .mat-list-base .mat-list-item.mat-3-line,
+  .mat-list-base .mat-list-option.mat-3-line {
+    height: fit-content;
+    padding: 2px 2px 6px 2px;
+  }
+}
