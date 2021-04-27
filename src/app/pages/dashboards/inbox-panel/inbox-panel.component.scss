@@ -1,7 +1,12 @@
 @import "../../../../scss/config";
 
+.inbox-panel {
+  padding: 20px;
+}
+
 .list {
   font-size: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .list:hover,
