@@ -1,3 +1,4 @@
+import { TrackingCard } from './../../../../models/tracking-card.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,12 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./tracking-card.component.scss'],
 })
 export class TrackingCardComponent implements OnInit {
-  // @Input() trackingCard: any;
+  @Input() trackingCard: TrackingCard;
 
   constructor() {}
 
   ngOnInit(): void {
     // capitalize title
-    // this.trackingCard.title = this.trackingCard.title.toUpperCase();
+    this.trackingCard.title = this.trackingCard.title.toUpperCase();
+    console.log(this.trackingCard);
   }
 }

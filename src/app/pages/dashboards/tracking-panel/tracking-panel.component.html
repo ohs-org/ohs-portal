@@ -1,26 +1,5 @@
-<div class="tracking-panel">
-  <mat-card class="tracking-card">
-    <mat-card-title class="title">VACATION HOURS LEFT</mat-card-title>
-    <mat-card-content class="contents">
-      <p>50 hours</p>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="tracking-card">
-    <mat-card-title class="title">NEXT VACATION DAY</mat-card-title>
-    <mat-card-content class="contents">
-      <p>April 26th</p>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="tracking-card">
-    <mat-card-title class="title">SICK DAYS LEFT</mat-card-title>
-    <mat-card-content class="contents">
-      <p>5 days</p>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="tracking-card">
-    <mat-card-title class="title">NEXT PAY DAY</mat-card-title>
-    <mat-card-content class="contents">
-      <p>May 28th</p>
-    </mat-card-content>
-  </mat-card>
+<div class="tracking-panel" *ngFor="let card of trackingCards">
+  <div>
+    <app-tracking-card [trackingCard]="card"> </app-tracking-card>
+  </div>
 </div>

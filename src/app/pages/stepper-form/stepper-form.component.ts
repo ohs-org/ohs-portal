@@ -1,4 +1,4 @@
-import { FormSummary } from './../../data-types/form-summary';
+import { FormSummary } from '../../models/form-summary.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // for step progress bar
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
