@@ -64,6 +64,8 @@ import { MeetingsPanelComponent } from './pages/dashboards/meetings/meetings-pan
 import { InboxPanelComponent } from './pages/dashboards/inbox-panel/inbox-panel.component';
 import { TrackingPanelComponent } from './pages/dashboards/tracking-panel/tracking-panel.component';
 import { TrackingCardComponent } from './pages/dashboards/tracking-panel/tracking-card/tracking-card.component';
+import { StepperPanelComponent } from './pages/dashboards/stepper-panel/stepper-panel.component';
+import { SimpleStepperComponent } from './pages/dashboards/stepper-panel/simple-stepper/simple-stepper.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -106,6 +108,8 @@ const appRoutes: Routes = [
     InboxPanelComponent,
     TrackingPanelComponent,
     TrackingCardComponent,
+    StepperPanelComponent,
+    SimpleStepperComponent,
   ],
   imports: [
     BrowserModule,

@@ -40,7 +40,6 @@ export class MeetingsPanelComponent implements OnInit {
     });
     this.sortingMeetings();
     this.getThreeUpcomingMeetings();
-    console.log(this.upcomingMeetings);
   };
 
   sortingMeetings = (): void => {

@@ -1,0 +1,57 @@
+<mat-horizontal-stepper
+  #stepper
+  linear="true"
+  disableRipple="true"
+  labelPosition="bottom"
+  class="simple-step-progress-bar"
+>
+  <mat-step editable="false" *ngFor="let step of steps; let i = index">
+    <ng-template matStepLabel>{{ step }}</ng-template>
+  </mat-step>
+</mat-horizontal-stepper>
+
+<!-- completed="true"
+state="state" -->
+<!-- state="{{ i < activeStepIndex ? 'done' : 'number' }}" -->
+<!-- <mat-step
+    [stepControl]="thirdFormGroup"
+    [completed]="lastCompleted"
+    [state]="lastState"
+  >
+    <ng-template matStepLabel>Identify co-chairs &nbsp;</ng-template>
+    <form
+      [formGroup]="thirdFormGroup"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      #thirdForm="ngForm"
+      *ngIf="lastFormOn"
+      (ngSubmit)="onThirdFormSubmit()"
+    >
+      <mat-form-field appearance="fill">
+        <mat-label>Employer co-chair</mat-label>
+        <input
+          matInput
+          formControlName="employerCoChairCtrl"
+          placeholder="Employer co-chair"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Employer co-chair’s email address</mat-label>
+        <input
+          matInput
+          formControlName="employerCoChairEmailCtrl"
+          placeholder="Employer co-chair’s email address"
+          email
+          #employerEmailInput
+        />
+        <mat-error *ngIf="employerEmailInput.value?.length === 0">
+          Field must not be empty.
+        </mat-error>
+        <mat-error *ngIf="employerEmailInput.value?.length != 0">
+          E-mail is invalid.
+        </mat-error>
+      </mat-form-field>
+    </form>
+
+  </mat-step> -->

@@ -1,0 +1,7 @@
+::ng-deep {
+  .simple-step-progress-bar {
+    .mat-horizontal-stepper-header {
+      pointer-events: none !important;
+    }
+  }
+}
