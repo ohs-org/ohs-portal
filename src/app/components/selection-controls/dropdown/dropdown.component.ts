@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 interface DropDownOption {
@@ -20,18 +20,17 @@ export class DropdownComponent implements OnInit {
   @Input() errorMsg: string;
   @Input() appearance: string;
   @Input() selected: string;
+  @Output() selectionChangeEvent = new EventEmitter<string>();
 
   selected2 = '';
 
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.selected);
     this.selected2 = this.options[0].value;
-    console.log(this.selected2);
   }
 
   onSelectionChange(event) {
-    console.log(event);
+    this.selectionChangeEvent.emit(event.value);
   }
 }

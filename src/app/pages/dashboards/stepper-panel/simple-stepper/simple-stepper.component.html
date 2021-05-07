@@ -5,7 +5,7 @@
   labelPosition="bottom"
   class="simple-step-progress-bar"
 >
-  <mat-step editable="false" *ngFor="let step of steps; let i = index">
+  <mat-step editable="false" *ngFor="let step of steps">
     <ng-template matStepLabel>{{ step }}</ng-template>
   </mat-step>
 </mat-horizontal-stepper>

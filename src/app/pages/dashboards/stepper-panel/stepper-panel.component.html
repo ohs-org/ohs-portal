@@ -1,4 +1,13 @@
-<app-simple-stepper
-  [steps]="stepsToPass"
-  activeStepIndex="3"
-></app-simple-stepper>
+<mat-card>
+  <mat-card-title>{{ title }}</mat-card-title>
+  <app-dropdown
+    label="Select Report"
+    [options]="reportsList"
+    (selectionChangeEvent)="handleSelectionChange($event)"
+  >
+  </app-dropdown>
+  <app-simple-stepper
+    [steps]="stepsToPass"
+    [activeStepIndex]="activeStepIndex"
+  ></app-simple-stepper>
+</mat-card>
