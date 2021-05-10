@@ -5,9 +5,21 @@
   labelPosition="bottom"
   class="simple-step-progress-bar"
 >
-  <mat-step editable="false" *ngFor="let step of steps">
-    <ng-template matStepLabel>{{ step }}</ng-template>
-  </mat-step>
+  <ng-template matStepperIcon="last">
+    <mat-icon>done_all</mat-icon>
+  </ng-template>
+
+  <div *ngFor="let step of steps; let i = index">
+    <mat-step *ngIf="i != steps.length - 1" editable="false">
+      <ng-template matStepLabel>{{ step }}</ng-template>
+    </mat-step>
+
+    <!-- <ng-template #lastStep> -->
+    <mat-step #lastStep *ngIf="i == steps.length - 1" editable="lastCompleted">
+      <ng-template matStepLabel>{{ step }}</ng-template>
+    </mat-step>
+    <!-- </ng-template> -->
+  </div>
 </mat-horizontal-stepper>
 
 <!-- completed="true"

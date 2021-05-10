@@ -1,4 +1,4 @@
-import { MatStepper } from '@angular/material/stepper';
+import { MatStep, MatStepper } from '@angular/material/stepper';
 import { STEP_STATE, CdkStep } from '@angular/cdk/stepper';
 import {
   Component,
@@ -9,7 +9,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-
+STEP_STATE;
 @Component({
   selector: 'app-simple-stepper',
   templateUrl: './simple-stepper.component.html',
@@ -18,10 +18,12 @@ import {
 export class SimpleStepperComponent
   implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('stepper') stepper: MatStepper;
+  @ViewChild('lastStep') lastStep: MatStep;
   @Input() steps: string[];
   @Input() activeStepIndex: number;
 
-  state = STEP_STATE.DONE;
+  lastCompleted: boolean = false;
+  lastState: string;
 
   constructor() {}
 
@@ -34,6 +36,12 @@ export class SimpleStepperComponent
 
   ngOnChanges(changes: SimpleChanges) {
     this.moveStepper();
+    if (this.activeStepIndex == this.steps.length - 1) {
+      console.log(this.activeStepIndex);
+      console.log(this.steps.length - 1);
+      this.lastStep.completed = true;
+      this.lastStep.state = 'done';
+    }
   }
 
   moveStepper(): void {

@@ -2,12 +2,12 @@
   <mat-card-title>{{ title }}</mat-card-title>
   <app-dropdown
     label="Select Report"
-    [options]="reportsList"
+    [options]="reportList"
     (selectionChangeEvent)="handleSelectionChange($event)"
   >
   </app-dropdown>
   <app-simple-stepper
-    [steps]="stepsToPass"
+    [steps]="steps"
     [activeStepIndex]="activeStepIndex"
   ></app-simple-stepper>
 </mat-card>

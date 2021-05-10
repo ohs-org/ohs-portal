@@ -1,3 +1,4 @@
+import { DropDownOption } from './../../../models/dropdown-option.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActionItemService } from './../../../services/action-item.service';
@@ -41,6 +42,33 @@ export class EmployeeDashboardComponent implements OnInit {
   @ViewChild('upcomingPaginator') upcomingPaginator: MatPaginator;
   actionItemsUpcomingDeadline: ActionItem[];
   upcomingDeadlineDS = new MatTableDataSource<ActionItem>();
+
+  // PROGRESS PANEL
+  workInjuryReportSteps: string[] = [
+    'Incident Report',
+    'Incident Investigation',
+    'Investigation Report Review',
+    'Claimed',
+  ];
+  workBCClaimSteps: string[] = [
+    'Claim Report Submitted',
+    'Incident Investigation',
+    'Approved',
+  ];
+
+  reportsList: DropDownOption[] = [
+    { value: '0', viewValue: 'Report Name 1' },
+    { value: '1', viewValue: 'Report Name 2' },
+    { value: '2', viewValue: 'Report Name 3' },
+    { value: '3', viewValue: 'Report Name 4' },
+  ];
+
+  workBCClaimList: DropDownOption[] = [
+    { value: '0', viewValue: 'Work BC Claim 1' },
+    { value: '1', viewValue: 'Work BC Claim 2' },
+    { value: '2', viewValue: 'Work BC Claim 3' },
+    { value: '1', viewValue: 'Work BC Claim 4' },
+  ];
 
   constructor(private actionItemService: ActionItemService) {}
 

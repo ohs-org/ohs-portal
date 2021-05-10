@@ -1,10 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
-
-interface DropDownOption {
-  value: string;
-  viewValue: string;
-}
+import { DropDownOption } from './../../../models/dropdown-option.model';
 
 @Component({
   selector: 'app-dropdown',

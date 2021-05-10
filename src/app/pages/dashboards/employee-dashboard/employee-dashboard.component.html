@@ -27,10 +27,16 @@
     <div class="col-12 col-md-5">
       <app-stepper-panel
         title="Ongoing Workplace Injury Report Process"
+        [steps]="workInjuryReportSteps"
+        [reportList]="reportsList"
       ></app-stepper-panel>
     </div>
     <div class="col-12 col-md-4">
-      <app-stepper-panel title="Work BC Claim Status"></app-stepper-panel>
+      <app-stepper-panel
+        title="Work BC Claim Status"
+        [steps]="workBCClaimSteps"
+        [reportList]="workBCClaimList"
+      ></app-stepper-panel>
     </div>
     <div class="col-12 col-md-3">
       <app-inbox-panel></app-inbox-panel>
