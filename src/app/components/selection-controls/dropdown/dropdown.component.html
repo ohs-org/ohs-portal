@@ -1,11 +1,22 @@
+<!-- with formControl - cannot set default selected value -->
 <mat-form-field appearance="{{ appearance ? appearance : 'fill' }}">
   <mat-label>{{ label }}</mat-label>
   <mat-select
-    [(value)]="selected2"
+    [(value)]="selectedDefault"
+    (selectionChange)="onSelectionChange($event)"
+    *ngIf="!control"
+  >
+    <mat-option *ngFor="let option of options" [value]="option.value">
+      {{ option.viewValue }}
+    </mat-option>
+  </mat-select>
+
+  <mat-select
+    [(value)]="selectedDefault"
     (selectionChange)="onSelectionChange($event)"
     [formControl]="control"
+    *ngIf="control"
   >
-    <!-- disabled="{{ disabled ? disabled : false }}" -->
     <mat-option *ngFor="let option of options" [value]="option.value">
       {{ option.viewValue }}
     </mat-option>
@@ -15,4 +26,3 @@
     >{{ errorMsg ? errorMsg : "Please select..." }}</mat-error
   >
 </mat-form-field>
-<!-- <p>selected item: {{ selected }}</p> -->

@@ -15,15 +15,14 @@ export class DropdownComponent implements OnInit {
   @Input() required: boolean;
   @Input() errorMsg: string;
   @Input() appearance: string;
-  @Input() selected: string;
+  @Input() defaultValueIndex: string;
   @Output() selectionChangeEvent = new EventEmitter<string>();
 
-  selected2 = '';
-
+  selectedDefault;
   constructor() {}
 
   ngOnInit(): void {
-    this.selected2 = this.options[0].value;
+    this.selectedDefault = this.options[this.defaultValueIndex].value;
   }
 
   onSelectionChange(event) {

@@ -12,7 +12,6 @@ export class StepperPanelComponent implements OnInit {
   @Input() reportList: DropDownOption[];
 
   activeStepIndex = 0;
-
   constructor() {}
 
   ngOnInit(): void {}
