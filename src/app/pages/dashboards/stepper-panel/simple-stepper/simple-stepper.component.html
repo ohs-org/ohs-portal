@@ -1,12 +1,12 @@
 <mat-horizontal-stepper
   #stepper
-  linear="true"
+  [linear]="true"
   disableRipple="true"
   labelPosition="bottom"
   class="simple-step-progress-bar"
 >
   <ng-template matStepperIcon="last">
-    <mat-icon>done_all</mat-icon>
+    <mat-icon>done</mat-icon>
   </ng-template>
 
   <div *ngFor="let step of steps; let i = index">
@@ -14,56 +14,13 @@
       <ng-template matStepLabel>{{ step }}</ng-template>
     </mat-step>
 
-    <!-- <ng-template #lastStep> -->
-    <mat-step #lastStep *ngIf="i == steps.length - 1" editable="lastCompleted">
+    <mat-step
+      #lastStep
+      *ngIf="i == steps.length - 1"
+      editable="false"
+      state="last"
+    >
       <ng-template matStepLabel>{{ step }}</ng-template>
     </mat-step>
-    <!-- </ng-template> -->
   </div>
 </mat-horizontal-stepper>
-
-<!-- completed="true"
-state="state" -->
-<!-- state="{{ i < activeStepIndex ? 'done' : 'number' }}" -->
-<!-- <mat-step
-    [stepControl]="thirdFormGroup"
-    [completed]="lastCompleted"
-    [state]="lastState"
-  >
-    <ng-template matStepLabel>Identify co-chairs &nbsp;</ng-template>
-    <form
-      [formGroup]="thirdFormGroup"
-      fxLayout="column"
-      fxLayoutAlign="center center"
-      #thirdForm="ngForm"
-      *ngIf="lastFormOn"
-      (ngSubmit)="onThirdFormSubmit()"
-    >
-      <mat-form-field appearance="fill">
-        <mat-label>Employer co-chair</mat-label>
-        <input
-          matInput
-          formControlName="employerCoChairCtrl"
-          placeholder="Employer co-chair"
-        />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Employer co-chair’s email address</mat-label>
-        <input
-          matInput
-          formControlName="employerCoChairEmailCtrl"
-          placeholder="Employer co-chair’s email address"
-          email
-          #employerEmailInput
-        />
-        <mat-error *ngIf="employerEmailInput.value?.length === 0">
-          Field must not be empty.
-        </mat-error>
-        <mat-error *ngIf="employerEmailInput.value?.length != 0">
-          E-mail is invalid.
-        </mat-error>
-      </mat-form-field>
-    </form>
-
-  </mat-step> -->
