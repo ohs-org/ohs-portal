@@ -13,8 +13,16 @@
           [chartLabels]="chartLabels"
           [chartData]="weekChartData"
           [chartType]="chartType"
+          *ngIf="actionItemsDueWeek.length != 0"
         >
         </app-doughnut-chart>
+        <p *ngIf="actionItemsDueWeek.length == 0">
+          <!-- <mat-icon aria-hidden="false" aria-label="Example home icon"
+            ><span class="material-icons-outlined">
+              sentiment_very_dissatisfied
+            </span></mat-icon> -->
+          No data available
+        </p>
       </mat-card>
     </div>
     <div class="col-6 col-md-3">
@@ -30,8 +38,10 @@
           [chartLabels]="chartLabels"
           [chartData]="todayChartData"
           [chartType]="chartType"
+          *ngIf="actionItemsDueToday.length != 0"
         >
         </app-doughnut-chart>
+        <p *ngIf="actionItemsDueToday.length == 0">No data available</p>
       </mat-card>
     </div>
     <div class="col-12 col-md-6">
@@ -115,7 +125,7 @@
           <mat-paginator
             #overduePaginator
             appPaginatorStyle
-            [pageSize]="5"
+            [pageSize]="4"
             showFirstLastButtons
           >
           </mat-paginator>
@@ -178,7 +188,7 @@
           <mat-paginator
             #upcomingPaginator
             appPaginatorStyle
-            [pageSize]="5"
+            [pageSize]="4"
             showFirstLastButtons
           >
           </mat-paginator>
