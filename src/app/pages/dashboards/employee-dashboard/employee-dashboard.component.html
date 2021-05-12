@@ -1,22 +1,38 @@
 <div class="employee-dashboard container-fluid">
   <div class="row">
     <div class="col-6 col-md-3">
-      <app-doughnut-chart
-        [chartTitle]="'My Action Items Due within 7 Days'"
-        [chartLabels]="chartLabels"
-        [chartData]="weekChartData"
-        [chartType]="chartType"
-      >
-      </app-doughnut-chart>
+      <mat-card>
+        <mat-card-header
+          style="justify-content: space-between; padding-right: 10px"
+        >
+          <mat-card-title>My Action Items Due within 7 Days</mat-card-title>
+          <a href="/">More</a>
+        </mat-card-header>
+        <!-- [chartTitle]="'My Action Items Due within 7 Days'" -->
+        <app-doughnut-chart
+          [chartLabels]="chartLabels"
+          [chartData]="weekChartData"
+          [chartType]="chartType"
+        >
+        </app-doughnut-chart>
+      </mat-card>
     </div>
     <div class="col-6 col-md-3">
-      <app-doughnut-chart
-        [chartTitle]="'My Action Items Due Today'"
-        [chartLabels]="chartLabels"
-        [chartData]="todayChartData"
-        [chartType]="chartType"
-      >
-      </app-doughnut-chart>
+      <mat-card>
+        <mat-card-header
+          style="justify-content: space-between; padding-right: 10px"
+        >
+          <mat-card-title>My Action Items Due Today</mat-card-title>
+          <a href="/">More</a>
+        </mat-card-header>
+        <!-- [chartTitle]="'My Action Items Due Today'" -->
+        <app-doughnut-chart
+          [chartLabels]="chartLabels"
+          [chartData]="todayChartData"
+          [chartType]="chartType"
+        >
+        </app-doughnut-chart>
+      </mat-card>
     </div>
     <div class="col-12 col-md-6">
       <app-meetings-panel></app-meetings-panel>
@@ -45,106 +61,129 @@
 
   <div class="row">
     <div class="col-12 col-md-4">
-      <!-- Overdue table -->
-      <div class="table">
-        <h2>Overdue ActionItems</h2>
-        <mat-table [dataSource]="overdueDS" #table>
-          <ng-container matColumnDef="action-title">
-            <mat-header-cell *matHeaderCellDef class="wider-cell">
-              Action item
-            </mat-header-cell>
-            <mat-cell *matCellDef="let element" class="wider-cell">
-              <span class="clickable-link">
-                {{ element.actionItemTitle }}
-              </span>
-            </mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="due">
-            <mat-header-cell *matHeaderCellDef>Due</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{
-              getDateFormat(element.due)
-            }}</mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="priority">
-            <mat-header-cell *matHeaderCellDef>Priority</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{
-              element.priority
-            }}</mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="status">
-            <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{ element.status }}</mat-cell>
-          </ng-container>
-
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row
-            mat-row
-            *matRowDef="let row; columns: displayedColumns"
-          ></mat-row>
-        </mat-table>
-
-        <mat-paginator
-          #overduePaginator
-          appPaginatorStyle
-          [pageSize]="4"
-          showFirstLastButtons
+      <mat-card>
+        <!-- Overdue table -->
+        <mat-card-header
+          style="justify-content: space-between; padding-right: 10px"
         >
-        </mat-paginator>
-      </div>
+          <mat-card-title>Overdue ActionItems</mat-card-title>
+          <a href="/">More</a>
+        </mat-card-header>
+        <div class="table">
+          <mat-table [dataSource]="overdueDS" #table>
+            <ng-container matColumnDef="action-title">
+              <mat-header-cell *matHeaderCellDef class="wider-cell">
+                Action item
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="wider-cell">
+                <span class="clickable-link">
+                  {{ element.actionItemTitle }}
+                </span>
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="due">
+              <mat-header-cell *matHeaderCellDef>Due</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{
+                getDateFormat(element.due)
+              }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="priority">
+              <mat-header-cell *matHeaderCellDef>Priority</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{
+                element.priority
+              }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{
+                element.status
+              }}</mat-cell>
+            </ng-container>
+
+            <mat-header-row
+              *matHeaderRowDef="displayedColumns"
+            ></mat-header-row>
+            <mat-row
+              mat-row
+              *matRowDef="let row; columns: displayedColumns"
+            ></mat-row>
+          </mat-table>
+
+          <mat-paginator
+            #overduePaginator
+            appPaginatorStyle
+            [pageSize]="5"
+            showFirstLastButtons
+          >
+          </mat-paginator>
+        </div>
+      </mat-card>
     </div>
+
     <div class="col-12 col-md-4">
       <!-- upcoming deadlines table -->
-      <div class="table">
-        <h2>Upcoming Deadlines</h2>
-        <mat-table [dataSource]="upcomingDeadlineDS" #table>
-          <ng-container matColumnDef="action-title">
-            <mat-header-cell *matHeaderCellDef class="wider-cell">
-              Action item
-            </mat-header-cell>
-            <mat-cell *matCellDef="let element" class="wider-cell">
-              <span class="clickable-link">
-                {{ element.actionItemTitle }}
-              </span>
-            </mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="due">
-            <mat-header-cell *matHeaderCellDef>Due</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{
-              getDateFormat(element.due)
-            }}</mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="priority">
-            <mat-header-cell *matHeaderCellDef>Priority</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{
-              element.priority
-            }}</mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="status">
-            <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{ element.status }}</mat-cell>
-          </ng-container>
-
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row
-            mat-row
-            *matRowDef="let row; columns: displayedColumns"
-          ></mat-row>
-        </mat-table>
-
-        <mat-paginator
-          #upcomingPaginator
-          appPaginatorStyle
-          [pageSize]="4"
-          showFirstLastButtons
+      <mat-card>
+        <mat-card-header
+          style="justify-content: space-between; padding-right: 10px"
         >
-        </mat-paginator>
-      </div>
+          <mat-card-title>Upcoming Deadlines</mat-card-title>
+          <a href="/">More</a>
+        </mat-card-header>
+        <div class="table">
+          <mat-table [dataSource]="upcomingDeadlineDS" #table>
+            <ng-container matColumnDef="action-title">
+              <mat-header-cell *matHeaderCellDef class="wider-cell">
+                Action item
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="wider-cell">
+                <span class="clickable-link">
+                  {{ element.actionItemTitle }}
+                </span>
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="due">
+              <mat-header-cell *matHeaderCellDef>Due</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{
+                getDateFormat(element.due)
+              }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="priority">
+              <mat-header-cell *matHeaderCellDef>Priority</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{
+                element.priority
+              }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{
+                element.status
+              }}</mat-cell>
+            </ng-container>
+
+            <mat-header-row
+              *matHeaderRowDef="displayedColumns"
+            ></mat-header-row>
+            <mat-row
+              mat-row
+              *matRowDef="let row; columns: displayedColumns"
+            ></mat-row>
+          </mat-table>
+
+          <mat-paginator
+            #upcomingPaginator
+            appPaginatorStyle
+            [pageSize]="5"
+            showFirstLastButtons
+          >
+          </mat-paginator>
+        </div>
+      </mat-card>
     </div>
     <div class="col-12 col-md-2">
       <app-tracking-panel></app-tracking-panel>

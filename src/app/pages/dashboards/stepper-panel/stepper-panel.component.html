@@ -1,14 +1,19 @@
 <mat-card>
-  <mat-card-title>{{ title }}</mat-card-title>
-  <app-dropdown
-    label="Select Report"
-    [options]="reportList"
-    (selectionChangeEvent)="handleSelectionChange($event)"
-    defaultValueIndex="0"
-  >
-  </app-dropdown>
-  <app-simple-stepper
-    [steps]="steps"
-    [activeStepIndex]="activeStepIndex"
-  ></app-simple-stepper>
+  <mat-card-header style="justify-content: space-between; padding-right: 10px">
+    <mat-card-title>{{ title }}</mat-card-title>
+    <a href="/">More</a>
+  </mat-card-header>
+  <mat-card-content>
+    <app-dropdown
+      label="Select Report"
+      [options]="reportList"
+      (selectionChangeEvent)="handleSelectionChange($event)"
+      defaultValueIndex="0"
+    >
+    </app-dropdown>
+    <app-simple-stepper
+      [steps]="steps"
+      [activeStepIndex]="activeStepIndex"
+    ></app-simple-stepper>
+  </mat-card-content>
 </mat-card>

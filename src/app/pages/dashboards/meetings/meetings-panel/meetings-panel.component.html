@@ -1,6 +1,7 @@
 <mat-card class="container" style="height: 250px">
-  <mat-card-header>
+  <mat-card-header style="justify-content: space-between; padding-right: 10px">
     <mat-card-title>Upcoming Meetings</mat-card-title>
+    <a href="/">More</a>
   </mat-card-header>
   <mat-card-content>
     <!-- meeting cards -->
@@ -10,9 +11,9 @@
     >
       <mat-card-header>
         <img mat-card-avatar src="{{ meeting.host.avatar }}" class="avater" />
-        <mat-card-title class="meeting-title">{{
-          meeting.title
-        }}</mat-card-title>
+        <mat-card-title class="meeting-title">
+          {{ meeting.title }}
+        </mat-card-title>
         <mat-card-subtitle>
           <mat-icon
             aria-hidden="false"

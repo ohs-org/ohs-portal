@@ -1,15 +1,20 @@
 <mat-card class="inbox-panel">
-  <p>Inbox</p>
-  <mat-list color="primary" disableRipple="true" #avatarList>
-    <mat-list-item
-      class="list"
-      *ngFor="let item of listItems"
-      value="{{ item.itemText }}"
-    >
-      <p matLine class="message-time">{{ item.time }}</p>
-      <img matListAvatar src="{{ item.avatar }}" alt="avatar" />
-      <p matLine class="primary">{{ item.name }}</p>
-      <p matLine class="secondary">{{ item.message }}</p>
-    </mat-list-item>
-  </mat-list>
+  <mat-card-header style="justify-content: space-between; padding-right: 10px">
+    <mat-card-title>Inbox</mat-card-title>
+    <a href="/">More</a>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list color="primary" disableRipple="true" #avatarList>
+      <mat-list-item
+        class="list"
+        *ngFor="let item of listItems"
+        value="{{ item.itemText }}"
+      >
+        <p matLine class="message-time">{{ item.time }}</p>
+        <img matListAvatar src="{{ item.avatar }}" alt="avatar" />
+        <p matLine class="primary">{{ item.name }}</p>
+        <p matLine class="secondary">{{ item.message }}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
 </mat-card>
