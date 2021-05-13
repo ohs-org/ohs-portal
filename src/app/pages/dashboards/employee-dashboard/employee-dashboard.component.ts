@@ -23,8 +23,8 @@ export class EmployeeDashboardComponent implements OnInit {
   // Action due today chart
   todayChartData: SingleDataSet = [0, 0, 0];
 
-  actionItemsDueWeek: ActionItem[];
-  actionItemsDueToday: ActionItem[];
+  actionItemsDueWeek: ActionItem[] = [];
+  actionItemsDueToday: ActionItem[] = [];
 
   // due date
   private today = moment().startOf('day');

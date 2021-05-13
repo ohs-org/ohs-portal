@@ -58,8 +58,10 @@ export class SimpleStepperComponent
   };
 
   resetStepper = (): void => {
-    this.lastStep.completed = false;
-    this.lastStep.state = 'last';
-    this.stepper.reset();
+    if (this.lastStep) {
+      this.lastStep.completed = false;
+      this.lastStep.state = 'last';
+    }
+    this.stepper?.reset();
   };
 }
