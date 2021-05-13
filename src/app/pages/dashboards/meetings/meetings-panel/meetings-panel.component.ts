@@ -26,9 +26,6 @@ export class MeetingsPanelComponent implements OnInit {
 
   filterUpcomingMeetings = (meetings: Meeting[]): void => {
     this.upcomingMeetings = meetings.filter((meeting) => {
-      console.log(
-        this.isMeetingWithinAWeek(meeting) && this.isMeetingUsers(meeting)
-      );
       return this.isMeetingWithinAWeek(meeting) && this.isMeetingUsers(meeting);
     });
     this.sortingMeetings();
@@ -60,13 +57,6 @@ export class MeetingsPanelComponent implements OnInit {
 
   sortingMeetings = (): void => {
     this.upcomingMeetings.sort(this.compareMeetings);
-    console.log(this.upcomingMeetings);
-    console.log(
-      moment(this.upcomingMeetings[0].date).isBetween(
-        this.yesterday,
-        this.inAWeek
-      )
-    );
   };
 
   private compareMeetings = (
