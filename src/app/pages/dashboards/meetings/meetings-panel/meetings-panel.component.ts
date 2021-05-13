@@ -25,25 +25,38 @@ export class MeetingsPanelComponent implements OnInit {
 
   filterUpcomingMeetings = (meetings: Meeting[]): void => {
     this.upcomingMeetings = meetings.filter((meeting) => {
-      // const meetingDate = moment(meeting.date).startOf('day');
-      // const meetingTime = moment(meeting.time, 'LT');
-      return (
-        // either host or members and should be within a week
-        (meeting.host.first_name === 'Amber' &&
-          meeting.host.last_name === 'Lee') ||
-        (meeting.members.some(
-          (member) =>
-            member.first_name === 'Amber' && member.last_name === 'Lee'
-        ) &&
-          moment(meeting.date).isBetween(this.yesterday, this.inAWeek))
+      console.log(
+        this.isMeetingWithinAWeek(meeting) && this.isMeetingUsers(meeting)
       );
+      return this.isMeetingWithinAWeek(meeting) && this.isMeetingUsers(meeting);
     });
     this.sortingMeetings();
     this.getThreeUpcomingMeetings();
   };
 
+  isMeetingUsers = (meeting: Meeting): boolean => {
+    return (
+      (meeting.host.first_name === 'Amber' &&
+        meeting.host.last_name === 'Lee') ||
+      meeting.members.some(
+        (member) => member.first_name === 'Amber' && member.last_name === 'Lee'
+      )
+    );
+  };
+
+  isMeetingWithinAWeek = (meeting: Meeting): boolean => {
+    return moment(meeting.date).isBetween(this.yesterday, this.inAWeek);
+  };
+
   sortingMeetings = (): void => {
     this.upcomingMeetings.sort(this.compareMeetings);
+    console.log(this.upcomingMeetings);
+    console.log(
+      moment(this.upcomingMeetings[0].date).isBetween(
+        this.yesterday,
+        this.inAWeek
+      )
+    );
   };
 
   private compareMeetings = (
