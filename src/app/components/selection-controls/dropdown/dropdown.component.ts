@@ -22,7 +22,7 @@ export class DropdownComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.selectedDefault = this.options[this.defaultValueIndex].value;
+    this.selectedDefault = this.options[this.defaultValueIndex]?.value;
   }
 
   onSelectionChange(event) {
