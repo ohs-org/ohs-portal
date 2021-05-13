@@ -1,9 +1,9 @@
-<mat-card class="container" style="height: 250px">
+<mat-card class="container">
   <mat-card-header style="justify-content: space-between; padding-right: 10px">
     <mat-card-title>Upcoming Meetings</mat-card-title>
     <a href="/">More</a>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content *ngIf="isThereMeeting">
     <!-- meeting cards -->
     <mat-card
       *ngFor="let meeting of upcomingMeetings"
@@ -35,6 +35,7 @@
           {{ getMeetingEndTime(meeting.time, meeting.duration) }}
         </mat-card-subtitle>
       </mat-card-header>
+
       <mat-card-content>
         <p>{{ meeting.description }}</p>
         <div
@@ -57,5 +58,8 @@
         <button mat-button>View Details</button>
       </mat-card-actions> -->
     </mat-card>
+  </mat-card-content>
+  <mat-card-content *ngIf="!isThereMeeting" class="card-contents-centre">
+    <p class="no-data-message">There is no scheduled meetings</p>
   </mat-card-content>
 </mat-card>

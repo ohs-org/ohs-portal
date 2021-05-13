@@ -1,3 +1,5 @@
+@import "../../../../../scss/config";
+
 .avater {
   border: 1px solid grey;
   background-color: beige;
@@ -18,4 +20,20 @@
 
 .move-to-left {
   margin-left: -15px;
+}
+
+.container {
+  height: 250px;
+}
+
+// No data msg styles
+.no-data-message {
+  text-align: center;
+  color: $ohs-theme-grey-text;
+}
+.card-contents-centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
 }

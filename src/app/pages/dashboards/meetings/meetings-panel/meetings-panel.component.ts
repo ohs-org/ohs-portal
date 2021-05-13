@@ -10,6 +10,7 @@ import * as moment from 'moment';
 })
 export class MeetingsPanelComponent implements OnInit {
   upcomingMeetings: Meeting[];
+  isThereMeeting: boolean;
 
   // meeting day
   private yesterday = moment().subtract(1, 'days');
@@ -32,6 +33,15 @@ export class MeetingsPanelComponent implements OnInit {
     });
     this.sortingMeetings();
     this.getThreeUpcomingMeetings();
+    this.setIsThereMeeting();
+  };
+
+  setIsThereMeeting = () => {
+    if (this.upcomingMeetings.length > 0) {
+      this.isThereMeeting = true;
+    } else {
+      this.isThereMeeting = false;
+    }
   };
 
   isMeetingUsers = (meeting: Meeting): boolean => {

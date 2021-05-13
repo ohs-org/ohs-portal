@@ -1,3 +1,4 @@
+@import "../../../../scss/config";
 // Overwrite bootstrap
 // .container,
 // .container-fluid,
@@ -9,6 +10,24 @@
 //   margin-left: 0px;
 // }
 
+// No data msg styles
+.no-data-message {
+  text-align: center;
+  color: $ohs-theme-grey-text;
+}
+.card-contents-centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+}
+
+// Chart styles
+.container {
+  height: 250px;
+}
+
+// Table styles
 .table {
   width: 100%;
   .wider-cell {
