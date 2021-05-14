@@ -1,7 +1,53 @@
+@import "../../../../scss/config";
+
 ::ng-deep {
   .simple-step-progress-bar {
     .mat-horizontal-stepper-header {
       pointer-events: none !important;
     }
+    .mat-horizontal-content-container {
+      display: none;
+    }
   }
+
+  .smaller-formfield {
+    font-size: 10px;
+    width: 110px;
+    margin-top: -6px;
+
+    .mat-form-field-infix {
+      padding: 0.1em 0px;
+      border-top: 0.5em solid transparent;
+    }
+
+    .mat-form-field-label-wrapper {
+      top: -1.5em;
+    }
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+      padding: 0.7em 0.75em 0.5em 0.75em;
+    }
+
+    .mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float
+      .mat-form-field-label {
+      transform: translateY(-1.1em) scale(0.75);
+      width: 133.33333%;
+    }
+  }
+}
+
+// No data msg styles
+.no-data-message {
+  text-align: center;
+  color: $ohs-theme-grey-text;
+}
+
+.card-contents-centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+}
+
+.stepper-panel {
+  height: 250px;
 }

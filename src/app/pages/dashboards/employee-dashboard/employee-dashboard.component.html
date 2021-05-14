@@ -66,6 +66,7 @@
   <div class="row">
     <div class="col-12 col-md-5">
       <app-stepper-panel
+        class="container"
         title="Ongoing Workplace Injury Report Process"
         [steps]="workInjuryReportSteps"
         [reportList]="reportsList"
@@ -73,19 +74,20 @@
     </div>
     <div class="col-12 col-md-4">
       <app-stepper-panel
+        class="container"
         title="Work BC Claim Status"
         [steps]="workBCClaimSteps"
         [reportList]="workBCClaimList"
       ></app-stepper-panel>
     </div>
     <div class="col-12 col-md-3">
-      <app-inbox-panel></app-inbox-panel>
+      <app-inbox-panel class="container"></app-inbox-panel>
     </div>
   </div>
 
   <div class="row">
     <div class="col-12 col-md-4">
-      <mat-card>
+      <mat-card class="container">
         <!-- Overdue table -->
         <mat-card-header
           style="justify-content: space-between; padding-right: 10px"

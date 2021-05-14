@@ -9,48 +9,60 @@
 //   margin-right: 0px;
 //   margin-left: 0px;
 // }
+.employee-dashboard {
+  .row {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 
-// No data msg styles
-.no-data-message {
-  text-align: center;
-  color: $ohs-theme-grey-text;
-}
-.card-contents-centre {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 85%;
-}
+  // No data msg styles
+  .no-data-message {
+    text-align: center;
+    color: $ohs-theme-grey-text;
+  }
+  .card-contents-centre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+  }
 
-// Chart styles
-.container {
-  height: 250px;
-}
+  // Chart styles
+  .container {
+    height: 250px;
+  }
 
-// Table styles
-.table {
-  width: 100%;
-  .wider-cell {
-    flex: 2;
+  // Table styles
+  .table {
+    width: 100%;
+    .wider-cell {
+      flex: 2;
+    }
+
+    ::ng-deep {
+      .mat-cell > span {
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      // paginator styles
+      .custom-paginator-page {
+        border: 0;
+        background-color: transparent;
+        font-size: 14px;
+        margin: 2px;
+      }
+      .custom-paginator-page.custom-paginator-page-enabled {
+        color: #7e807e;
+      }
+    }
   }
 
   ::ng-deep {
-    .mat-cell > span {
-      width: 90%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    // paginator styles
-    .custom-paginator-page {
-      border: 0;
-      background-color: transparent;
-      font-size: 14px;
-      margin: 2px;
-    }
-    .custom-paginator-page.custom-paginator-page-enabled {
-      color: #7e807e;
+    .mat-card-header .mat-card-title {
+      font-size: 16px;
     }
   }
 }
