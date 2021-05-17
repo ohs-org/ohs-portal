@@ -48,12 +48,12 @@ export class EmployeeDashboardComponent implements OnInit {
     'Incident Report',
     'Incident Investigation',
     'Investigation Report Review',
-    'Claimed',
+    'Claimed ',
   ];
   workBCClaimSteps: string[] = [
     'Claim Report Submitted',
     'Incident Investigation',
-    'Approved',
+    'Approved ',
   ];
 
   reportsList: DropDownOption[] = [
