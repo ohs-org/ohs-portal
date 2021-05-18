@@ -3,7 +3,13 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActionItemService } from './../../../services/action-item.service';
 import { ActionItem } from '../../../models/action-item.model';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  AfterViewInit,
+  QueryList,
+} from '@angular/core';
 import { ChartType } from 'chart.js';
 import { Label, SingleDataSet } from 'ng2-charts';
 import * as moment from 'moment';
@@ -13,7 +19,7 @@ import * as moment from 'moment';
   templateUrl: './employee-dashboard.component.html',
   styleUrls: ['./employee-dashboard.component.scss'],
 })
-export class EmployeeDashboardComponent implements OnInit {
+export class EmployeeDashboardComponent implements OnInit, AfterViewInit {
   // CHART DATA
   chartLabels: Label[] = ['assigned', 'in-progress', 'completed'];
   chartType: ChartType = 'doughnut';
@@ -35,11 +41,13 @@ export class EmployeeDashboardComponent implements OnInit {
   // TABLE DATA
   displayedColumns: string[] = ['action-title', 'due', 'priority', 'status'];
   // overdue table
-  @ViewChild('overduePaginator') overduePaginator: MatPaginator;
+  // ** paginator was undefined when try to get with ViewChild because ngIf mess things up
+  // ** in this case, use ViewChildren
+  @ViewChildren('overduePaginator') overduePaginator: QueryList<MatPaginator>;
   actionItemsOverdue: ActionItem[];
   overdueDS = new MatTableDataSource<ActionItem>();
   // upcoming deadline table
-  @ViewChild('upcomingPaginator') upcomingPaginator: MatPaginator;
+  @ViewChildren('upcomingPaginator') upcomingPaginator: QueryList<MatPaginator>;
   actionItemsUpcomingDeadline: ActionItem[];
   upcomingDeadlineDS = new MatTableDataSource<ActionItem>();
 
@@ -86,6 +94,19 @@ export class EmployeeDashboardComponent implements OnInit {
         this.actionItemsDueToday
       );
     });
+  }
+
+  ngAfterViewInit(): void {
+    this.overduePaginator.changes.subscribe(
+      (paginator: QueryList<MatPaginator>) => {
+        this.setPaginator(this.overdueDS, paginator.first);
+      }
+    );
+    this.upcomingPaginator.changes.subscribe(
+      (paginator: QueryList<MatPaginator>) => {
+        this.setPaginator(this.upcomingDeadlineDS, paginator.first);
+      }
+    );
   }
 
   // FUNCTIONS FOR CHARTS
@@ -142,7 +163,6 @@ export class EmployeeDashboardComponent implements OnInit {
       );
     });
     this.setDataSource(this.actionItemsOverdue, this.overdueDS);
-    this.setPaginator(this.overdueDS, this.overduePaginator);
   };
 
   // filter approaching deadline items
@@ -162,7 +182,6 @@ export class EmployeeDashboardComponent implements OnInit {
       this.actionItemsUpcomingDeadline,
       this.upcomingDeadlineDS
     );
-    this.setPaginator(this.upcomingDeadlineDS, this.upcomingPaginator);
   };
 
   // set array to data source
