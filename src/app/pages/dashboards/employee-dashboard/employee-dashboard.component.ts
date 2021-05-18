@@ -163,7 +163,6 @@ export class EmployeeDashboardComponent implements OnInit {
       this.upcomingDeadlineDS
     );
     this.setPaginator(this.upcomingDeadlineDS, this.upcomingPaginator);
-    console.log(this.upcomingDeadlineDS);
   };
 
   // set array to data source
