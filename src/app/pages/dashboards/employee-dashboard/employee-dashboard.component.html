@@ -63,7 +63,173 @@
     </div>
   </div>
 
+  <!-- bigger row -->
   <div class="row">
+    <!-- bigger col: 9 -->
+    <div class="col-12 col-lg-9">
+      <!-- stepper container row -->
+      <div class="row">
+        <div class="col-12 col-lg-7">
+          <app-stepper-panel
+            class="container"
+            title="Workplace Injury Report Process"
+            [steps]="workInjuryReportSteps"
+            [reportList]="reportsList"
+          ></app-stepper-panel>
+        </div>
+        <div class="col-12 col-lg-5">
+          <app-stepper-panel
+            class="container"
+            title="Work BC Claim Status"
+            [steps]="workBCClaimSteps"
+            [reportList]="workBCClaimList"
+          ></app-stepper-panel>
+        </div>
+      </div>
+      <!-- table container row -->
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <mat-card class="container">
+            <!-- Overdue table -->
+            <mat-card-header
+              style="justify-content: space-between; padding-right: 10px"
+            >
+              <mat-card-title>Overdue ActionItems</mat-card-title>
+              <a href="/">More</a>
+            </mat-card-header>
+            <div class="table">
+              <mat-table [dataSource]="overdueDS" #table>
+                <ng-container matColumnDef="action-title">
+                  <mat-header-cell *matHeaderCellDef class="wider-cell">
+                    Action item
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let element" class="wider-cell">
+                    <span class="clickable-link">
+                      {{ element.actionItemTitle }}
+                    </span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="due">
+                  <mat-header-cell *matHeaderCellDef>Due</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{
+                    getDateFormat(element.due)
+                  }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="priority">
+                  <mat-header-cell *matHeaderCellDef>Priority</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{
+                    element.priority
+                  }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                  <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{
+                    element.status
+                  }}</mat-cell>
+                </ng-container>
+
+                <mat-header-row
+                  *matHeaderRowDef="displayedColumns"
+                ></mat-header-row>
+                <mat-row
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></mat-row>
+              </mat-table>
+
+              <mat-paginator
+                #overduePaginator
+                appPaginatorStyle
+                [pageSize]="4"
+                showFirstLastButtons
+              >
+              </mat-paginator>
+            </div>
+          </mat-card>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <!-- upcoming deadlines table -->
+          <mat-card>
+            <mat-card-header
+              style="justify-content: space-between; padding-right: 10px"
+            >
+              <mat-card-title>Upcoming Deadlines</mat-card-title>
+              <a href="/">More</a>
+            </mat-card-header>
+            <div class="table">
+              <mat-table [dataSource]="upcomingDeadlineDS" #table>
+                <ng-container matColumnDef="action-title">
+                  <mat-header-cell *matHeaderCellDef class="wider-cell">
+                    Action item
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let element" class="wider-cell">
+                    <span class="clickable-link">
+                      {{ element.actionItemTitle }}
+                    </span>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="due">
+                  <mat-header-cell *matHeaderCellDef>Due</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{
+                    getDateFormat(element.due)
+                  }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="priority">
+                  <mat-header-cell *matHeaderCellDef>Priority</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{
+                    element.priority
+                  }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                  <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{
+                    element.status
+                  }}</mat-cell>
+                </ng-container>
+
+                <mat-header-row
+                  *matHeaderRowDef="displayedColumns"
+                ></mat-header-row>
+                <mat-row
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></mat-row>
+              </mat-table>
+
+              <mat-paginator
+                #upcomingPaginator
+                appPaginatorStyle
+                [pageSize]="4"
+                showFirstLastButtons
+              >
+              </mat-paginator>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <!-- bigger col: 3 -->
+    <div class="col-12 col-lg-3">
+      <div class="row">
+        <div class="col-7 col-lg-12"><app-inbox-panel></app-inbox-panel></div>
+        <div class="col-5 col-lg-12">
+          <app-tracking-panel></app-tracking-panel>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- old ones -->
+
+<!-- <div class="row">
     <div class="col-12 col-lg-5">
       <app-stepper-panel
         class="container"
@@ -88,7 +254,6 @@
   <div class="row">
     <div class="col-12 col-md-4">
       <mat-card class="container">
-        <!-- Overdue table -->
         <mat-card-header
           style="justify-content: space-between; padding-right: 10px"
         >
@@ -150,7 +315,6 @@
     </div>
 
     <div class="col-12 col-md-4">
-      <!-- upcoming deadlines table -->
       <mat-card>
         <mat-card-header
           style="justify-content: space-between; padding-right: 10px"
@@ -215,4 +379,4 @@
       <app-tracking-panel></app-tracking-panel>
     </div>
   </div>
-</div>
+</div> -->
