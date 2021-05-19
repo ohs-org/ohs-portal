@@ -6,6 +6,10 @@
     margin-bottom: 15px;
   }
 
+  .full-width {
+    width: 100%;
+  }
+
   // No data msg styles
   .no-data-message {
     text-align: center;
@@ -19,11 +23,27 @@
   }
 
   // Chart styles
-  .container {
-    height: 250px;
+  .chart-card {
+    height: 300px;
+  }
+
+  .chart-card-contents {
+    height: 85%;
+    width: 85%;
+    // for the contents centering
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // for the space in card contents
+    margin-left: auto;
+    margin-right: auto;
   }
 
   // Table styles
+  .table-card {
+    height: 569px;
+  }
+
   .table {
     width: 100%;
     .wider-cell {

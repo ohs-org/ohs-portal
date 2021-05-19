@@ -1,26 +1,31 @@
 <div class="employee-dashboard container-fluid">
   <div class="row">
     <div class="col-6 col-lg-3">
-      <mat-card class="container">
+      <mat-card class="chart-card">
         <mat-card-header
           style="justify-content: space-between; padding-right: 10px"
         >
-          <mat-card-title>My Action Items Due within 7 Days</mat-card-title>
+          <mat-card-title>Action Items Due within 7 Days</mat-card-title>
           <a href="/">More</a>
         </mat-card-header>
         <!-- [chartTitle]="'My Action Items Due within 7 Days'" -->
-        <mat-card-content *ngIf="actionItemsDueWeek.length != 0">
+
+        <mat-card-content
+          *ngIf="actionItemsDueWeek.length != 0"
+          class="chart-card-contents"
+        >
           <app-doughnut-chart
             [chartLabels]="chartLabels"
             [chartData]="weekChartData"
             [chartType]="chartType"
+            class="full-width"
           >
           </app-doughnut-chart>
         </mat-card-content>
 
         <mat-card-content
-          *ngIf="actionItemsDueWeek.length == 0"
           class="card-contents-centre"
+          *ngIf="actionItemsDueWeek.length == 0"
         >
           <p class="no-data-message">
             <!-- <mat-icon aria-hidden="false" aria-label="Example home icon"
@@ -33,19 +38,23 @@
       </mat-card>
     </div>
     <div class="col-6 col-lg-3">
-      <mat-card class="container">
+      <mat-card class="chart-card">
         <mat-card-header
           style="justify-content: space-between; padding-right: 10px"
         >
-          <mat-card-title>My Action Items Due Today</mat-card-title>
+          <mat-card-title>Action Items Due Today</mat-card-title>
           <a href="/">More</a>
         </mat-card-header>
         <!-- [chartTitle]="'My Action Items Due Today'" -->
-        <mat-card-content *ngIf="actionItemsDueToday.length != 0">
+        <mat-card-content
+          *ngIf="actionItemsDueToday.length != 0"
+          class="chart-card-contents"
+        >
           <app-doughnut-chart
             [chartLabels]="chartLabels"
             [chartData]="todayChartData"
             [chartType]="chartType"
+            class="full-width"
           >
           </app-doughnut-chart>
         </mat-card-content>
@@ -89,7 +98,7 @@
       <!-- table container row -->
       <div class="row">
         <div class="col-12 col-lg-6">
-          <mat-card>
+          <mat-card class="table-card">
             <!-- Overdue table -->
             <mat-card-header
               style="justify-content: space-between; padding-right: 10px"
@@ -163,7 +172,7 @@
 
         <div class="col-12 col-lg-6">
           <!-- upcoming deadlines table -->
-          <mat-card>
+          <mat-card class="table-card">
             <mat-card-header
               style="justify-content: space-between; padding-right: 10px"
             >

@@ -38,7 +38,7 @@ export class DoughnutChartComponent implements OnInit {
     this.options = {
       title: {
         text: this.chartTitle,
-        display: true,
+        display: false,
       },
       legend: { position: 'right' },
     };
