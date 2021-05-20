@@ -1,4 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Subscription, Observable, of } from 'rxjs';
+import {
+  Component,
+  Input,
+  OnInit,
+  ChangeDetectorRef,
+  HostListener,
+} from '@angular/core';
 import { ChartType } from 'chart.js';
 import { Label, Color, SingleDataSet } from 'ng2-charts';
 
@@ -14,6 +21,48 @@ export class DoughnutChartComponent implements OnInit {
   @Input() chartType: ChartType;
 
   options: any;
+  showLegend: boolean = true;
+  // chartSize = {
+  //   width: 400,
+  //   height: 200,
+  // };
+
+  // HostListener ref: https://stackoverflow.com/questions/35527456/angular-window-resize-event
+  // Official doc: https://angular.io/api/core/HostListener
+
+  @HostListener('window:resize', ['$event'])
+  windowResize(event: any) {
+    console.log(event.srcElement.innerWidth);
+    if (
+      (window.innerWidth <= 1200 && window.innerWidth >= 992) ||
+      (window.innerWidth <= 670 && window.innerWidth >= 576)
+    ) {
+      console.log(false);
+      this.options = {
+        title: {
+          text: this.chartTitle,
+          display: false,
+        },
+        legend: {
+          position: 'right',
+          display: false,
+        },
+      };
+    } else {
+      console.log(true);
+
+      this.options = {
+        title: {
+          text: this.chartTitle,
+          display: false,
+        },
+        legend: {
+          position: 'right',
+          display: true,
+        },
+      };
+    }
+  }
 
   // chartLabels: Label[] = ['assigned', 'in-progress', 'completed'];
   // chartData: SingleDataSet = [55, 25, 20];
@@ -32,15 +81,19 @@ export class DoughnutChartComponent implements OnInit {
   // doughnutChartData: MultiDataSet = [[55, 25, 20]];
   // doughnutChartType: ChartType = 'doughnut';
 
-  constructor() {}
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit(): void {
+    // set up options
     this.options = {
       title: {
         text: this.chartTitle,
         display: false,
       },
-      legend: { position: 'right' },
+      legend: {
+        position: 'right',
+        display: this.showLegend,
+      },
     };
   }
 }
