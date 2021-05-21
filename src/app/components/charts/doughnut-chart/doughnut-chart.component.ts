@@ -32,12 +32,12 @@ export class DoughnutChartComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   windowResize(event: any) {
-    console.log(event.srcElement.innerWidth);
+    // console.log(event.srcElement.innerWidth);
     if (
       (window.innerWidth <= 1200 && window.innerWidth >= 992) ||
       (window.innerWidth <= 670 && window.innerWidth >= 576)
     ) {
-      console.log(false);
+      // console.log(false);
       this.options = {
         title: {
           text: this.chartTitle,
@@ -49,8 +49,7 @@ export class DoughnutChartComponent implements OnInit {
         },
       };
     } else {
-      console.log(true);
-
+      // console.log(true);
       this.options = {
         title: {
           text: this.chartTitle,

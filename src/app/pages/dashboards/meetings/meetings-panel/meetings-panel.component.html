@@ -9,7 +9,7 @@
       *ngFor="let meeting of upcomingMeetings"
       style="width: 32%; float: left; margin: 5px"
     >
-      <mat-card-header>
+      <!-- <mat-card-header style="width: 100%">
         <img mat-card-avatar src="{{ meeting.host.avatar }}" class="avater" />
         <mat-card-title class="meeting-title">
           {{ meeting.title }}
@@ -34,7 +34,42 @@
           {{ meeting.time }} to
           {{ getMeetingEndTime(meeting.time, meeting.duration) }}
         </mat-card-subtitle>
-      </mat-card-header>
+      </mat-card-header> -->
+
+      <div class="row">
+        <div class="col-3">
+          <img mat-card-avatar src="{{ meeting.host.avatar }}" class="avater" />
+        </div>
+        <div class="col-9">
+          <div class="row">
+            <mat-card-title class="meeting-title">
+              {{ meeting.title }}
+            </mat-card-title>
+          </div>
+          <div class="row">
+            <mat-card-subtitle>
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Example home icon"
+                inline="true"
+              >
+                event_available
+              </mat-icon>
+              {{ meeting.date }}
+              <br />
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Example home icon"
+                inline="true"
+              >
+                schedule
+              </mat-icon>
+              {{ meeting.time }} to
+              {{ getMeetingEndTime(meeting.time, meeting.duration) }}
+            </mat-card-subtitle>
+          </div>
+        </div>
+      </div>
 
       <mat-card-content>
         <p>{{ meeting.description }}</p>

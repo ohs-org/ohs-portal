@@ -1,17 +1,16 @@
 @import "../../../../../scss/config";
 
 .avater {
-  border: 1px solid grey;
   background-color: beige;
 }
 
 .meeting-title {
+  // ref
+  //https://css-tricks.com/flexbox-truncated-text/
+  font-size: 14px;
+  text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  word-wrap: break-word;
-  width: 100%;
 }
 
 .members-avatar {
@@ -23,7 +22,8 @@
 }
 
 .container {
-  height: 300px;
+  height: 350px;
+  min-width: 400px;
 }
 
 // No data msg styles

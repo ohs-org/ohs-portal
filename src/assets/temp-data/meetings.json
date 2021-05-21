@@ -2,7 +2,7 @@
   {
     "id": "0be40332-2293-49bd-b994-50f430e36c99",
     "title": "Judex",
-    "date": "2021-04-25",
+    "date": "2021-05-21",
     "time": "10:40 AM",
     "duration": 7,
     "location": "6 Comanche Avenue",
@@ -10,50 +10,50 @@
     "host": {
       "first_name": "Amber",
       "last_name": "Lee",
-      "avatar": "https://robohash.org/omnissaepeet.png?size=50x50&set=set1"
+      "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
     },
     "members": [
       {
         "first_name": "Nancee",
         "last_name": "Dalton",
-        "avatar": "https://robohash.org/repellatvitaeid.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       },
       {
         "first_name": "Olvan",
         "last_name": "Titheridge",
-        "avatar": "https://robohash.org/etvitaemolestiae.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       },
       {
         "first_name": "Mabelle",
         "last_name": "Doyland",
-        "avatar": "https://robohash.org/corporislaborumillo.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       },
       {
         "first_name": "Valentino",
         "last_name": "Lafee",
-        "avatar": "https://robohash.org/saepequiasequi.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       },
       {
         "first_name": "Tessy",
         "last_name": "McGuckin",
-        "avatar": "https://robohash.org/estnihillaboriosam.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       },
       {
         "first_name": "Giorgio",
         "last_name": "Steenson",
-        "avatar": "https://robohash.org/nesciuntrecusandaetemporibus.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       },
       {
         "first_name": "Janeen",
         "last_name": "Carnow",
-        "avatar": "https://robohash.org/nihilsuntillo.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       }
     ]
   },
   {
     "id": "97be3d30-1b12-4ded-a6df-3c8a11001781",
     "title": "Inside",
-    "date": "2021-05-01",
+    "date": "2021-05-21",
     "time": "3:37 PM",
     "duration": 2,
     "location": "77 Lien Place",
@@ -61,25 +61,25 @@
     "host": {
       "first_name": "Rogers",
       "last_name": "Canning",
-      "avatar": "https://robohash.org/providentnobisvero.png?size=50x50&set=set1"
+      "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
     },
     "members": [
       {
         "first_name": "Alyss",
         "last_name": "Domotor",
-        "avatar": "https://robohash.org/rationesiteius.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       },
       {
         "first_name": "Amber",
         "last_name": "Lee",
-        "avatar": "https://robohash.org/etvelitaut.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       }
     ]
   },
   {
     "id": "4504ee79-5ebd-440b-8453-80c4431771be",
     "title": "Batman: The Dark Knight Returns, Part 1",
-    "date": "2021-04-29",
+    "date": "2021-05-21",
     "time": "1:05 PM",
     "duration": 2,
     "location": "11299 Reindahl Point",
@@ -87,33 +87,33 @@
     "host": {
       "first_name": "Bartolemo",
       "last_name": "Mullane",
-      "avatar": "https://robohash.org/cumqueassumendavoluptatem.png?size=50x50&set=set1"
+      "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
     },
     "members": [
       {
         "first_name": "Lonnie",
         "last_name": "Werlock",
-        "avatar": "https://robohash.org/sitmagnisunt.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       },
       {
         "first_name": "Amber",
         "last_name": "Lee",
-        "avatar": "https://robohash.org/blanditiisnonest.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       },
       {
         "first_name": "Delmore",
         "last_name": "Gemelli",
-        "avatar": "https://robohash.org/doloresetvel.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       },
       {
         "first_name": "Krystle",
         "last_name": "Eastham",
-        "avatar": "https://robohash.org/optiosintfugiat.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       },
       {
         "first_name": "Lucretia",
         "last_name": "Syrad",
-        "avatar": "https://robohash.org/quiaexercitationemat.png?size=50x50&set=set1"
+        "avatar": "http://localhost:4200/assets/images/avatar.jpeg"
       }
     ]
   },
