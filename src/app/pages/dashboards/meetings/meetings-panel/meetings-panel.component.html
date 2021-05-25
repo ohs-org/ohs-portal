@@ -1,16 +1,15 @@
-<mat-card class="container">
+<mat-card class="margin-top">
   <mat-card-header style="justify-content: space-between; padding-right: 10px">
     <mat-card-title>Upcoming Meetings</mat-card-title>
     <a href="/">More</a>
   </mat-card-header>
-  <mat-card-content *ngIf="isThereMeeting">
-    <!-- meeting cards -->
-    <mat-card
-      *ngFor="let meeting of upcomingMeetings"
-      style="width: 32%; float: left; margin: 5px"
-    >
-      <!-- <mat-card-header style="width: 100%">
-        <img mat-card-avatar src="{{ meeting.host.avatar }}" class="avater" />
+  <!-- <mat-card-content *ngIf="isThereMeeting"> -->
+  <div *ngIf="isThereMeeting">
+    <div class="scroll-horizontal">
+      <!-- meeting cards -->
+      <mat-card *ngFor="let meeting of upcomingMeetings" class="meeting-card">
+        <!-- <mat-card-header style="width: 100%">
+        <img mat-card-avatar src="{{ meeting.host.avatar }}" class="avatar" />
         <mat-card-title class="meeting-title">
           {{ meeting.title }}
         </mat-card-title>
@@ -36,64 +35,70 @@
         </mat-card-subtitle>
       </mat-card-header> -->
 
-      <div class="row">
-        <div class="col-3">
-          <img mat-card-avatar src="{{ meeting.host.avatar }}" class="avater" />
-        </div>
-        <div class="col-9">
-          <div class="row">
-            <mat-card-title class="meeting-title">
-              {{ meeting.title }}
-            </mat-card-title>
+        <div class="row">
+          <div class="col-3">
+            <img
+              mat-card-avatar
+              src="{{ meeting.host.avatar }}"
+              class="avatar"
+            />
           </div>
-          <div class="row">
-            <mat-card-subtitle>
-              <mat-icon
-                aria-hidden="false"
-                aria-label="Example home icon"
-                inline="true"
-              >
-                event_available
-              </mat-icon>
-              {{ meeting.date }}
-              <br />
-              <mat-icon
-                aria-hidden="false"
-                aria-label="Example home icon"
-                inline="true"
-              >
-                schedule
-              </mat-icon>
-              {{ meeting.time }} to
-              {{ getMeetingEndTime(meeting.time, meeting.duration) }}
-            </mat-card-subtitle>
+          <div class="col-9">
+            <div class="row">
+              <mat-card-title class="meeting-title">
+                {{ meeting.title }}
+              </mat-card-title>
+            </div>
+            <div class="row">
+              <mat-card-subtitle class="meeting-subtitle">
+                <mat-icon
+                  aria-hidden="false"
+                  aria-label="Example home icon"
+                  inline="true"
+                >
+                  event_available
+                </mat-icon>
+                {{ meeting.date }}
+                <br />
+                <mat-icon
+                  aria-hidden="false"
+                  aria-label="Example home icon"
+                  inline="true"
+                >
+                  schedule
+                </mat-icon>
+                {{ meeting.time }} to
+                {{ getMeetingEndTime(meeting.time, meeting.duration) }}
+              </mat-card-subtitle>
+            </div>
           </div>
         </div>
-      </div>
 
-      <mat-card-content>
-        <p>{{ meeting.description }}</p>
-        <div
-          *ngFor="let member of meeting.members; let i = index"
-          class="menbers-container"
-        >
-          <img
-            *ngIf="i < 5"
-            mat-card-avatar
-            src="{{ member.avatar }}"
-            class="avater members-avatar"
-            [class.move-to-left]="i > 0"
-          />
-          <p *ngIf="i == 4 && meeting.members.length - 5 > 0">
-            + {{ meeting.members.length - 5 }}
-          </p>
-        </div>
-      </mat-card-content>
-      <!-- <mat-card-actions>
+        <mat-card-content>
+          <p>{{ meeting.description }}</p>
+          <div
+            *ngFor="let member of meeting.members; let i = index"
+            class="menbers-container"
+          >
+            <img
+              *ngIf="i < 5"
+              mat-card-avatar
+              src="{{ member.avatar }}"
+              class="avatar members-avatar"
+              [class.move-to-left]="i > 0"
+            />
+            <p *ngIf="i == 4 && meeting.members.length - 5 > 0">
+              + {{ meeting.members.length - 5 }}
+            </p>
+          </div>
+        </mat-card-content>
+        <!-- <mat-card-actions>
         <button mat-button>View Details</button>
       </mat-card-actions> -->
-    </mat-card>
-  </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <!-- </mat-card-content> -->
   <mat-card-content *ngIf="!isThereMeeting" class="card-contents-centre">
     <p class="no-data-message">There is no scheduled meetings</p>
   </mat-card-content>
