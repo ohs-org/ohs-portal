@@ -1,12 +1,59 @@
 .tracking-card {
-  width: 50%;
-  float: left;
+  width: 100%;
+  margin: 10px 0;
+  min-width: 283px;
+  // width: 100%;
+  // float: left;
 }
 
 .title {
   font-size: 14px;
+  // font-weight: bold;
+  margin: 10px 0 10px 0;
 }
 
 .contents {
-  font-size: 25px;
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 11px;
+}
+
+.blue-border {
+  border-left: 9px solid #039be5;
+}
+
+.orange-border {
+  border-left: 9px solid #ff8d30;
+}
+
+.green-border {
+  border-left: 9px solid #ffc94b;
+}
+
+.yellow-border {
+  border-left: 9px solid #7cb342;
+}
+
+.icon {
+  height: 43px;
+  width: 43px;
+  font-size: 43px;
+  color: #dddddd;
+}
+
+.outer-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 2000px) {
+  .title {
+    margin: 10px 0px 10px 25px;
+  }
+
+  .contents {
+    margin-left: 25px;
+  }
 }

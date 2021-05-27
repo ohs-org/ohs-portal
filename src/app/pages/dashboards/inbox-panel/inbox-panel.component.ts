@@ -37,6 +37,12 @@ export class InboxPanelComponent implements OnInit {
       message: 'Hey! How are you?',
       time: '12:00 PM',
     },
+    {
+      avatar: '../../../../assets/images/avatar.jpeg',
+      name: 'Amber Lee',
+      message: 'What are you getting for lunch?',
+      time: '12:00 PM',
+    },
   ];
   constructor() {}
 
