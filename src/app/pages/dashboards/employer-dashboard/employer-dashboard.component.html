@@ -1,13 +1,59 @@
 <div class="employer-dashboard container-fluid">
   <div class="row">
     <div class="col-3">
-      <mat-card>
-        <p>My Action Items Due in This Week</p>
+      <mat-card class="chart-card">
+        <mat-card-header class="header-card">
+          <mat-card-title>My Action Items Due within 7 Days</mat-card-title>
+          <a href="/">More</a>
+        </mat-card-header>
+
+        <mat-card-content
+          *ngIf="actionItemsDueWeek.length != 0"
+          class="chart-card-contents"
+        >
+          <app-doughnut-chart
+            [chartLabels]="doughnutChartLabels"
+            [chartData]="weekChartData"
+            [chartType]="doughnutChartType"
+            class="full-width"
+          >
+          </app-doughnut-chart>
+        </mat-card-content>
+
+        <mat-card-content
+          class="card-contents-centre"
+          *ngIf="actionItemsDueWeek.length == 0"
+        >
+          <p class="no-data-message">No data available</p>
+        </mat-card-content>
       </mat-card>
     </div>
+
     <div class="col-3">
-      <mat-card>
-        <p>My Action Items Due Today</p>
+      <mat-card class="chart-card">
+        <mat-card-header class="header-card">
+          <mat-card-title>My Action Items Due Today</mat-card-title>
+          <a href="/">More</a>
+        </mat-card-header>
+        <mat-card-content
+          *ngIf="actionItemsDueToday.length != 0"
+          class="chart-card-contents"
+        >
+          <app-doughnut-chart
+            [chartLabels]="doughnutChartLabels"
+            [chartData]="todayChartData"
+            [chartType]="doughnutChartType"
+            class="full-width"
+          >
+          </app-doughnut-chart>
+        </mat-card-content>
+
+        <mat-card-content
+          *ngIf="actionItemsDueToday.length == 0"
+          class="card-contents-centre"
+        >
+          <p class="no-data-message">No data available</p>
+        </mat-card-content>
       </mat-card>
     </div>
     <div class="col-6">

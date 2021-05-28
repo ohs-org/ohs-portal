@@ -5,4 +5,44 @@
     height: 250px;
     margin: 10px 0;
   }
+
+  .header-card {
+    justify-content: space-between;
+    padding-right: 10px;
+  }
+
+  ::ng-deep {
+    .mat-card-header .mat-card-title {
+      font-size: 14px;
+    }
+  }
+
+  // No data msg styles
+  .no-data-message {
+    text-align: center;
+    color: $ohs-theme-grey-text;
+  }
+  .card-contents-centre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+  }
+
+  // Chart styles
+  .chart-card {
+    height: 300px;
+  }
+
+  .chart-card-contents {
+    height: 85%;
+    width: 85%;
+    // for the contents centering
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // for the space in card contents
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

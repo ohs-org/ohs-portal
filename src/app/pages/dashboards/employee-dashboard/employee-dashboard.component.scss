@@ -10,6 +10,11 @@
     width: 100%;
   }
 
+  .header-card {
+    justify-content: space-between;
+    padding-right: 10px;
+  }
+
   // No data msg styles
   .no-data-message {
     text-align: center;

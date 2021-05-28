@@ -123,7 +123,10 @@ export class EmployeeDashboardComponent implements OnInit, AfterViewInit {
   // filter due within a day
   filterActionItemDueToday = (data: ActionItem[]) => {
     this.actionItemsDueToday = data.filter((actionItem) => {
-      return moment(actionItem.due).isSame(this.today, 'day');
+      return (
+        actionItem.assignedTo === 'Amber Lee' &&
+        moment(actionItem.due).isSame(this.today, 'day')
+      );
     });
   };
 
