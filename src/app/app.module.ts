@@ -66,9 +66,11 @@ import { TrackingPanelComponent } from './pages/dashboards/tracking-panel/tracki
 import { TrackingCardComponent } from './pages/dashboards/tracking-panel/tracking-card/tracking-card.component';
 import { StepperPanelComponent } from './pages/dashboards/stepper-panel/stepper-panel.component';
 import { SimpleStepperComponent } from './pages/dashboards/stepper-panel/simple-stepper/simple-stepper.component';
+import { EmployerDashboardComponent } from './pages/dashboards/employer-dashboard/employer-dashboard.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
+  { path: 'employer', component: EmployerDashboardComponent },
   { path: 'components', component: ComponentsComponent },
   { path: 'custom', component: CustomComponentsComponent },
   { path: 'lists', component: TwoLineAvatarSelectionListComponent },
@@ -110,6 +112,7 @@ const appRoutes: Routes = [
     TrackingCardComponent,
     StepperPanelComponent,
     SimpleStepperComponent,
+    EmployerDashboardComponent,
   ],
   imports: [
     BrowserModule,
