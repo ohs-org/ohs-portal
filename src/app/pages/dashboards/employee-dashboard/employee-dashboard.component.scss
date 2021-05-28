@@ -57,17 +57,6 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
-
-      // paginator styles
-      .custom-paginator-page {
-        border: 0;
-        background-color: transparent;
-        font-size: 14px;
-        margin: 2px;
-      }
-      .custom-paginator-page.custom-paginator-page-enabled {
-        color: #7e807e;
-      }
     }
   }
 
@@ -75,16 +64,25 @@
     .mat-card-header .mat-card-title {
       font-size: 14px;
     }
-  }
 
-  // paginator styles
-  ::ng-deep {
+    // paginator styles
     .mat-paginator-range-label {
       display: none;
     }
 
     .mat-paginator-page-size.ng-star-inserted {
       display: none;
+    }
+
+    .custom-paginator-page {
+      border: 0;
+      background-color: transparent;
+      font-size: 14px;
+      margin: 2px;
+    }
+
+    .custom-paginator-page.custom-paginator-page-enabled {
+      color: #7e807e;
     }
   }
 
@@ -97,5 +95,39 @@
   @media (min-width: 2000px) {
     width: 94%;
     margin: 2% auto 1% auto;
+  }
+
+  @media (max-width: 575.98px) {
+    // remove padding for more space in small screen
+    padding-right: 0;
+    padding-left: 0;
+
+    // no data massage margin when parent fit-contents
+    .no-data-message {
+      margin: 30px 10px;
+    }
+
+    // card title smaller in small screen
+    ::ng-deep {
+      .mat-card-header .mat-card-title {
+        font-size: 12px;
+      }
+    }
+
+    // top-bottom space between doughnut charts
+    .chart-card {
+      margin-top: 25px;
+    }
+
+    // table card fit contents smaller screen overflow
+    .table-card {
+      height: fit-content;
+
+      .table {
+        mat-cell {
+          font-size: 11px;
+        }
+      }
+    }
   }
 }

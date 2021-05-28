@@ -7,13 +7,13 @@
 .title {
   font-size: 14px;
   // font-weight: bold;
-  margin: 10px 0 10px 0;
+  margin: 8px 0 8px 0;
 }
 
 .contents {
   font-size: x-large;
   font-weight: bold;
-  margin-bottom: 11px;
+  margin-bottom: 8px;
 }
 
 .blue-border {
@@ -68,5 +68,6 @@
   }
   .tracking-card {
     margin: 10px 0;
+    min-width: 250px;
   }
 }

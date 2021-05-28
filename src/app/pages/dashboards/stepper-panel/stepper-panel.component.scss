@@ -1,54 +1,65 @@
 @import "../../../../scss/config";
 
-::ng-deep {
-  .smaller-formfield {
-    font-size: 10px;
-    width: 110px;
-    margin-top: -6px;
+.stepper-panel {
+  // fixed height
+  height: 250px;
 
-    .mat-form-field-infix {
-      padding: 0.1em 0px;
-      border-top: 0.5em solid transparent;
-    }
+  ::ng-deep {
+    // smaller form field styles
+    .smaller-formfield {
+      font-size: 10px;
+      width: 110px;
+      margin-top: -6px;
 
-    .mat-form-field-label-wrapper {
-      top: -1.5em;
-    }
-    .mat-form-field-appearance-fill .mat-form-field-flex {
-      padding: 0.7em 0.75em 0.5em 0.75em;
-    }
+      .mat-form-field-infix {
+        padding: 0.1em 0px;
+        border-top: 0.5em solid transparent;
+      }
 
-    .mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float
-      .mat-form-field-label {
-      transform: translateY(-1.1em) scale(0.75);
-      width: 133.33333%;
+      .mat-form-field-label-wrapper {
+        top: -1.5em;
+      }
+      .mat-form-field-appearance-fill .mat-form-field-flex {
+        padding: 0.7em 0.75em 0.5em 0.75em;
+      }
+
+      .mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float
+        .mat-form-field-label {
+        transform: translateY(-1.1em) scale(0.75);
+        width: 133.33333%;
+      }
     }
   }
-}
 
-.card-contents-centre-margin {
-  margin-left: auto;
-  margin-right: auto;
-}
+  .card-contents-centre-margin {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.dashboard-stepper {
-  width: 85%;
-}
+  .dashboard-stepper {
+    width: 85%;
+  }
 
-// No data msg styles
-.no-data-message {
-  text-align: center;
-  color: $ohs-theme-grey-text;
-}
+  // No data msg styles
+  .no-data-message {
+    text-align: center;
+    color: $ohs-theme-grey-text;
+  }
 
-.card-contents-centre {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 85%;
-}
+  .card-contents-centre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 85%;
+  }
 
-.stepper-panel {
-  height: 250px;
+  @media (max-width: 575.98px) {
+    // smaller screen
+    height: fit-content;
+    // no data message margin when parent fit-content
+    .no-data-message {
+      margin: 30px 10px;
+    }
+  }
 }
