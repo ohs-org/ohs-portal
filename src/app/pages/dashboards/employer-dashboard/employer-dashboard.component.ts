@@ -12,6 +12,10 @@ import * as moment from 'moment';
 })
 export class EmployerDashboardComponent implements OnInit {
   // User Info
+  user: any = {
+    first_name: 'Craig',
+    last_name: 'MacLean',
+  };
   userName: string = 'Craig MacLean';
 
   // DOUGHNUT CHART DATA

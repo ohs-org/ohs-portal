@@ -1,6 +1,6 @@
 import { Meeting } from './../../../../models/meeting.model';
 import { MeetingService } from './../../../../services/meeting.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
@@ -9,6 +9,8 @@ import * as moment from 'moment';
   styleUrls: ['./meetings-panel.component.scss'],
 })
 export class MeetingsPanelComponent implements OnInit {
+  @Input() user: any;
+
   upcomingMeetings: Meeting[];
   isThereMeeting: boolean;
 
@@ -43,10 +45,12 @@ export class MeetingsPanelComponent implements OnInit {
 
   isMeetingUsers = (meeting: Meeting): boolean => {
     return (
-      (meeting.host.first_name === 'Amber' &&
-        meeting.host.last_name === 'Lee') ||
+      // (meeting.host.first_name === this.user.first_name &&
+      //   meeting.host.last_name === this.user.last_name) ||
       meeting.members.some(
-        (member) => member.first_name === 'Amber' && member.last_name === 'Lee'
+        (member) =>
+          member.first_name === this.user.fist_name &&
+          member.last_name === this.user.last_name
       )
     );
   };
@@ -78,6 +82,8 @@ export class MeetingsPanelComponent implements OnInit {
   getThreeUpcomingMeetings = (): void => {
     if (this.upcomingMeetings.length > 3)
       this.upcomingMeetings = this.upcomingMeetings.slice(0, 3);
+
+    console.log(this.upcomingMeetings);
   };
 
   getMeetingEndTime = (meetingTime: string, duration: number): any => {
