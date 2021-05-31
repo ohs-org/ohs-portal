@@ -61,7 +61,6 @@ export class EmployerDashboardComponent implements OnInit {
         moment(actionItem.due).isBetween(this.yesterday, this.inAWeek, 'day')
       );
     });
-    console.log(this.actionItemsDueWeek);
   };
 
   // filter due within a day
@@ -72,7 +71,6 @@ export class EmployerDashboardComponent implements OnInit {
         moment(actionItem.due).isSame(this.today, 'day')
       );
     });
-    console.log(this.actionItemsDueToday);
   };
 
   // calculate chart data

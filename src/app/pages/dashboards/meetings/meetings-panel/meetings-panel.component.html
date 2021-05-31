@@ -8,33 +8,6 @@
     <div class="scroll-horizontal">
       <!-- meeting cards -->
       <mat-card *ngFor="let meeting of upcomingMeetings" class="meeting-card">
-        <!-- <mat-card-header style="width: 100%">
-        <img mat-card-avatar src="{{ meeting.host.avatar }}" class="avatar" />
-        <mat-card-title class="meeting-title">
-          {{ meeting.title }}
-        </mat-card-title>
-        <mat-card-subtitle>
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Example home icon"
-            inline="true"
-          >
-            event_available
-          </mat-icon>
-          {{ meeting.date }}
-          <br />
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Example home icon"
-            inline="true"
-          >
-            schedule
-          </mat-icon>
-          {{ meeting.time }} to
-          {{ getMeetingEndTime(meeting.time, meeting.duration) }}
-        </mat-card-subtitle>
-      </mat-card-header> -->
-
         <div class="row">
           <div class="col-3">
             <img
