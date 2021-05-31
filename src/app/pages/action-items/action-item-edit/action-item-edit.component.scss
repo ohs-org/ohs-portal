@@ -1,0 +1,61 @@
+@import "./../../../../scss/config";
+
+.action-item-edit {
+  .action-item-edit-header {
+    background-color: $ohs-theme-primary;
+    padding: 10px 25px;
+    margin-top: -24px;
+    margin-left: -24px;
+    margin-right: -24px;
+
+    h1 {
+      margin-bottom: 0.4rem;
+      margin-top: 0.4rem;
+      color: white;
+    }
+  }
+
+  .action-item-edit-contents {
+    padding: 25px;
+
+    mat-label {
+      font-weight: bold;
+    }
+
+    .center-full-width {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+  .btn-container {
+    padding: 0 25px 20px 25px;
+
+    button {
+      margin: 0 8px;
+    }
+  }
+}
+
+// smaller mat-input overwrite
+::ng-deep {
+  .smaller-formfield {
+    .mat-form-field-infix {
+      padding: 0.1em 0px;
+      border-top: 0.5em solid transparent;
+    }
+
+    .mat-form-field-label-wrapper {
+      top: -1.5em;
+    }
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+      padding: 0.7em 0.75em 0.5em 0.75em;
+    }
+
+    .mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float
+      .mat-form-field-label {
+      transform: translateY(-1.1em) scale(0.75);
+      width: 133.33333%;
+    }
+  }
+}

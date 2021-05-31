@@ -1,0 +1,67 @@
+@import "../../../../../scss/config";
+
+.meeting-panel {
+  height: 300px;
+}
+
+.scroll-horizontal {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.avatar {
+  background-color: beige;
+}
+
+.meeting-card {
+  width: 32%;
+  min-width: 300px;
+  height: 220px;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.meeting-title {
+  // ref
+  //https://css-tricks.com/flexbox-truncated-text/
+  font-size: 13px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.meeting-subtitle {
+  font-size: 12px;
+}
+
+.members-avatar {
+  float: left;
+}
+
+.move-to-left {
+  margin-left: -15px;
+}
+
+.container {
+  height: 300px;
+}
+
+// No data msg styles
+.no-data-message {
+  text-align: center;
+  color: $ohs-theme-grey-text;
+}
+.card-contents-centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+}
+
+// add margin to
+@media (max-width: 991.98px) {
+  .margin-top {
+    margin: 30px 0 0 0;
+  }
+}

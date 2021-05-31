@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import {
@@ -47,16 +47,22 @@ export const MY_FORMATS = {
   ],
 })
 export class DatepickerComponent implements OnInit {
-  date = new FormControl(moment());
+  @Input() label: string;
+  @Input() control: FormControl;
+
+  selectedDate: string;
+  dateFormCtrl: FormControl;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dateFormCtrl = this.control ? this.control : new FormControl();
+  }
 
   onDateChange(event) {
-    const moment = event.value; // type will be moment
-    if (moment) {
-      console.log('Date Selected: ' + moment.toDate());
+    const selectedDate = event.value; // type will be moment
+    if (selectedDate) {
+      console.log('Date Selected: ' + selectedDate.toDate());
     }
   }
 }

@@ -28,6 +28,11 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -46,12 +51,29 @@ import { StepperFormComponent } from './pages/stepper-form/stepper-form.componen
 import { SectionSummaryComponent } from './pages/stepper-form/section-summary/section-summary.component';
 import { CustomComponentsComponent } from './pages/custom-components/custom-components.component';
 import { SummaryBlockComponent } from './components/summary-block/summary-block.component';
+import { ActionItemsComponent } from './pages/action-items/action-items.component';
+import { ButtonDropdownComponent } from './pages/action-items/button-dropdown/button-dropdown.component';
+import { ActionItemEditComponent } from './pages/action-items/action-item-edit/action-item-edit.component';
+import { StylePaginatorDirective } from './components/paginator/style-paginator.directive';
+import { PaginatorDirective } from './directives/paginator.directive';
+
+import { ChartsModule } from 'ng2-charts';
+import { DoughnutChartComponent } from './components/charts/doughnut-chart/doughnut-chart.component';
+import { EmployeeDashboardComponent } from './pages/dashboards/employee-dashboard/employee-dashboard.component';
+import { MeetingsPanelComponent } from './pages/dashboards/meetings/meetings-panel/meetings-panel.component';
+import { InboxPanelComponent } from './pages/dashboards/inbox-panel/inbox-panel.component';
+import { TrackingPanelComponent } from './pages/dashboards/tracking-panel/tracking-panel.component';
+import { TrackingCardComponent } from './pages/dashboards/tracking-panel/tracking-card/tracking-card.component';
+import { StepperPanelComponent } from './pages/dashboards/stepper-panel/stepper-panel.component';
+import { SimpleStepperComponent } from './pages/dashboards/stepper-panel/simple-stepper/simple-stepper.component';
 
 const appRoutes: Routes = [
-  { path: '', component: ComponentsComponent },
+  { path: '', component: EmployeeDashboardComponent },
+  { path: 'components', component: ComponentsComponent },
   { path: 'custom', component: CustomComponentsComponent },
   { path: 'lists', component: TwoLineAvatarSelectionListComponent },
   { path: 'stepperform', component: StepperFormComponent },
+  { path: 'actionitem', component: ActionItemsComponent },
 ];
 
 @NgModule({
@@ -75,6 +97,19 @@ const appRoutes: Routes = [
     SectionSummaryComponent,
     CustomComponentsComponent,
     SummaryBlockComponent,
+    ActionItemsComponent,
+    ButtonDropdownComponent,
+    ActionItemEditComponent,
+    StylePaginatorDirective,
+    PaginatorDirective,
+    DoughnutChartComponent,
+    EmployeeDashboardComponent,
+    MeetingsPanelComponent,
+    InboxPanelComponent,
+    TrackingPanelComponent,
+    TrackingCardComponent,
+    StepperPanelComponent,
+    SimpleStepperComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,6 +138,12 @@ const appRoutes: Routes = [
     MatStepperModule,
     FlexLayoutModule,
     MatCardModule,
+    MatTableModule,
+    MatSortModule,
+    MatChipsModule,
+    MatMenuModule,
+    MatDialogModule,
+    ChartsModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],

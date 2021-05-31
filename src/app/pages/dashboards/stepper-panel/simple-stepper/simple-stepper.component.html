@@ -1,0 +1,26 @@
+<mat-horizontal-stepper
+  #stepper
+  [linear]="true"
+  disableRipple="true"
+  labelPosition="bottom"
+  class="simple-step-progress-bar"
+>
+  <ng-template matStepperIcon="last">
+    <mat-icon>done</mat-icon>
+  </ng-template>
+
+  <div *ngFor="let step of steps; let i = index">
+    <mat-step *ngIf="i != steps.length - 1" editable="false">
+      <ng-template matStepLabel>{{ step }}</ng-template>
+    </mat-step>
+
+    <mat-step
+      #lastStep
+      *ngIf="i == steps.length - 1"
+      editable="false"
+      state="last"
+    >
+      <ng-template matStepLabel>{{ step }}</ng-template>
+    </mat-step>
+  </div>
+</mat-horizontal-stepper>

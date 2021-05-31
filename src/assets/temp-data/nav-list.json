@@ -30,7 +30,7 @@
           {
             "pageName": "Components",
             "pageIcon": "favorite",
-            "routerLink": ""
+            "routerLink": "/components"
           },
           {
             "pageName": "Custom Components",
@@ -46,6 +46,11 @@
             "pageName": "Stepper Form",
             "pageIcon": "favorite",
             "routerLink": "/stepperform"
+          },
+          {
+            "pageName": "Action Items",
+            "pageIcon": "favorite",
+            "routerLink": "/actionitem"
           }
         ]
       },

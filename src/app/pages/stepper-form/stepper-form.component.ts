@@ -1,8 +1,8 @@
+import { FormSummary } from '../../models/form-summary.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // for step progress bar
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { MatStepper } from '@angular/material/stepper';
-import { FormSummary } from './../../../assets/data-type/form-summary';
 
 @Component({
   selector: 'app-stepper-form',
@@ -99,16 +99,6 @@ export class StepperFormComponent implements OnInit {
       govServiceUnionCtrl: ['', Validators.required],
     });
 
-    // this.secondFormGroup = this.formBuilder.group({
-    //   attendeeNumCtrl: [''],
-    //   employerNumCtrl: [''],
-    //   employeeNumCtrl: [''],
-    //   fraserHealthCtrl: [''],
-    //   hospitalUnionCtrl: [''],
-    //   nurseUnionCtrl: [''],
-    //   govServiceUnionCtrl: [''],
-    // });
-
     this.thirdFormGroup = this.formBuilder.group({
       employerCoChairCtrl: ['', Validators.required],
       employerCoChairEmailCtrl: ['', Validators.required],
@@ -162,49 +152,16 @@ export class StepperFormComponent implements OnInit {
         ],
       };
 
-      if(this.editmodeBtn){
+      if (this.editmodeBtn) {
         this.formSectionInfo[0] = firstFormInfo;
         this.stepper.selectedIndex = 2;
-      }else{
+      } else {
         this.formSectionInfo.push(firstFormInfo);
       }
       console.log(this.formSectionInfo);
       this.stepper.next();
     }
   }
-
-  // {
-  //   title: 'Committee information',
-  //   fieldUIPortion: 6,
-  //   sections: [
-  //     {
-  //       sectionName: '',
-  //       fields: [
-  //         {
-  //           fieldName: 'Committee Name',
-  //           value: committeeInfo.committeeNameCtrl,
-  //         },
-  //         {
-  //           fieldName: 'Operating health authority',
-  //           value: committeeInfo.operatingHACtrl,
-  //         },
-  //         {
-  //           fieldName: 'Hosting health authority',
-  //           value: committeeInfo.hostingHACtrl,
-  //         },
-  //         {
-  //           fieldName: 'Base location of committee',
-  //           value: committeeInfo.locationCtrl,
-  //         },
-  //         {
-  //           fieldName: 'Multi-Employer',
-  //           value: committeeInfo.multiEmployerCtrl ? 'Yes' : 'No',
-  //         },
-  //         { fieldName: 'Notes', value: committeeInfo.noteCtrl },
-  //       ],
-  //     },
-  //   ],
-  // }
 
   onSecondFormSubmit() {
     if (this.secondFormGroup.status == 'VALID') {
@@ -257,10 +214,10 @@ export class StepperFormComponent implements OnInit {
           },
         ],
       };
-      if(this.editmodeBtn){
+      if (this.editmodeBtn) {
         this.formSectionInfo[1] = secondFormInfo;
         this.stepper.selectedIndex = 2;
-      }else{
+      } else {
         this.formSectionInfo.push(secondFormInfo);
       }
       console.log(this.formSectionInfo);
@@ -316,9 +273,9 @@ export class StepperFormComponent implements OnInit {
         ],
       };
 
-      if(this.editmodeBtn){
+      if (this.editmodeBtn) {
         this.formSectionInfo[2] = thirdFormInfo;
-      }else{
+      } else {
         this.formSectionInfo.push(thirdFormInfo);
       }
 
@@ -329,10 +286,10 @@ export class StepperFormComponent implements OnInit {
 
   handleEditClick(event) {
     console.log(event);
-    if(event == 0) {
+    if (event == 0) {
       this.stepper.selectedIndex = 0; // not recommended but no other option
       this.editmodeBtn = true;
-    } else if(event == 1){
+    } else if (event == 1) {
       this.stepper.previous();
       this.editmodeBtn = true;
     } else {

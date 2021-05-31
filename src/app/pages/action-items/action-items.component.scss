@@ -1,0 +1,80 @@
+.action-items-page {
+  padding: 0em 4em;
+
+  .search-bar-container {
+    padding: 10px 0px 20px 0px;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .table-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+
+    .table {
+      // width: 800px;
+      max-width: 1100px;
+      // max-height: 540px;
+      // overflow-y: scroll;
+      margin: 10px;
+      box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+        0 1px 3px 0 rgb(0 0 0 / 12%);
+      padding: 30px 20px 20px 20px;
+      border-radius: 4px;
+
+      .clickable-link {
+        color: #007bff;
+        cursor: pointer;
+      }
+
+      ::ng-deep {
+        .mat-cell > span {
+          width: 90%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        h2 {
+          margin: 0 0 0 24px;
+        }
+
+        .wider-cell {
+          flex: 2;
+        }
+
+        .mat-cell {
+          font-size: 12px;
+        }
+
+        .mat-chip {
+          font-size: 12px;
+        }
+
+        .mat-paginator-range-label {
+          display: none;
+        }
+
+        .mat-paginator-page-size.ng-star-inserted {
+          display: none;
+        }
+      }
+    }
+
+    // paginator styles
+    ::ng-deep {
+      .custom-paginator-page {
+        border: 0;
+        background-color: transparent;
+        font-size: 14px;
+        margin: 2px;
+      }
+
+      .custom-paginator-page.custom-paginator-page-enabled {
+        color: #7e807e;
+      }
+    }
+  }
+}

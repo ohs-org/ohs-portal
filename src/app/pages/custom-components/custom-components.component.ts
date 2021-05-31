@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartType } from 'chart.js';
+import { Label, SingleDataSet } from 'ng2-charts';
 
 @Component({
   selector: 'app-custom-components',
@@ -73,6 +75,11 @@ export class CustomComponentsComponent implements OnInit {
       },
     ],
   };
+
+  // Doughnut chart
+  chartLabels: Label[] = ['assigned', 'in-progress', 'completed'];
+  chartData: SingleDataSet = [55, 25, 20];
+  chartType: ChartType = 'doughnut';
 
   constructor() {}
 

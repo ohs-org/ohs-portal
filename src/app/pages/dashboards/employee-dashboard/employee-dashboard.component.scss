@@ -1,0 +1,133 @@
+@import "../../../../scss/config";
+
+.employee-dashboard {
+  .row {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  // No data msg styles
+  .no-data-message {
+    text-align: center;
+    color: $ohs-theme-grey-text;
+  }
+  .card-contents-centre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+  }
+
+  // Chart styles
+  .chart-card {
+    height: 300px;
+  }
+
+  .chart-card-contents {
+    height: 85%;
+    width: 85%;
+    // for the contents centering
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // for the space in card contents
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Table styles
+  .table-card {
+    height: 569px;
+  }
+
+  .table {
+    width: 100%;
+    .wider-cell {
+      flex: 2;
+    }
+
+    ::ng-deep {
+      .mat-cell > span {
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  ::ng-deep {
+    .mat-card-header .mat-card-title {
+      font-size: 14px;
+    }
+
+    // paginator styles
+    .mat-paginator-range-label {
+      display: none;
+    }
+
+    .mat-paginator-page-size.ng-star-inserted {
+      display: none;
+    }
+
+    .custom-paginator-page {
+      border: 0;
+      background-color: transparent;
+      font-size: 14px;
+      margin: 2px;
+    }
+
+    .custom-paginator-page.custom-paginator-page-enabled {
+      color: #7e807e;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .margin-top {
+      margin: 30px 0 0 0;
+    }
+  }
+
+  @media (min-width: 2000px) {
+    width: 94%;
+    margin: 2% auto 1% auto;
+  }
+
+  @media (max-width: 575.98px) {
+    // remove padding for more space in small screen
+    padding-right: 0;
+    padding-left: 0;
+
+    // no data massage margin when parent fit-contents
+    .no-data-message {
+      margin: 30px 10px;
+    }
+
+    // card title smaller in small screen
+    ::ng-deep {
+      .mat-card-header .mat-card-title {
+        font-size: 12px;
+      }
+    }
+
+    // top-bottom space between doughnut charts
+    .chart-card {
+      margin-top: 25px;
+    }
+
+    // table card fit contents smaller screen overflow
+    .table-card {
+      height: fit-content;
+
+      .table {
+        mat-cell {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}

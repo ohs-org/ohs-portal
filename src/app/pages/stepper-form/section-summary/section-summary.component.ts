@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormSummary } from './../../../../assets/data-type/form-summary';
+import { FormSummary } from '../../../models/form-summary.model';
 
 @Component({
   selector: 'app-section-summary',

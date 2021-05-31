@@ -1,0 +1,73 @@
+.tracking-card {
+  width: 100%;
+  margin: 10px 0;
+  min-width: 283px;
+}
+
+.title {
+  font-size: 14px;
+  // font-weight: bold;
+  margin: 8px 0 8px 0;
+}
+
+.contents {
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.blue-border {
+  border-left: 9px solid #039be5;
+}
+
+.orange-border {
+  border-left: 9px solid #ff8d30;
+}
+
+.green-border {
+  border-left: 9px solid #ffc94b;
+}
+
+.yellow-border {
+  border-left: 9px solid #7cb342;
+}
+
+.icon {
+  height: 43px;
+  width: 43px;
+  font-size: 43px;
+  color: #dddddd;
+}
+
+.outer-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 2000px) {
+  .title {
+    margin: 10px 0px 10px 25px;
+  }
+
+  .contents {
+    margin-left: 25px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 1200px) {
+  .tracking-card:nth-child(1) {
+    margin: 0 0 10px 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .tracking-card:nth-child(1) {
+    margin: 25px 0 10px 0;
+  }
+  .tracking-card {
+    margin: 10px 0;
+    min-width: 250px;
+  }
+}
