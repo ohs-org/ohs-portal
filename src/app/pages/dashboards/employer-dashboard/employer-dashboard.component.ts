@@ -1,3 +1,4 @@
+import { DropDownOption } from './../../../models/dropdown-option.model';
 import { Component, OnInit } from '@angular/core';
 import { ActionItemService } from './../../../services/action-item.service';
 import { ActionItem } from './../../../models/action-item.model';
@@ -35,6 +36,33 @@ export class EmployerDashboardComponent implements OnInit {
   private yesterday = moment().subtract(1, 'days');
   private inAWeek = moment().add(7, 'days').startOf('day');
   private inFourDays = moment().add(4, 'days').startOf('day');
+
+  // PROGRESS PANEL
+  workInjuryReportSteps: string[] = [
+    'Incident Report',
+    'Incident Investigation',
+    'Investigation Report Review',
+    'Claimed ',
+  ];
+  workBCClaimSteps: string[] = [
+    'Claim Report Submitted',
+    'Incident Investigation',
+    'Approved ',
+  ];
+
+  reportsList: DropDownOption[] = [
+    { value: '0', viewValue: 'Report Name 1' },
+    { value: '1', viewValue: 'Report Name 2' },
+    { value: '2', viewValue: 'Report Name 3' },
+    { value: '3', viewValue: 'Report Name 4' },
+  ];
+
+  workBCClaimList: DropDownOption[] = [
+    { value: '0', viewValue: 'Work BC Claim 1' },
+    { value: '1', viewValue: 'Work BC Claim 2' },
+    { value: '2', viewValue: 'Work BC Claim 3' },
+    { value: '1', viewValue: 'Work BC Claim 4' },
+  ];
 
   constructor(private actionItemService: ActionItemService) {}
 

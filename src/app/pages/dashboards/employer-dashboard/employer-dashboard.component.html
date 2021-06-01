@@ -65,14 +65,22 @@
     <div class="col-10">
       <div class="row">
         <div class="col-5">
-          <mat-card>
-            <p>Ongoing workplace injury process</p>
-          </mat-card>
+          <!-- Ongoing workplace injury process -->
+          <app-stepper-panel
+            class="container"
+            title="Workplace Injury Report Process"
+            [steps]="workInjuryReportSteps"
+            [reportList]="reportsList"
+          ></app-stepper-panel>
         </div>
         <div class="col-4">
-          <mat-card>
-            <p>work bc claim</p>
-          </mat-card>
+          <!-- work bc claim -->
+          <app-stepper-panel
+            class="container"
+            title="Work BC Claim Status"
+            [steps]="workBCClaimSteps"
+            [reportList]="workBCClaimList"
+          ></app-stepper-panel>
         </div>
         <div class="col-3">
           <mat-card>
