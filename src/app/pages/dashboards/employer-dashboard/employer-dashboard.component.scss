@@ -45,4 +45,52 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  // Inbox styles
+  .inbox {
+    width: 100%;
+  }
+
+  // Table styles
+  .table-card {
+    height: 422px;
+  }
+
+  .table {
+    width: 100%;
+    .wider-cell {
+      flex: 2;
+    }
+
+    ::ng-deep {
+      .mat-cell > span {
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  ::ng-deep {
+    // paginator styles
+    .mat-paginator-range-label {
+      display: none;
+    }
+
+    .mat-paginator-page-size.ng-star-inserted {
+      display: none;
+    }
+
+    .custom-paginator-page {
+      border: 0;
+      background-color: transparent;
+      font-size: 14px;
+      margin: 2px;
+    }
+
+    .custom-paginator-page.custom-paginator-page-enabled {
+      color: #7e807e;
+    }
+  }
 }
