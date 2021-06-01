@@ -45,11 +45,11 @@ export class MeetingsPanelComponent implements OnInit {
 
   isMeetingUsers = (meeting: Meeting): boolean => {
     return (
-      // (meeting.host.first_name === this.user.first_name &&
-      //   meeting.host.last_name === this.user.last_name) ||
+      (meeting.host.first_name === this.user.first_name &&
+        meeting.host.last_name === this.user.last_name) ||
       meeting.members.some(
         (member) =>
-          member.first_name === this.user.fist_name &&
+          member.first_name === this.user.first_name &&
           member.last_name === this.user.last_name
       )
     );
@@ -80,10 +80,9 @@ export class MeetingsPanelComponent implements OnInit {
   };
 
   getThreeUpcomingMeetings = (): void => {
+    console.log(this.upcomingMeetings);
     if (this.upcomingMeetings.length > 3)
       this.upcomingMeetings = this.upcomingMeetings.slice(0, 3);
-
-    console.log(this.upcomingMeetings);
   };
 
   getMeetingEndTime = (meetingTime: string, duration: number): any => {

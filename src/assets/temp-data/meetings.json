@@ -2,7 +2,7 @@
   {
     "id": "0be40332-2293-49bd-b994-50f430e36c99",
     "title": "Judex",
-    "date": "2021-05-27",
+    "date": "2021-06-01",
     "time": "10:40 AM",
     "duration": 7,
     "location": "6 Comanche Avenue",
@@ -53,7 +53,7 @@
   {
     "id": "97be3d30-1b12-4ded-a6df-3c8a11001781",
     "title": "Inside",
-    "date": "2021-05-27",
+    "date": "2021-06-01",
     "time": "3:37 PM",
     "duration": 2,
     "location": "77 Lien Place",
@@ -79,7 +79,7 @@
   {
     "id": "4504ee79-5ebd-440b-8453-80c4431771be",
     "title": "Batman: The Dark Knight Returns, Part 1",
-    "date": "2021-05-27",
+    "date": "2021-06-01",
     "time": "1:05 PM",
     "duration": 2,
     "location": "11299 Reindahl Point",
@@ -171,7 +171,7 @@
   {
     "id": "c934df3e-9b2b-4127-ae4b-b22aa04eae49",
     "title": "Sarraounia",
-    "date": "2021-04-23",
+    "date": "2021-06-01",
     "time": "4:37 PM",
     "duration": 3,
     "location": "4 Dwight Plaza",
@@ -263,7 +263,7 @@
   {
     "id": "e3e9d51d-ef75-4145-8483-aa9705657e96",
     "title": "Gangsters",
-    "date": "2021-04-25",
+    "date": "2021-06-01",
     "time": "2:00 PM",
     "duration": 2,
     "location": "89761 Amoth Avenue",
@@ -3025,14 +3025,14 @@
   {
     "id": "204c15cc-bd3f-4dea-b5cf-55be234bc3c7",
     "title": "Stir Crazy",
-    "date": "2021-05-01",
+    "date": "2021-06-01",
     "time": "5:25 PM",
     "duration": 7,
     "location": "5 Tomscot Parkway",
     "description": "Organized methodical budgetary management",
     "host": {
       "first_name": "Amber",
-      "last_name": "Bulled",
+      "last_name": "Lee",
       "avatar": "https://robohash.org/etrepellatofficia.png?size=50x50&set=set1"
     },
     "members": [
@@ -3199,7 +3199,7 @@
   {
     "id": "c78529ba-43a0-4d28-ba5f-4493f8c5aeaf",
     "title": "Black Camel, The (Charlie Chan in the Black Camel)",
-    "date": "2021-05-12",
+    "date": "2021-06-01",
     "time": "12:19 PM",
     "duration": 3,
     "location": "25 John Wall Place",

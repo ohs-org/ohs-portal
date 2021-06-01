@@ -78,6 +78,12 @@ export class EmployeeDashboardComponent implements OnInit, AfterViewInit {
     { value: '1', viewValue: 'Work BC Claim 4' },
   ];
 
+  // User for meeting panel
+  user: any = {
+    first_name: 'Amber',
+    last_name: 'Lee',
+  };
+
   constructor(private actionItemService: ActionItemService) {}
 
   ngOnInit(): void {
@@ -114,7 +120,8 @@ export class EmployeeDashboardComponent implements OnInit, AfterViewInit {
   filterActionItemWithinWeek = (data: ActionItem[]) => {
     this.actionItemsDueWeek = data.filter((actionItem) => {
       return (
-        actionItem.assignedTo === 'Amber Lee' &&
+        actionItem.assignedTo ===
+          `${this.user.first_name} ${this.user.last_name}` &&
         moment(actionItem.due).isBetween(this.yesterday, this.inAWeek, 'day')
       );
     });
@@ -124,7 +131,8 @@ export class EmployeeDashboardComponent implements OnInit, AfterViewInit {
   filterActionItemDueToday = (data: ActionItem[]) => {
     this.actionItemsDueToday = data.filter((actionItem) => {
       return (
-        actionItem.assignedTo === 'Amber Lee' &&
+        actionItem.assignedTo ===
+          `${this.user.first_name} ${this.user.last_name}` &&
         moment(actionItem.due).isSame(this.today, 'day')
       );
     });
@@ -160,7 +168,8 @@ export class EmployeeDashboardComponent implements OnInit, AfterViewInit {
   filterActionItemOverdue = (data: ActionItem[]) => {
     this.actionItemsOverdue = data.filter((actionItem) => {
       return (
-        actionItem.assignedTo === 'Amber Lee' &&
+        actionItem.assignedTo ===
+          `${this.user.first_name} ${this.user.last_name}` &&
         moment(actionItem.due).isBefore(this.today, 'day') &&
         actionItem.status != 'completed'
       );
@@ -172,7 +181,8 @@ export class EmployeeDashboardComponent implements OnInit, AfterViewInit {
   filterActionItemUpcomingDeadline = (data: ActionItem[]) => {
     this.actionItemsUpcomingDeadline = data.filter((actionItem) => {
       return (
-        actionItem.assignedTo === 'Amber Lee' &&
+        actionItem.assignedTo ===
+          `${this.user.first_name} ${this.user.last_name}` &&
         moment(actionItem.due).isBetween(
           this.yesterday,
           this.inFourDays,
