@@ -396,9 +396,13 @@
         <app-inbox-panel class="inbox"></app-inbox-panel>
       </div>
       <div class="row">
-        <mat-card>
-          <p>Number of incident by month (line chart)</p>
-          <app-line-chart></app-line-chart>
+        <mat-card class="full-width">
+          <mat-card-header class="header-card">
+            <mat-card-title>Number of Incident by Month</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-line-chart></app-line-chart>
+          </mat-card-content>
         </mat-card>
       </div>
       <div class="row">

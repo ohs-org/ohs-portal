@@ -8,10 +8,14 @@ import { ChartDataSets, ChartOptions } from 'chart.js';
   styleUrls: ['./line-chart.component.scss'],
 })
 export class LineChartComponent implements OnInit {
+  // chart responsive styles
+  width: number = 80;
+  height: number = 80;
+
   public lineChartData: ChartDataSets[] = [
     { label: 'Injuries', data: [65, 59, 80, 81, 56, 55, 40] },
     { label: 'Mental Health', data: [20, 40, 80, 60, 23, 55, 80] },
-    { label: 'Bullying & Harassment', data: [2, 2, 2, 2, 2, 2, 2] },
+    { label: 'Bullying & Harassment', data: [2, 0, 2, 2, 2, 2, 2] },
   ];
 
   public lineChartLabels: Label[] = [
@@ -27,7 +31,7 @@ export class LineChartComponent implements OnInit {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        position: 'right',
       },
       title: {
         display: false,
