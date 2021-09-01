@@ -11,15 +11,12 @@
     *ngFor="let item of listItems"
     value="{{ item.itemText }}"
   >
-    <!-- [ngClass]="{
-      selected: selectedItems.includes(item.itemText),
-      unselected: !selectedItems.includes(item.itemText)
-    }" -->
     <img matListAvatar src="{{ item.avatar }}" alt="avatar" />
     <span matLine>{{ item.itemText }}</span>
   </mat-list-option>
 </mat-selection-list>
 
-<p>
+<!-- Show how many items are selected -->
+<!-- <p>
   {{ avatarList.selectedOptions.selected.length }}
-</p>
+</p> -->
