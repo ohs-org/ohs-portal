@@ -33,14 +33,19 @@
             "routerLink": "/components"
           },
           {
-            "pageName": "Custom Components",
-            "pageIcon": "favorite",
-            "routerLink": "/custom"
-          },
-          {
             "pageName": "Lists",
             "pageIcon": "favorite",
             "routerLink": "/lists"
+          },
+          {
+            "pageName": "Interactive Elements",
+            "pageIcon": "favorite",
+            "routerLink": "/interactive-elements"
+          },
+          {
+            "pageName": "Custom Components",
+            "pageIcon": "favorite",
+            "routerLink": "/custom"
           },
           {
             "pageName": "Stepper Form",

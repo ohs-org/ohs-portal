@@ -1,0 +1,88 @@
+<h1>Interactive Elements</h1>
+<h2>Selection control</h2>
+<div class="component-container-25">
+  <h3>Checkbox</h3>
+  <mat-checkbox color="primary" disabled checked="true">hello</mat-checkbox>
+  <br />
+  <mat-checkbox color="primary">hello</mat-checkbox>
+</div>
+
+<div class="component-container-25">
+  <h3>Radio Buttons</h3>
+  <mat-radio-group aria-label="Select an option">
+    <mat-radio-button color="primary" value="1">Option 1</mat-radio-button>
+    <br />
+    <mat-radio-button color="primary" value="2">Option 2</mat-radio-button>
+    <br />
+    <mat-radio-button checked="true" disabled color="primary" value="3"
+      >Option 3</mat-radio-button
+    >
+  </mat-radio-group>
+</div>
+
+<div class="component-container-25">
+  <h3>Slide Toggle</h3>
+  <mat-slide-toggle color="primary"> Enabled Off </mat-slide-toggle>
+  &nbsp;
+  <mat-slide-toggle disabled="true" color="primary">
+    Disabled Off
+  </mat-slide-toggle>
+  <br />
+  <mat-slide-toggle checked="true" color="primary">
+    Enabled On
+  </mat-slide-toggle>
+  &nbsp;
+  <mat-slide-toggle
+    disabled="true"
+    checked="true"
+    color="primary"
+    color="primary"
+  >
+    Disabled Off
+  </mat-slide-toggle>
+</div>
+
+<div class="component-container-25">
+  <h3>Dropdown</h3>
+  <app-dropdown
+    [options]="[
+      { value: 'option1', viewValue: 'option 1' },
+      { value: 'option2', viewValue: 'option 2' },
+      { value: 'option3', viewValue: 'option 3' }
+    ]"
+    label="Floating label"
+  ></app-dropdown>
+</div>
+<!-- [{value: 'option1', viewValue:'o1'}, {value: 'option2', viewValue:'o2'}, {value: 'option3', viewValue:'o3'}] -->
+
+<div class="component-container-25">
+  <h3>Date picker</h3>
+  <app-datepicker></app-datepicker>
+</div>
+
+<br />
+<h2>Progress bars</h2>
+<div class="component-container-75">
+  <h3>Determinate Progress Bar</h3>
+  <mat-progress-bar
+    color="accent"
+    mode="determinate"
+    value="40"
+  ></mat-progress-bar>
+  <br />
+  <mat-progress-bar color="accent" mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="component-container-75">
+  <h3>Step Progress Bar</h3>
+  <div class="stepper-container">
+    <app-step-progress-bar></app-step-progress-bar>
+  </div>
+</div>
+
+<div class="component-container-75">
+  <h3>Questionnaire progress bar</h3>
+  <div class="stepper-container">
+    <app-questionnaire-progress-bar></app-questionnaire-progress-bar>
+  </div>
+</div>
