@@ -43,6 +43,11 @@
             "routerLink": "/interactive-elements"
           },
           {
+            "pageName": "Pagination & Navigation",
+            "pageIcon": "favorite",
+            "routerLink": "/pagination-navigation"
+          },
+          {
             "pageName": "Custom Components",
             "pageIcon": "favorite",
             "routerLink": "/custom"

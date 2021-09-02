@@ -33,6 +33,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -68,6 +69,7 @@ import { StepperPanelComponent } from './pages/dashboards/stepper-panel/stepper-
 import { SimpleStepperComponent } from './pages/dashboards/stepper-panel/simple-stepper/simple-stepper.component';
 import { ListsComponent } from './pages/lists/lists.component';
 import { InteractiveElementsComponent } from './pages/interactive-elements/interactive-elements.component';
+import { PaginationNavigationComponent } from './pages/pagination-navigation/pagination-navigation.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -75,6 +77,7 @@ const appRoutes: Routes = [
   { path: 'custom', component: CustomComponentsComponent },
   { path: 'lists', component: ListsComponent },
   { path: 'interactive-elements', component: InteractiveElementsComponent },
+  { path: 'pagination-navigation', component: PaginationNavigationComponent },
   { path: 'stepperform', component: StepperFormComponent },
   { path: 'actionitem', component: ActionItemsComponent },
 ];
@@ -115,6 +118,7 @@ const appRoutes: Routes = [
     SimpleStepperComponent,
     ListsComponent,
     InteractiveElementsComponent,
+    PaginationNavigationComponent,
   ],
   imports: [
     BrowserModule,
@@ -148,6 +152,7 @@ const appRoutes: Routes = [
     MatChipsModule,
     MatMenuModule,
     MatDialogModule,
+    MatTabsModule,
     ChartsModule,
     RouterModule.forRoot(appRoutes),
   ],
