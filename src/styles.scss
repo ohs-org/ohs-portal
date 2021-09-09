@@ -6,7 +6,7 @@
 html {
   height: 100%;
 
-    body {
+  body {
     margin: 0;
     font-family: Arial, "Helvetica Neue", sans-serif;
     height: 100%;
@@ -47,15 +47,4 @@ html {
 .mat-radio-button.mat-radio-disabled .mat-radio-ripple .mat-ripple-element,
 .mat-radio-button.mat-radio-disabled .mat-radio-inner-circle {
   background-color: $ohs-theme-primary-light50;
-}
-
-// tooltip style
-.mat-tooltip.tooltip {
-  padding: 10px 15px;
-  color: #858585;
-  font-size: 14px;
-  border: 0.25px solid #b6b6b6bd;
-  box-sizing: border-box;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
 }

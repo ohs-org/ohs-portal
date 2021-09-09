@@ -48,6 +48,11 @@
             "routerLink": "/pagination-navigation"
           },
           {
+            "pageName": "Notifications",
+            "pageIcon": "favorite",
+            "routerLink": "/notifications"
+          },
+          {
             "pageName": "Custom Components",
             "pageIcon": "favorite",
             "routerLink": "/custom"

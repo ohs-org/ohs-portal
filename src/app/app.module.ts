@@ -70,6 +70,7 @@ import { SimpleStepperComponent } from './pages/dashboards/stepper-panel/simple-
 import { ListsComponent } from './pages/lists/lists.component';
 import { InteractiveElementsComponent } from './pages/interactive-elements/interactive-elements.component';
 import { PaginationNavigationComponent } from './pages/pagination-navigation/pagination-navigation.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -78,6 +79,7 @@ const appRoutes: Routes = [
   { path: 'lists', component: ListsComponent },
   { path: 'interactive-elements', component: InteractiveElementsComponent },
   { path: 'pagination-navigation', component: PaginationNavigationComponent },
+  { path: 'notifications', component: NotificationsComponent },
   { path: 'stepperform', component: StepperFormComponent },
   { path: 'actionitem', component: ActionItemsComponent },
 ];
@@ -119,6 +121,7 @@ const appRoutes: Routes = [
     ListsComponent,
     InteractiveElementsComponent,
     PaginationNavigationComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,
