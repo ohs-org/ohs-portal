@@ -17,15 +17,11 @@
 
 <div class="component-container-50">
   <h2>Snackbar</h2>
-  <p>
-    I have received my influenza vaccine
-    <button
-      mat-raised-button
-      matTooltip="Select this to certify that you have, indeed, received your influenza vaccine this season"
-      [matTooltipPosition]="'after'"
-      matTooltipClass="custom-tooltip"
-    >
-      <mat-icon> info_outline </mat-icon>
-    </button>
-  </p>
+  <button
+    mat-stroked-button
+    (click)="openSnackBar('Notification statement ', 'action')"
+  >
+    Show snack-bar
+  </button>
 </div>
+<!-- I am trying to make this component reusable without people adjusting styles whenever they use in different text length -->

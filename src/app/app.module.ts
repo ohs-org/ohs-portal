@@ -34,6 +34,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -156,6 +157,7 @@ const appRoutes: Routes = [
     MatMenuModule,
     MatDialogModule,
     MatTabsModule,
+    MatSnackBarModule,
     ChartsModule,
     RouterModule.forRoot(appRoutes),
   ],
