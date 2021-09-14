@@ -1,4 +1,3 @@
-
 .dialog-header-w-button {
     display: flex;
     justify-content: space-between;
@@ -15,11 +14,11 @@
     color: #00000099;
 }
 
+// button styles override
 .warn-stroked-button {
     color: #C30C0D;
     border: 1px solid #C30C0D;
 }
-
 .warn-raised-button {
    background-color: #C30C0D;
    color: white;
