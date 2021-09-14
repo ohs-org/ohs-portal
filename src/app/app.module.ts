@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -72,6 +72,8 @@ import { ListsComponent } from './pages/lists/lists.component';
 import { InteractiveElementsComponent } from './pages/interactive-elements/interactive-elements.component';
 import { PaginationNavigationComponent } from './pages/pagination-navigation/pagination-navigation.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { DialogueModalComponent } from './pages/dialogue-modal/dialogue-modal.component';
+import { ExampleDialogComponent } from './pages/dialogue-modal/example-dialog/example-dialog.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -81,6 +83,7 @@ const appRoutes: Routes = [
   { path: 'interactive-elements', component: InteractiveElementsComponent },
   { path: 'pagination-navigation', component: PaginationNavigationComponent },
   { path: 'notifications', component: NotificationsComponent },
+  { path: 'dialogue-modal', component: DialogueModalComponent },
   { path: 'stepperform', component: StepperFormComponent },
   { path: 'actionitem', component: ActionItemsComponent },
 ];
@@ -123,6 +126,8 @@ const appRoutes: Routes = [
     InteractiveElementsComponent,
     PaginationNavigationComponent,
     NotificationsComponent,
+    DialogueModalComponent,
+    ExampleDialogComponent,
   ],
   imports: [
     BrowserModule,

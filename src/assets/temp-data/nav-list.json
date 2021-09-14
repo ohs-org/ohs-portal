@@ -24,11 +24,11 @@
         ]
       },
       {
-        "sectionName": "",
+        "sectionName": "Components",
         "sectionShortName": "",
         "pages": [
           {
-            "pageName": "Components",
+            "pageName": "All Components",
             "pageIcon": "favorite",
             "routerLink": "/components"
           },
@@ -51,6 +51,11 @@
             "pageName": "Notifications",
             "pageIcon": "favorite",
             "routerLink": "/notifications"
+          },
+          {
+            "pageName": "Dialogue & Modal",
+            "pageIcon": "favorite",
+            "routerLink": "/dialogue-modal"
           },
           {
             "pageName": "Custom Components",
