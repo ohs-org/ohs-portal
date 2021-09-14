@@ -1,3 +1,4 @@
+
 .dialog-header-w-button {
     display: flex;
     justify-content: space-between;
@@ -12,4 +13,14 @@
 .close-icon {
     font-size: 20px;
     color: #00000099;
+}
+
+.warn-stroked-button {
+    color: #C30C0D;
+    border: 1px solid #C30C0D;
+}
+
+.warn-raised-button {
+   background-color: #C30C0D;
+   color: white;
 }

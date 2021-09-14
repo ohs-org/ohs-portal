@@ -74,6 +74,7 @@ import { PaginationNavigationComponent } from './pages/pagination-navigation/pag
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { DialogueModalComponent } from './pages/dialogue-modal/dialogue-modal.component';
 import { ExampleDialogComponent } from './pages/dialogue-modal/example-dialog/example-dialog.component';
+import { ErrorDialogComponent } from './pages/dialogue-modal/error-dialog/error-dialog.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -128,6 +129,7 @@ const appRoutes: Routes = [
     NotificationsComponent,
     DialogueModalComponent,
     ExampleDialogComponent,
+    ErrorDialogComponent,
   ],
   imports: [
     BrowserModule,

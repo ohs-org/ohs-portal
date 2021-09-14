@@ -1,0 +1,27 @@
+<div mat-dialog-title class="dialog-header-w-button">
+    <h2>Error Dialogue</h2>
+    <button mat-icon-button aria-label="close dialog button" class="close-button" [mat-dialog-close]="true"
+    >
+      <mat-icon class="close-icon">close</mat-icon>
+    </button>
+  </div>
+  
+  <div mat-dialog-content>
+    Dialog Body Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+    do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat.
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-stroked-button mat-dialog-close class="warn-stroked-button"
+    >Action 2</button>
+    <button
+      mat-raised-button
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+      class="warn-raised-button"
+    >
+      Action 1
+    </button>
+  </mat-dialog-actions>
+  
