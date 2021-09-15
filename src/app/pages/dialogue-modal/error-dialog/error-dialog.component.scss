@@ -1,3 +1,11 @@
+@import '../../../../scss/config';
+
+.mat-dialog-title {
+    h2 {
+        margin-left: 10.5px;
+    }
+}
+
 .dialog-header-w-button {
     display: flex;
     justify-content: space-between;
@@ -9,6 +17,10 @@
     line-height: 25px;
 }
 
+.warning-icon{
+    color: $ohs-theme-caution;
+}
+
 .close-icon {
     font-size: 20px;
     color: #00000099;
@@ -16,10 +28,10 @@
 
 // button styles override
 .warn-stroked-button {
-    color: #C30C0D;
-    border: 1px solid #C30C0D;
+    color: $ohs-theme-caution;
+    border: 1px solid $ohs-theme-caution;
 }
 .warn-raised-button {
-   background-color: #C30C0D;
+   background-color: $ohs-theme-caution;
    color: white;
 }
