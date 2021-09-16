@@ -1,1 +1,10 @@
-<p>uploader works!</p>
+<div class="dropzone">
+  <input type="file" #fileDropRef id="fileDropRef" multiple />
+  <!-- (change)="fileBrowserHandler($event.target.files)" -->
+  <!-- <mat-icon>cloud_upload</mat-icon> -->
+  <mat-icon>file_upload</mat-icon>
+
+  <h3 class="dropzon-msg">Drag and drop your files here</h3>
+  <h3>or</h3>
+  <button for="fileDropRef" mat-button color="primary">Browse files</button>
+</div>
