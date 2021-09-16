@@ -24,23 +24,43 @@
         ]
       },
       {
-        "sectionName": "",
+        "sectionName": "Components",
         "sectionShortName": "",
         "pages": [
           {
-            "pageName": "Components",
+            "pageName": "All Components",
             "pageIcon": "favorite",
             "routerLink": "/components"
-          },
-          {
-            "pageName": "Custom Components",
-            "pageIcon": "favorite",
-            "routerLink": "/custom"
           },
           {
             "pageName": "Lists",
             "pageIcon": "favorite",
             "routerLink": "/lists"
+          },
+          {
+            "pageName": "Interactive Elements",
+            "pageIcon": "favorite",
+            "routerLink": "/interactive-elements"
+          },
+          {
+            "pageName": "Pagination & Navigation",
+            "pageIcon": "favorite",
+            "routerLink": "/pagination-navigation"
+          },
+          {
+            "pageName": "Notifications",
+            "pageIcon": "favorite",
+            "routerLink": "/notifications"
+          },
+          {
+            "pageName": "Dialogue & Modal",
+            "pageIcon": "favorite",
+            "routerLink": "/dialogue-modal"
+          },
+          {
+            "pageName": "Custom Components",
+            "pageIcon": "favorite",
+            "routerLink": "/custom"
           },
           {
             "pageName": "Stepper Form",

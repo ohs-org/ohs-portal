@@ -6,7 +6,7 @@
 html {
   height: 100%;
 
-    body {
+  body {
     margin: 0;
     font-family: Arial, "Helvetica Neue", sans-serif;
     height: 100%;
@@ -49,13 +49,39 @@ html {
   background-color: $ohs-theme-primary-light50;
 }
 
-// tooltip style
-.mat-tooltip.tooltip {
-  padding: 10px 15px;
-  color: #858585;
-  font-size: 14px;
-  border: 0.25px solid #b6b6b6bd;
-  box-sizing: border-box;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
+// snack bar styles
+.mat-snack-bar-container {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 10px 0px #00000040;
+  color: #0000008a;
+  min-width: 240px !important;
+
+  .mat-button {
+    color: $ohs-theme-primary;
+  }
+}
+
+// dialog responsive styles
+.responsive-dialog {
+  width: 32%;
+  margin-left: auto;
+  margin-right: auto;
+}
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .responsive-dialog {
+    width: 100%;
+  }
+}
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .responsive-dialog {
+    width: 50%;
+  }
+}
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+  .responsive-dialog {
+    width: 25%;
+  }
 }

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +33,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -67,12 +69,22 @@ import { TrackingCardComponent } from './pages/dashboards/tracking-panel/trackin
 import { StepperPanelComponent } from './pages/dashboards/stepper-panel/stepper-panel.component';
 import { SimpleStepperComponent } from './pages/dashboards/stepper-panel/simple-stepper/simple-stepper.component';
 import { ListsComponent } from './pages/lists/lists.component';
+import { InteractiveElementsComponent } from './pages/interactive-elements/interactive-elements.component';
+import { PaginationNavigationComponent } from './pages/pagination-navigation/pagination-navigation.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { DialogueModalComponent } from './pages/dialogue-modal/dialogue-modal.component';
+import { ExampleDialogComponent } from './pages/dialogue-modal/example-dialog/example-dialog.component';
+import { ErrorDialogComponent } from './pages/dialogue-modal/error-dialog/error-dialog.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
   { path: 'components', component: ComponentsComponent },
   { path: 'custom', component: CustomComponentsComponent },
   { path: 'lists', component: ListsComponent },
+  { path: 'interactive-elements', component: InteractiveElementsComponent },
+  { path: 'pagination-navigation', component: PaginationNavigationComponent },
+  { path: 'notifications', component: NotificationsComponent },
+  { path: 'dialogue-modal', component: DialogueModalComponent },
   { path: 'stepperform', component: StepperFormComponent },
   { path: 'actionitem', component: ActionItemsComponent },
 ];
@@ -112,6 +124,12 @@ const appRoutes: Routes = [
     StepperPanelComponent,
     SimpleStepperComponent,
     ListsComponent,
+    InteractiveElementsComponent,
+    PaginationNavigationComponent,
+    NotificationsComponent,
+    DialogueModalComponent,
+    ExampleDialogComponent,
+    ErrorDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -145,6 +163,8 @@ const appRoutes: Routes = [
     MatChipsModule,
     MatMenuModule,
     MatDialogModule,
+    MatTabsModule,
+    MatSnackBarModule,
     ChartsModule,
     RouterModule.forRoot(appRoutes),
   ],

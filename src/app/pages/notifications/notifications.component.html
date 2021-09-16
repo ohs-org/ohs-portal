@@ -1,0 +1,27 @@
+<h1>Notifications</h1>
+
+<div class="component-container-50">
+  <h2>Tooltip</h2>
+  <p>
+    I have received my influenza vaccine
+    <mat-icon
+      class="info-icon"
+      inline="false"
+      matTooltip="Select this to certify that you have, indeed, received your influenza vaccine this season"
+      [matTooltipPosition]="'after'"
+      matTooltipClass="custom-tooltip"
+      >info_outline
+    </mat-icon>
+  </p>
+</div>
+
+<div class="component-container-50">
+  <h2>Snackbar</h2>
+  <button
+    mat-stroked-button
+    (click)="openSnackBar('Notification statement ', 'action')"
+  >
+    Show snack-bar
+  </button>
+</div>
+<!-- I am trying to make this component reusable without people adjusting styles whenever they use in different text length -->
