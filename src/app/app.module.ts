@@ -77,6 +77,7 @@ import { DialogueModalComponent } from './pages/dialogue-modal/dialogue-modal.co
 import { ExampleDialogComponent } from './pages/dialogue-modal/example-dialog/example-dialog.component';
 import { ErrorDialogComponent } from './pages/dialogue-modal/error-dialog/error-dialog.component';
 import { UploadersComponent } from './pages/uploaders/uploaders.component';
+import { DragDropDirective } from './components/uploader/drag-drop.directive';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -135,6 +136,7 @@ const appRoutes: Routes = [
     ErrorDialogComponent,
     UploaderComponent,
     UploadersComponent,
+    DragDropDirective,
   ],
   imports: [
     BrowserModule,
