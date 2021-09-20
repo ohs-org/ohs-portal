@@ -1,12 +1,13 @@
 .dropzone {
-  width: 450px;
+  width: 600px;
   height: 200px;
   padding: 2rem;
   text-align: center;
-  border: dashed 1px #979797;
   position: relative;
+  border: dashed 2px #c4c4c4;
   margin: 0 auto;
   border-radius: 10px;
+  background-color: #f5f7f9d1;
 
   input {
     opacity: 0;

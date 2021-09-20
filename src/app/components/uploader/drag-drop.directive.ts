@@ -21,8 +21,6 @@ export class DragDropDirective {
     event.preventDefault();
     event.stopPropagation();
     this.fileOver = true;
-
-    console.log('Drag Over');
   }
 
   // Dragleave listener
@@ -30,7 +28,6 @@ export class DragDropDirective {
     event.preventDefault();
     event.stopPropagation();
     this.fileOver = false;
-    console.log('Drag Leave');
   }
 
   // Drop listener
