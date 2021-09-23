@@ -7,7 +7,7 @@
   border: dashed 2px #c4c4c4;
   margin: 0 auto;
   border-radius: 10px;
-  background-color: #f5f7f9d1;
+  background-color: #f5f7f9ab;
 
   .icon {
     width: 50px;
@@ -39,27 +39,29 @@
 }
 
 .fileover {
-  animation: shake 1s;
-  animation-iteration-count: infinite;
-  border-color: #039be5;
+  // animation: shake 1s;
+  // animation-iteration-count: infinite;
+  border: solid 2px #039be5;
+  background-color: #e1edf9ab;
 }
 
 .files-list {
   margin-top: 1.5rem;
+  width: 600px;
+  margin: 1.5rem auto 0 auto;
 
   .file-icon {
-    font-size: 50px;
+    font-size: 54px;
     height: 50px;
-    width: 50px;
+    width: 54px;
     color: #9c9c9c;
   }
 
   .single-file {
     display: flex;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     justify-content: space-between;
     align-items: center;
-    border: dashed 1px #979797;
     margin-bottom: 1rem;
 
     .delete {
@@ -80,15 +82,35 @@
     }
 
     .size {
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 11px;
+      font-weight: 400;
+      margin: -4px 0px 3px 0px;
       color: #a4a4a4;
-      margin: 0;
-      margin-bottom: 0.25rem;
+    }
+
+    .cancel-icon {
+      font-size: 22px;
+      height: 22px;
+      width: 22px;
+      color: #c9c9c9;
+      cursor: pointer;
+      margin-top: 13px;
+    }
+
+    .cancel-icon:hover {
+      color: #9c9c9c;
     }
 
     .info {
       width: 100%;
+      // test
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-inner-box {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

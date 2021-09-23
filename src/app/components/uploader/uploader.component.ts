@@ -17,6 +17,11 @@ export class UploaderComponent implements OnInit {
     this.prepareFilesList($event);
   };
 
+  // handle file from browsing
+  fileBrowseHandler(files) {
+    this.prepareFilesList(files);
+  }
+
   // delete file from files list
   // @param index (File index)
   deleteFile(index: number) {
