@@ -58,6 +58,11 @@
             "routerLink": "/dialogue-modal"
           },
           {
+            "pageName": "Uploader",
+            "pageIcon": "favorite",
+            "routerLink": "/uploaders"
+          },
+          {
             "pageName": "Custom Components",
             "pageIcon": "favorite",
             "routerLink": "/custom"

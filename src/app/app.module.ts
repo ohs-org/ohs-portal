@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { ChartsModule } from 'ng2-charts';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -58,8 +60,7 @@ import { ButtonDropdownComponent } from './pages/action-items/button-dropdown/bu
 import { ActionItemEditComponent } from './pages/action-items/action-item-edit/action-item-edit.component';
 import { StylePaginatorDirective } from './components/paginator/style-paginator.directive';
 import { PaginatorDirective } from './directives/paginator.directive';
-
-import { ChartsModule } from 'ng2-charts';
+import { UploaderComponent } from './components/uploader/uploader.component';
 import { DoughnutChartComponent } from './components/charts/doughnut-chart/doughnut-chart.component';
 import { EmployeeDashboardComponent } from './pages/dashboards/employee-dashboard/employee-dashboard.component';
 import { MeetingsPanelComponent } from './pages/dashboards/meetings/meetings-panel/meetings-panel.component';
@@ -75,6 +76,8 @@ import { NotificationsComponent } from './pages/notifications/notifications.comp
 import { DialogueModalComponent } from './pages/dialogue-modal/dialogue-modal.component';
 import { ExampleDialogComponent } from './pages/dialogue-modal/example-dialog/example-dialog.component';
 import { ErrorDialogComponent } from './pages/dialogue-modal/error-dialog/error-dialog.component';
+import { UploadersComponent } from './pages/uploaders/uploaders.component';
+import { DragDropDirective } from './components/uploader/drag-drop.directive';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -85,6 +88,7 @@ const appRoutes: Routes = [
   { path: 'pagination-navigation', component: PaginationNavigationComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'dialogue-modal', component: DialogueModalComponent },
+  { path: 'uploaders', component: UploadersComponent },
   { path: 'stepperform', component: StepperFormComponent },
   { path: 'actionitem', component: ActionItemsComponent },
 ];
@@ -130,6 +134,9 @@ const appRoutes: Routes = [
     DialogueModalComponent,
     ExampleDialogComponent,
     ErrorDialogComponent,
+    UploaderComponent,
+    UploadersComponent,
+    DragDropDirective,
   ],
   imports: [
     BrowserModule,
