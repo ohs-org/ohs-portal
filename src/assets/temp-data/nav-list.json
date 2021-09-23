@@ -63,6 +63,11 @@
             "routerLink": "/uploaders"
           },
           {
+            "pageName": "Tables",
+            "pageIcon": "favorite",
+            "routerLink": "/tables"
+          },
+          {
             "pageName": "Custom Components",
             "pageIcon": "favorite",
             "routerLink": "/custom"

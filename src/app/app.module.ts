@@ -79,6 +79,7 @@ import { ErrorDialogComponent } from './pages/dialogue-modal/error-dialog/error-
 import { UploadersComponent } from './pages/uploaders/uploaders.component';
 import { DragDropDirective } from './components/uploader/drag-drop.directive';
 import { NastedTableComponent } from './components/nasted-table/nasted-table.component';
+import { TablesComponent } from './pages/tables/tables.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -90,6 +91,7 @@ const appRoutes: Routes = [
   { path: 'notifications', component: NotificationsComponent },
   { path: 'dialogue-modal', component: DialogueModalComponent },
   { path: 'uploaders', component: UploadersComponent },
+  { path: 'tables', component: TablesComponent },
   { path: 'stepperform', component: StepperFormComponent },
   { path: 'actionitem', component: ActionItemsComponent },
 ];
@@ -139,6 +141,7 @@ const appRoutes: Routes = [
     UploadersComponent,
     DragDropDirective,
     NastedTableComponent,
+    TablesComponent,
   ],
   imports: [
     BrowserModule,
