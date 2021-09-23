@@ -35,10 +35,10 @@
 
     <div class="info">
       <div class="info-inner-box">
-        <div>
-          <h4 class="name">
+        <div class="name-size-box">
+          <div title="{{ file?.name }}" class="name ellipsis">
             {{ file?.name }}
-          </h4>
+          </div>
           <p class="size">
             {{ formatBytes(file?.size) }}
           </p>

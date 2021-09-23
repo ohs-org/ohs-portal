@@ -74,11 +74,21 @@
     display: flex;
     flex-grow: 1;
 
+    .name-size-box {
+      display: flex;
+      flex-direction: column;
+    }
+
     .name {
       font-size: 14px;
       font-weight: 500;
-      color: #353f4a;
       margin: 0;
+    }
+
+    .ellipsis {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     .size {
