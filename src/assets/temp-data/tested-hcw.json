@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "originRegion": "Vancouver",
+      "tested": 95,
+      "positive": 6
+    },
+    {
+      "originRegion": "Burnaby",
+      "tested": 12,
+      "positive": 3
+    },
+    {
+      "originRegion": "North Vancouver",
+      "tested": 28,
+      "positive": 6
+    },
+    {
+      "originRegion": "New Westminster",
+      "tested": 40,
+      "positive": 14
+    },
+    {
+      "originRegion": "Richmond",
+      "tested": 55,
+      "positive": 36
+    },
+    {
+      "originRegion": "Coquitlam",
+      "tested": 56,
+      "positive": 21
+    }
+  ]
+}
