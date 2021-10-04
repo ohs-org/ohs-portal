@@ -68,11 +68,6 @@
             "routerLink": "/tables"
           },
           {
-            "pageName": "Tables",
-            "pageIcon": "favorite",
-            "routerLink": "/tables"
-          },
-          {
             "pageName": "Text Fields",
             "pageIcon": "favorite",
             "routerLink": "/textfields"
