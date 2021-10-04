@@ -38,6 +38,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { TableModule } from 'primeng/table';
+
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavListComponent } from './components/nav-list/nav-list.component';
@@ -78,6 +80,9 @@ import { ExampleDialogComponent } from './pages/dialogue-modal/example-dialog/ex
 import { ErrorDialogComponent } from './pages/dialogue-modal/error-dialog/error-dialog.component';
 import { UploadersComponent } from './pages/uploaders/uploaders.component';
 import { DragDropDirective } from './components/uploader/drag-drop.directive';
+import { TablesComponent } from './pages/tables/tables.component';
+import { BasicTableComponent } from './components/basic-table/basic-table.component';
+import { NestedTableComponent } from './components/nested-table/nested-table.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -89,6 +94,7 @@ const appRoutes: Routes = [
   { path: 'notifications', component: NotificationsComponent },
   { path: 'dialogue-modal', component: DialogueModalComponent },
   { path: 'uploaders', component: UploadersComponent },
+  { path: 'tables', component: TablesComponent },
   { path: 'stepperform', component: StepperFormComponent },
   { path: 'actionitem', component: ActionItemsComponent },
 ];
@@ -137,6 +143,9 @@ const appRoutes: Routes = [
     UploaderComponent,
     UploadersComponent,
     DragDropDirective,
+    TablesComponent,
+    BasicTableComponent,
+    NestedTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -172,6 +181,7 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatTabsModule,
     MatSnackBarModule,
+    TableModule,
     ChartsModule,
     RouterModule.forRoot(appRoutes),
   ],
