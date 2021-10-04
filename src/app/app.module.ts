@@ -96,6 +96,7 @@ const appRoutes: Routes = [
   { path: 'dialogue-modal', component: DialogueModalComponent },
   { path: 'uploaders', component: UploadersComponent },
   { path: 'tables', component: TablesComponent },
+  { path: 'textfields', component: TextFieldsComponent },
   { path: 'stepperform', component: StepperFormComponent },
   { path: 'actionitem', component: ActionItemsComponent },
 ];
