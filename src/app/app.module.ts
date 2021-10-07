@@ -83,6 +83,7 @@ import { DragDropDirective } from './components/uploader/drag-drop.directive';
 import { TablesComponent } from './pages/tables/tables.component';
 import { BasicTableComponent } from './components/basic-table/basic-table.component';
 import { NestedTableComponent } from './components/nested-table/nested-table.component';
+import { TextFieldsComponent } from './pages/text-fields/text-fields.component';
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeDashboardComponent },
@@ -95,6 +96,7 @@ const appRoutes: Routes = [
   { path: 'dialogue-modal', component: DialogueModalComponent },
   { path: 'uploaders', component: UploadersComponent },
   { path: 'tables', component: TablesComponent },
+  { path: 'textfields', component: TextFieldsComponent },
   { path: 'stepperform', component: StepperFormComponent },
   { path: 'actionitem', component: ActionItemsComponent },
 ];
@@ -146,6 +148,7 @@ const appRoutes: Routes = [
     TablesComponent,
     BasicTableComponent,
     NestedTableComponent,
+    TextFieldsComponent,
   ],
   imports: [
     BrowserModule,

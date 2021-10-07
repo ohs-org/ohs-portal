@@ -1,0 +1,116 @@
+<h1>Text Fields</h1>
+
+<h2>Basic text field</h2>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Label</mat-label>
+    <input matInput />
+  </mat-form-field>
+</p>
+
+<h2>Disabled text field</h2>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Label</mat-label>
+    <input matInput disabled />
+  </mat-form-field>
+</p>
+
+<h2>Text field with icon</h2>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Label</mat-label>
+    <input matInput />
+    <mat-icon matSuffix>mic</mat-icon>
+  </mat-form-field>
+</p>
+
+<h2>Text field with placeholder</h2>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Label</mat-label>
+    <input matInput placeholder="placeholder" />
+  </mat-form-field>
+</p>
+
+<h2>Text field with helper text</h2>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Label</mat-label>
+    <input matInput />
+    <mat-hint>Helper text</mat-hint>
+  </mat-form-field>
+</p>
+
+<h2>Text field with words count</h2>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Label</mat-label>
+    <input matInput #wordsCountInput maxlength="20" />
+    <mat-hint align="end">{{ wordsCountInput.value?.length || 0 }}/20</mat-hint>
+  </mat-form-field>
+</p>
+
+<h2>Text field with error message</h2>
+// come back to this and think of colors
+<p>
+  <mat-form-field appearance="outline" style="width: 250px">
+    <mat-label>Error input Label</mat-label>
+    <input matInput [formControl]="errorTxtInput" />
+    <mat-error *ngIf="errorTxtInput.invalid" class="error-message">
+      <div>{{ getErrorMessage() }}</div>
+      <mat-icon matSuffix>warning</mat-icon>
+    </mat-error>
+  </mat-form-field>
+</p>
+
+<h2>Text field with input types</h2>
+<h3>Text field with email</h3>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Enter your email</mat-label>
+    <input
+      matInput
+      placeholder="pat@example.com"
+      [formControl]="emailInput"
+      required
+    />
+    <mat-error *ngIf="emailInput.invalid" class="error-message">
+      {{ getEmailErrorMessage() }}
+      <mat-icon matSuffix>warning</mat-icon>
+    </mat-error>
+  </mat-form-field>
+</p>
+
+<h3>Text field with passwords</h3>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Enter your password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+</p>
+
+<h2>Dropdown</h2>
+<mat-form-field appearance="outline">
+  <mat-label>Select item</mat-label>
+  <mat-select>
+    <mat-option value="item1">option 1</mat-option>
+    <mat-option value="item2">option 2</mat-option>
+    <mat-option value="item3">option 3</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<h2>Multiline text field</h2>
+<mat-form-field appearance="outline" style="width: 300px">
+  <mat-label>Textarea</mat-label>
+  <textarea matInput></textarea>
+</mat-form-field>
