@@ -136,6 +136,39 @@ $md-warnpalette: (
   ),
 );
 
+$md-cautionpalette: (
+  50: #f8e2e2,
+  100: #edb6b6,
+  200: #e18686,
+  300: #d55556,
+  400: #cc3031,
+  500: #c30c0d,
+  600: #bd0a0b,
+  700: #b50809,
+  800: #ae0607,
+  900: #a10303,
+  A100: #ffcbcb,
+  A200: #ff9898,
+  A400: #ff6565,
+  A700: #ff4c4c,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
 // Background palette for light themes.
 $mat-light-theme-background: (
   status-bar: map-get($mat-grey, 300),
@@ -153,12 +186,12 @@ $mat-light-theme-background: (
   disabled-button-toggle: map-get($mat-grey, 200),
   unselected-chip: map-get($mat-grey, 300),
   disabled-list-option: map-get($mat-grey, 200),
-  tooltip: rgba(253, 253, 253) //map-get($mat-grey, 700),,,,,,,,,,
+  tooltip: rgba(253, 253, 253) //map-get($mat-grey, 700),,,,,,,,,,,
 );
 
 $ohs-theme-primary: mat-palette($md-primarypalette); //600
 $ohs-theme-accent: mat-palette($md-accentpalette); //600
-$ohs-theme-warn: mat-palette($md-warnpalette); //900
+$ohs-theme-warn: mat-palette($md-cautionpalette);
 $background-color: rgba(255, 255, 255);
 
 $ohs-theme: mat-light-theme(
