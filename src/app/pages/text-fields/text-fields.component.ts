@@ -15,12 +15,19 @@ export class TextFieldsComponent implements OnInit {
 
   errorTxtInput = new FormControl('', [
     Validators.required,
-    Validators.minLength(2),
+    Validators.minLength(16),
   ]);
+
+  emailInput = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage = () => {
     return this.errorTxtInput.hasError
       ? 'Error: <insert how to recover from error>'
       : '';
+  };
+
+  getEmailErrorMessage = () => {
+    if (this.emailInput.hasError('required')) return 'Please enter a value';
+    return this.emailInput.hasError('email') ? 'Please enter valid email' : '';
   };
 }

@@ -52,14 +52,12 @@
 </p>
 
 <h2>Text field with error message</h2>
+// come back to this and think of colors
 <p>
   <mat-form-field appearance="outline" style="width: 250px">
-    <mat-label>Enter your email</mat-label>
+    <mat-label>Error input Label</mat-label>
     <input matInput [formControl]="errorTxtInput" />
-    <mat-error
-      *ngIf="errorTxtInput.invalid"
-      style="display: flex; justify-content: space-between"
-    >
+    <mat-error *ngIf="errorTxtInput.invalid" class="error-message">
       <div>{{ getErrorMessage() }}</div>
       <mat-icon matSuffix>warning</mat-icon>
     </mat-error>
@@ -68,6 +66,21 @@
 
 <h2>Text field with input types</h2>
 <h3>Text field with email</h3>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Enter your email</mat-label>
+    <input
+      matInput
+      placeholder="pat@example.com"
+      [formControl]="emailInput"
+      required
+    />
+    <mat-error *ngIf="emailInput.invalid" class="error-message">
+      {{ getEmailErrorMessage() }}
+      <mat-icon matSuffix>warning</mat-icon>
+    </mat-error>
+  </mat-form-field>
+</p>
 
 <h3>Text field with passwords</h3>
 <p>
