@@ -19,7 +19,7 @@
   <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Committee information &nbsp;</ng-template>
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
         <input
           matInput
@@ -36,7 +36,7 @@
   <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Terms of Reference &nbsp;</ng-template>
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Address</mat-label>
         <input
           matInput
